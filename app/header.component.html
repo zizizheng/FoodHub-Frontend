@@ -1,0 +1,48 @@
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/" routerLinkActive="active"><span>FoodHub</span><br></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">聯絡人</a>
+                </li>
+                <li class="dropdown">
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a routerLink="/donateItemPage" routerLinkActive="active">物資管理</a>
+                        </li>
+                        <li>
+                            <a routerLink="/donateMemberPage" routerLinkActive="active">捐贈人名單</a>
+                        </li>
+                        <li>
+                            <a href="#">受贈者名單</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">收據清單</a>
+                        </li>
+                        <li>
+                            <a href="#">報表</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">系統管理員</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">選單&nbsp;<i class="et-down fa fa-angle-double-down fa-lg"></i></a>
+                </li>
+            </ul>
+            <p class="navbar-right navbar-text" style="padding: 0 10 0 0">歡迎
+                <a class="navbar-link" routerLink="/expiryPage" routerLinkActive="active" id="userName" style="padding: 0 0 0 10">使用者</a>
+            </p>
+        </div>
+    </div>
+</div>
