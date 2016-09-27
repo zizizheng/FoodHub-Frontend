@@ -1,6 +1,6 @@
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-4">
-    <input class="form-control" placeholder="你要找什麼呢？"> </div>
+    <input class="form-control" placeholder="搜尋使用者"> </div>
   <div class="col-md-4">
     <select name="user-info" class="form-control">
       <option value="user-name">姓名</option>
@@ -19,9 +19,8 @@
           <th>
             <input type="checkbox" value=""> </th>
           <th>ID</th>
-          <th>姓名</th>
-          <th>單位分類</th>
-          <th>電話</th>
+          <th>名稱</th>
+          <th>手機</th>
           <th>地區</th>
           <th>帳號</th>
           <th>選項</th>
@@ -33,12 +32,11 @@
             <input type="checkbox" value=""> </td>
           <td>A001</td>
           <td>Cindy</td>
-          <td>個人</td>
           <td>(02)1234567</td>
           <td>台北</td>
           <td>cindy</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="editClick()">更改</button>
           </td>
         </tr>
         <tr>
@@ -46,12 +44,11 @@
             <input type="checkbox" value=""> </td>
           <td>T001</td>
           <td>Erica</td>
-          <td>個人</td>
           <td>(02)2345678</td>
           <td>台北</td>
           <td>erica</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="editClick()">更改</button>
           </td>
         </tr>
         <tr>
@@ -59,12 +56,11 @@
             <input type="checkbox" value=""> </td>
           <td>K001</td>
           <td>Bryan</td>
-          <td>團體</td>
           <td>(07)2345678</td>
           <td>高雄</td>
           <td>bryan</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="editClick()">更改</button>
           </td>
         </tr>
       </tbody>
@@ -73,4 +69,4 @@
   </div>
 </div>
 
-<refreshMember *ngIf="selectedBut"></refreshMember>
+<editUser *ngIf="selectedBut"></editUser>

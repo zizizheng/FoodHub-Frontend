@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'searchMember',
-  templateUrl: `app/donateMember/searchmember.component.html`
+  selector: 'addUser',
+  templateUrl: `app/administrator/addUser.component.html`
 })
-export class SearchMemberComponent implements OnInit {
+export class AddUserComponent implements OnInit {
     private selectedBut = false;
 
     ngOnInit(): void{}
 
-    refreshClick(){
+    updateClick(){
         this.selectedBut = true;
     }
 }
