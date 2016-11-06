@@ -2,4 +2,4 @@
 
 Design for charity
 
-Use Anular2
+Use Angular2
