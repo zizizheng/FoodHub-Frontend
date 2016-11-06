@@ -1,6 +1,6 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
@@ -36,15 +36,15 @@ import { AddUserComponent } from './administrator/addUser.component';
 import { EditUserComponent } from './administrator/editUser.component';
 
 @NgModule({
-  imports:      [ BrowserModule,
-                FormsModule,
-                routing],
-  declarations: [AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,
-                DonateItemComponent, SearchItemComponent, AddItemComponent, GiveItemComponent,
-                RefreshItemComponent, ImportItemComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
-                SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
-                AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
-  bootstrap: [ AppComponent ]
+  imports: [BrowserModule,
+    FormsModule,
+    routing],
+  declarations: [AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,DonateMemberComponent,
+    DonateItemComponent, SearchItemComponent, AddItemComponent, GiveItemComponent,
+    RefreshItemComponent, ImportItemComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
+    SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
+    AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
+  bootstrap: [AppComponent]
 
 })
 export class AppModule { }
