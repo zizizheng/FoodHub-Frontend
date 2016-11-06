@@ -30,9 +30,10 @@
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {
+    "angular-cli-github-pages": "^0.2.0",
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings":"^1.0.4"
+    "typings": "^1.0.4"
   }
 }
