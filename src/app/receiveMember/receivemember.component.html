@@ -1,0 +1,33 @@
+<!-- History not yet -->
+
+<div class="section">
+  <div class="container">
+
+    <!-- Cover -->
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <div class="text-center well">
+          <h1>
+            <i class="fa fa-fw fa-spin lery fa-coffee"></i>受贈者管理</h1>
+          <blockquote>
+            <p>不能浪費食物</p>
+            <footer>Someone famous</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel -->
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <div class="btn-group pull-left">
+          <a class="btn btn-default btn-md" (click)="butClick('search')" [class.active]="selectedBut === 'search'"> ## 搜尋 </a>
+          <a class="btn btn-default btn-md" (click)="butClick('add')" [class.active]="selectedBut === 'add'"> ## 新增</a>
+        </div>
+      </div>
+      <searchReceiver *ngIf="selectedBut === 'search'"></searchReceiver>
+      <addReceiver *ngIf="selectedBut === 'add'"></addReceiver>
+    </div>
+
+  </div>
+</div>
