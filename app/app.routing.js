@@ -7,8 +7,8 @@ var donatemember_component_1 = require('./donateMember/donatemember.component');
 var receivemember_component_1 = require('./receiveMember/receivemember.component');
 var administrator_component_1 = require('./administrator/administrator.component');
 var appRoutes = [
-    { path: 'loginPage', component: login_component_1.LoginComponent },
     { path: '', redirectTo: '/loginPage', pathMatch: 'full' },
+    { path: 'loginPage', component: login_component_1.LoginComponent },
     { path: 'expiryPage', component: expiry_component_1.ExpiryComponent },
     { path: 'donateItemPage', component: donateitem_component_1.DonateItemComponent },
     { path: 'donateMemberPage', component: donatemember_component_1.DonateMemberComponent },
