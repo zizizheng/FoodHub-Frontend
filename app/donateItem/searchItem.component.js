@@ -29,11 +29,11 @@ var SearchItemComponent = (function () {
     SearchItemComponent = __decorate([
         core_1.Component({
             selector: 'searchItem',
-            templateUrl: "app/donateItem/searchitem.component.html"
+            templateUrl: "app/donateItem/searchItem.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], SearchItemComponent);
     return SearchItemComponent;
 }());
 exports.SearchItemComponent = SearchItemComponent;
-//# sourceMappingURL=searchitem.component.js.map
+//# sourceMappingURL=searchItem.component.js.map

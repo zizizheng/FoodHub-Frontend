@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'searchItem',
-  templateUrl: `app/donateItem/searchitem.component.html`
+  templateUrl: `app/donateItem/searchItem.component.html`
 })
 export class SearchItemComponent {
     private refreshBut = false;

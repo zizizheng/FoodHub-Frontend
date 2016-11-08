@@ -8,17 +8,17 @@ import { HeaderComponent } from './header.component';
 import { ExpiryComponent } from './expiry.component';
 import { MyFooterComponent } from './footer.component';
 import { LoginComponent } from './login.component';
-import { DonateItemComponent } from './donateItem/donateitem.component';
-import { DonateMemberComponent } from './donateMember/donatemember.component';
-import { ReceiveMemberComponent } from './receiveMember/receivemember.component';
+import { DonateItemComponent } from './donateItem/donateItem.component';
+import { DonateMemberComponent } from './donateMember/donateMember.component';
+import { ReceiveMemberComponent } from './receiveMember/receiveMember.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 
 // Item Page Components
-import { SearchItemComponent } from './donateItem/searchitem.component';
-import { GiveItemComponent } from './donateItem/giveitem.component';
-import { AddItemComponent } from './donateItem/additem.component';
-import { RefreshItemComponent } from './donateItem/refreshitem.component';
-import { ImportItemComponent } from './donateItem/importitem.component';
+import { SearchItemComponent } from './donateItem/searchItem.component';
+import { GiveItemComponent } from './donateItem/giveItem.component';
+import { AddItemComponent } from './donateItem/addItem.component';
+import { RefreshItemComponent } from './donateItem/refreshItem.component';
+import { ImportItemComponent } from './donateItem/importItem.component';
 
 // Donater Page Components
 import { SearchDonaterComponent } from './donateMember/searchDonater.component';
@@ -41,7 +41,7 @@ import { EditUserComponent } from './administrator/editUser.component';
                 routing],
   declarations: [AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,
                 DonateItemComponent, SearchItemComponent, AddItemComponent, GiveItemComponent,
-                RefreshItemComponent, ImportItemComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
+                RefreshItemComponent, ImportItemComponent, DonateMemberComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
                 SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
                 AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
   bootstrap: [ AppComponent ]

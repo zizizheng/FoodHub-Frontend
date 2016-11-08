@@ -17,15 +17,16 @@ var header_component_1 = require('./header.component');
 var expiry_component_1 = require('./expiry.component');
 var footer_component_1 = require('./footer.component');
 var login_component_1 = require('./login.component');
-var donateitem_component_1 = require('./donateItem/donateitem.component');
-var receivemember_component_1 = require('./receiveMember/receivemember.component');
+var donateItem_component_1 = require('./donateItem/donateItem.component');
+var donateMember_component_1 = require('./donateMember/donateMember.component');
+var receiveMember_component_1 = require('./receiveMember/receiveMember.component');
 var administrator_component_1 = require('./administrator/administrator.component');
 // Item Page Components
-var searchitem_component_1 = require('./donateItem/searchitem.component');
-var giveitem_component_1 = require('./donateItem/giveitem.component');
-var additem_component_1 = require('./donateItem/additem.component');
-var refreshitem_component_1 = require('./donateItem/refreshitem.component');
-var importitem_component_1 = require('./donateItem/importitem.component');
+var searchItem_component_1 = require('./donateItem/searchItem.component');
+var giveItem_component_1 = require('./donateItem/giveItem.component');
+var addItem_component_1 = require('./donateItem/addItem.component');
+var refreshItem_component_1 = require('./donateItem/refreshItem.component');
+var importItem_component_1 = require('./donateItem/importItem.component');
 // Donater Page Components
 var searchDonater_component_1 = require('./donateMember/searchDonater.component');
 var addDonater_component_1 = require('./donateMember/addDonater.component');
@@ -47,8 +48,8 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 app_routing_1.routing],
             declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, expiry_component_1.ExpiryComponent, footer_component_1.MyFooterComponent,
-                donateitem_component_1.DonateItemComponent, searchitem_component_1.SearchItemComponent, additem_component_1.AddItemComponent, giveitem_component_1.GiveItemComponent,
-                refreshitem_component_1.RefreshItemComponent, importitem_component_1.ImportItemComponent, searchDonater_component_1.SearchDonaterComponent, updateDonater_component_1.UpdateDonaterComponent, addDonater_component_1.AddDonaterComponent, receivemember_component_1.ReceiveMemberComponent,
+                donateItem_component_1.DonateItemComponent, searchItem_component_1.SearchItemComponent, addItem_component_1.AddItemComponent, giveItem_component_1.GiveItemComponent,
+                refreshItem_component_1.RefreshItemComponent, importItem_component_1.ImportItemComponent, donateMember_component_1.DonateMemberComponent, searchDonater_component_1.SearchDonaterComponent, updateDonater_component_1.UpdateDonaterComponent, addDonater_component_1.AddDonaterComponent, receiveMember_component_1.ReceiveMemberComponent,
                 searchReceiver_component_1.SearchReceiverComponent, addReceiver_component_1.AddReceiverComponent, updateReceiver_component_1.UpdateReceiverComponent,
                 administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, editUser_component_1.EditUserComponent],
             bootstrap: [app_component_1.AppComponent]

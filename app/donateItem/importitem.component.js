@@ -15,11 +15,11 @@ var ImportItemComponent = (function () {
     ImportItemComponent = __decorate([
         core_1.Component({
             selector: 'importItem',
-            templateUrl: "app/donateItem/importitem.component.html"
+            templateUrl: "app/donateItem/importItem.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], ImportItemComponent);
     return ImportItemComponent;
 }());
 exports.ImportItemComponent = ImportItemComponent;
-//# sourceMappingURL=importitem.component.js.map
+//# sourceMappingURL=importItem.component.js.map

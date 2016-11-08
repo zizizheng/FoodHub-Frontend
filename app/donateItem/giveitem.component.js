@@ -16,11 +16,11 @@ var GiveItemComponent = (function () {
     GiveItemComponent = __decorate([
         core_1.Component({
             selector: 'giveItem',
-            templateUrl: "app/donateItem/giveitem.component.html"
+            templateUrl: "app/donateItem/giveItem.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], GiveItemComponent);
     return GiveItemComponent;
 }());
 exports.GiveItemComponent = GiveItemComponent;
-//# sourceMappingURL=giveitem.component.js.map
+//# sourceMappingURL=giveItem.component.js.map

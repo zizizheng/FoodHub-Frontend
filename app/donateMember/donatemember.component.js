@@ -20,11 +20,11 @@ var DonateMemberComponent = (function () {
     DonateMemberComponent = __decorate([
         core_1.Component({
             selector: 'donateMember',
-            templateUrl: "app/donateMember/donatemember.component.html"
+            templateUrl: "app/donateMember/donateMember.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], DonateMemberComponent);
     return DonateMemberComponent;
 }());
 exports.DonateMemberComponent = DonateMemberComponent;
-//# sourceMappingURL=donatemember.component.js.map
+//# sourceMappingURL=donateMember.component.js.map

@@ -23,4 +23,4 @@ var RefreshItemComponent = (function () {
     return RefreshItemComponent;
 }());
 exports.RefreshItemComponent = RefreshItemComponent;
-//# sourceMappingURL=refreshitem.component.js.map
+//# sourceMappingURL=refreshItem.component.js.map

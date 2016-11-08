@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login.component';
 import { ExpiryComponent } from './expiry.component';
-import { DonateItemComponent } from './donateItem/donateitem.component';
-import { DonateMemberComponent } from './donateMember/donatemember.component';
-import { ReceiveMemberComponent } from './receiveMember/receivemember.component';
+import { DonateItemComponent } from './donateItem/donateItem.component';
+import { DonateMemberComponent } from './donateMember/donateMember.component';
+import { ReceiveMemberComponent } from './receiveMember/receiveMember.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 
 const appRoutes: Routes = [

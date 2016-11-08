@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'donateMember',
-  templateUrl: `app/donateMember/donatemember.component.html`
+  templateUrl: `app/donateMember/donateMember.component.html`
 })
 export class DonateMemberComponent implements OnInit {
     private selectedBut = 'search';

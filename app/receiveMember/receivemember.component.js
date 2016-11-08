@@ -20,11 +20,11 @@ var ReceiveMemberComponent = (function () {
     ReceiveMemberComponent = __decorate([
         core_1.Component({
             selector: 'receiveMember',
-            templateUrl: "app/receiveMember/receivemember.component.html"
+            templateUrl: "app/receiveMember/receiveMember.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], ReceiveMemberComponent);
     return ReceiveMemberComponent;
 }());
 exports.ReceiveMemberComponent = ReceiveMemberComponent;
-//# sourceMappingURL=receivemember.component.js.map
+//# sourceMappingURL=receiveMember.component.js.map

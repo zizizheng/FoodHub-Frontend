@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'receiveMember',
-  templateUrl: `app/receiveMember/receivemember.component.html`
+  templateUrl: `app/receiveMember/receiveMember.component.html`
 })
 export class ReceiveMemberComponent implements OnInit {
     private selectedBut = 'search';
