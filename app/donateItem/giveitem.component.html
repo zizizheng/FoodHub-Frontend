@@ -3,8 +3,11 @@
     <input class="form-control" placeholder="你要找什麼呢？"> </div>
   <div class="col-md-4">
     <select name="user-info" class="form-control">
-      <option value="user-name"></option>
-      <option value="user-address">地區</option>
+      <option value="category"></option>
+      <option value="cat-name">品項名稱</option>
+      <option value="cat-expiry">過期日</option>
+      <option value="cat-cat">品項分類</option>
+      <option value="cat-area">倉庫地區</option>
     </select>
   </div>
   <div class="col-md-2">
@@ -18,10 +21,10 @@
         <tr>
           <th>
             <input type="checkbox" value=""> </th>
-          <th>ID</th>
-          <th>名稱</th>
+          <th>全贈字號</th>
+          <th>品項名稱</th>
           <th>有效期限</th>
-          <th>分類</th>
+          <th>品項分類</th>
           <th>剩餘數量</th>
         </tr>
       </thead>
@@ -57,7 +60,7 @@
     </table>
     <div class="row">
       <div class="col-md-4">
-        <input class="form-control" placeholder="請輸入贈與單位"> </div>
+        <input class="form-control" placeholder="請輸入社福團體的編號 or 名稱"> </div>
       <div class="col-md-2 text-left">
         <button class="btn btn-warning">預覽表單</button>
       </div>

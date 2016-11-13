@@ -17,6 +17,7 @@ var SearchItemComponent = (function () {
     SearchItemComponent.prototype.refreshClick = function () {
         this.cleanPage();
         this.refreshBut = true;
+        //alert(test);
     };
     SearchItemComponent.prototype.importClick = function () {
         this.cleanPage();

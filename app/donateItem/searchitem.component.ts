@@ -11,6 +11,7 @@ export class SearchItemComponent {
     refreshClick(){
         this.cleanPage();
         this.refreshBut = true;
+        //alert(test);
     }
 
     importClick(){

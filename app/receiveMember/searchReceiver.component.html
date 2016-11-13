@@ -4,7 +4,7 @@
   <div class="col-md-4">
     <select name="user-info" class="form-control">
       <option value="user-name">姓名</option>
-      <option value="user-address">地區</option>
+      <option value="user-unit">單位</option>
     </select>
   </div>
   <div class="col-md-2">
@@ -18,23 +18,33 @@
         <tr>
           <th>
             <input type="checkbox" value=""> </th>
-          <th>ID</th>
           <th>單位名稱</th>
+          <th>單位編號</th>
           <th>單位分類</th>
+          <th>戶數</th>
+          <th>人數</th>
           <th>電話</th>
-          <th>地區</th>
-          <th>選項</th>
+          <th>地址</th>
+          <th>聯絡人姓名</th>
+          <th>聯絡人電話</th>
+          <th>E-mail</th>
+          <th>物資管理</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
             <input type="checkbox" value=""> </td>
-          <td>A001</td>
-          <td>某家庭</td>
-          <td>弱勢清寒</td>
-          <td>(02)1234567</td>
-          <td>台北</td>
+          <td>FoodHub</td>
+          <td>001</td>
+          <td>團體</td>
+          <td>1</td>
+          <td>3</td>
+          <td>06-3345677</td>
+          <td>台南市成功路一號</td>
+          <td>ZIZI</td>
+          <td>0932495729</td>
+          <td>FoodHub@gmail.com</td>
           <td>
             <button class="btn btn-success" (click)="updateClick()">更新</button>
           </td>
@@ -42,11 +52,16 @@
         <tr>
           <td>
             <input type="checkbox" value=""> </td>
-          <td>T001</td>
-          <td>老什麼家</td>
-          <td>其他</td>
-          <td>(02)2345678</td>
-          <td>台北</td>
+          <td>AnCher</td>
+          <td>002</td>
+          <td>個人</td>
+          <td>1</td>
+          <td>1</td>
+          <td>06-1234575</td>
+          <td>台南市成功路二號</td>
+          <td>安哲</td>
+          <td>0932429009</td>
+          <td>Angher@gmail.com</td>
           <td>
             <button class="btn btn-success" (click)="updateClick()">更新</button>
           </td>
@@ -54,11 +69,16 @@
         <tr>
           <td>
             <input type="checkbox" value=""> </td>
-          <td>K001</td>
-          <td>挖靠安親班</td>
-          <td>安親班</td>
-          <td>(07)2345678</td>
-          <td>高雄</td>
+          <td>Erica</td>
+          <td>003</td>
+          <td>個人</td>
+          <td>1</td>
+          <td>2</td>
+          <td>06-3345677</td>
+          <td>台南市成功路一號</td>
+          <td>ZIZI</td>
+          <td>0932495729</td>
+          <td>FoodHub@gmail.com</td>
           <td>
             <button class="btn btn-success" (click)="updateClick()">更新</button>
           </td>
@@ -68,5 +88,4 @@
     <button class="btn btn-warning">刪除</button>
   </div>
 </div>
-
 <updateReceiver *ngIf="selectedBut"></updateReceiver>

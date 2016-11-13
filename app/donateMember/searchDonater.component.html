@@ -4,7 +4,8 @@
   <div class="col-md-4">
     <select name="user-info" class="form-control">
       <option value="user-name">姓名</option>
-      <option value="user-address">地區</option>
+      <option value="user-area">地區</option>
+      <option value="user-cate">分類</option>
     </select>
   </div>
   <div class="col-md-2">
@@ -18,12 +19,13 @@
         <tr>
           <th>
             <input type="checkbox" value=""> </th>
-          <th>ID</th>
           <th>姓名</th>
           <th>單位分類</th>
+          <th>統一編號</th>
           <th>電話</th>
+          <th>手機</th>
+          <th>E-mail</th>
           <th>地區</th>
-          <th>帳號</th>
           <th>選項</th>
         </tr>
       </thead>
@@ -31,38 +33,41 @@
         <tr>
           <td>
             <input type="checkbox" value=""> </td>
-          <td>A001</td>
           <td>Cindy</td>
           <td>個人</td>
-          <td>(02)1234567</td>
-          <td>台北</td>
-          <td>cindy</td>
+          <td>12345612323</td>
+          <td>(02)1234567 </td>
+          <td>0934581238</td>
+          <td>E-mail</td>
+          <td>地區</td>
           <td>
             <button class="btn btn-success" (click)="refreshClick()">更新</button>
           </td>
         </tr>
         <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>T001</td>
-          <td>Erica</td>
+            <td>
+              <input type="checkbox" value=""> </td>
+          <td>John</td>
           <td>個人</td>
-          <td>(02)2345678</td>
-          <td>台北</td>
-          <td>erica</td>
+          <td>12345612323</td>
+          <td>(02)1234567 </td>
+          <td>0934581238</td>
+          <td>E-mail</td>
+          <td>地區</td>
           <td>
             <button class="btn btn-success" (click)="refreshClick()">更新</button>
           </td>
         </tr>
         <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>K001</td>
-          <td>Bryan</td>
+            <td>
+              <input type="checkbox" value=""> </td>
+          <td>FoodHub</td>
           <td>團體</td>
-          <td>(07)2345678</td>
-          <td>高雄</td>
-          <td>bryan</td>
+          <td>12345612323</td>
+          <td>(02)1234567 </td>
+          <td>0934581238</td>
+          <td>E-mail</td>
+          <td>地區</td>
           <td>
             <button class="btn btn-success" (click)="refreshClick()">更新</button>
           </td>
@@ -72,5 +77,4 @@
     <button class="btn btn-warning">刪除</button>
   </div>
 </div>
-
 <updateDonater *ngIf="selectedBut"></updateDonater>
