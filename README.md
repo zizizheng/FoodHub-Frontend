@@ -1,5 +1,5 @@
 # FoodHub-FrontEnd
 
-Design for charity
+`Design for charity`
 
-Use Angular2
+Use **Angular2 Bootstrap 3**
