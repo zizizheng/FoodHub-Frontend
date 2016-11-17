@@ -8,18 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ExpiryComponent = (function () {
     function ExpiryComponent() {
     }
-    ExpiryComponent = __decorate([
-        core_1.Component({
-            selector: 'expiry',
-            templateUrl: "app/expiry.component.html"
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ExpiryComponent);
     return ExpiryComponent;
 }());
+ExpiryComponent = __decorate([
+    core_1.Component({
+        selector: 'expiry',
+        templateUrl: "app/expiry.component.html"
+    }),
+    __metadata("design:paramtypes", [])
+], ExpiryComponent);
 exports.ExpiryComponent = ExpiryComponent;
 //# sourceMappingURL=expiry.component.js.map

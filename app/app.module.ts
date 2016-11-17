@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 import { HeaderComponent } from './header.component';
-import { ExpiryComponent } from './expiry.component';
 import { MyFooterComponent } from './footer.component';
 import { LoginComponent } from './login.component';
+import { ExpiryComponent } from './expiry/expiry.component';
 import { DonateItemComponent } from './donateItem/donateItem.component';
 import { DonateMemberComponent } from './donateMember/donateMember.component';
 import { ReceiveMemberComponent } from './receiveMember/receiveMember.component';

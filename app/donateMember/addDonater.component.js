@@ -11,8 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AddDonaterComponent = (function () {
     function AddDonaterComponent() {
+        this.isGroup = false;
     }
     AddDonaterComponent.prototype.ngOnInit = function () { };
+    AddDonaterComponent.prototype.catChange = function (value) {
+        //swal("Here execute the change" + value);
+        this.isGroup = (value === "cat-group") ? true : false;
+    };
     AddDonaterComponent = __decorate([
         core_1.Component({
             selector: 'addDonater',

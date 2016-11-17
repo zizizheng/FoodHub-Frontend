@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var UpdateDonaterComponent = (function () {
-    function UpdateDonaterComponent() {
-        this.isGroup = false;
+var ExpiryComponent = (function () {
+    function ExpiryComponent() {
+        this.expiries = [
+            { id: 1, date: '2016/02/28', name: '泡麵', quantity: 5 },
+            { id: 2, date: '2016/02/10', name: '蘋果', quantity: 3 }
+        ];
     }
-    UpdateDonaterComponent.prototype.ngOnInit = function () { };
-    UpdateDonaterComponent.prototype.catChange = function (value) {
-        //alert(value);
-        this.isGroup = (value === "cat-group") ? true : false;
-    };
-    UpdateDonaterComponent = __decorate([
+    ExpiryComponent = __decorate([
         core_1.Component({
-            selector: 'updateDonater',
-            templateUrl: "app/donateMember/updateDonater.component.html"
+            selector: 'expiry',
+            templateUrl: "app/expiry/expiry.component.html"
         }), 
         __metadata('design:paramtypes', [])
-    ], UpdateDonaterComponent);
-    return UpdateDonaterComponent;
+    ], ExpiryComponent);
+    return ExpiryComponent;
 }());
-exports.UpdateDonaterComponent = UpdateDonaterComponent;
-//# sourceMappingURL=updateDonater.component.js.map
+exports.ExpiryComponent = ExpiryComponent;
+//# sourceMappingURL=expiry.component.js.map

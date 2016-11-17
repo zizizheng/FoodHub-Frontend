@@ -5,9 +5,9 @@
       <input class="form-control" placeholder="姓名"> </div>
     <div class="col-md-3">
       <label class="control-label">分類</label>
-      <select name="user-category" class="form-control">
-        <option value="category-individual">個人</option>
-        <option value="category-group">團體</option>
+      <select name="category" class="form-control" (change)="catChange($event.target.value)">
+        <option value="cat-individual">個人</option>
+        <option value="cat-group">團體</option>
       </select>
     </div>
     <div class="col-md-4">
@@ -48,12 +48,27 @@
     </div>
     <div class="col-md-8">
       <label class="control-label">地址</label>
-      <input class="form-control" placeholder="輸入單位或個人地址"> </div>
+      <input class="form-control" placeholder="輸入單位或個人地址">
+    </div>
+    <div *ngIf="isGroup === true" class="group" >
+        <div class="col-md-2">
+          <label class="control-label">聯絡人</label>
+          <input class="form-control" placeholder="機關團體聯絡人">
+        </div>
+        <div class="col-md-2">
+          <label class="control-label">聯絡電話</label>
+          <input class="form-control" placeholder="聯絡人之聯絡電話">
+        </div>
+        <div class="col-md-8">
+          <label class="control-label">聯絡人信箱</label>
+          <input class="form-control" placeholder="聯絡人之E-mail">
+        </div>
+    </div>
   </div>
   <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-12 text-center">
-      <button class="btn btn-success btn-lg">取消</button>
-      <button class="btn btn-warning btn-lg">新增</button>
+      <button class="btn btn-success btn-md">取消</button>
+      <button class="btn btn-warning btn-md">新增</button>
     </div>
   </div>
 </div>

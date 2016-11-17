@@ -1,33 +1,30 @@
 <div class="text-center well" style="background-color: #FFFFFF">
   <h1 class="text-center" style="margin: 20 0 20 0">更新捐贈者資訊</h1>
   <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <label class="control-label">名字</label>
       <input class="form-control" placeholder="姓名"> </div>
-    <div class="col-md-4">
-      <label class="control-label">IC</label>
-      <input class="form-control" placeholder="這啥啊我不知道"> </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <label class="control-label">分類</label>
-      <select name="user-category" class="form-control">
-        <option value="category-individual">個人</option>
-        <option value="category-group">高雄</option>
+      <select name="category" class="form-control" (change)="catChange($event.target.value)">
+        <option value="cat-individual">個人</option>
+        <option value="cat-group">團體</option>
       </select>
     </div>
+    <div class="col-md-4">
+      <label class="control-label">統一編號</label>
+      <input class="form-control" placeholder="0912384758"> </div>
   </div>
   <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-3">
-      <label class="control-label">Zip Code</label>
-      <input class="form-control" placeholder="ex:100001"> </div>
-    <div class="col-md-3">
-      <label class="control-label">單位</label>
-      <input class="form-control" placeholder="ex:個人"> </div>
     <div class="col-md-3">
       <label class="control-label">電話</label>
       <input class="form-control" placeholder="ex: 06-2757575"> </div>
     <div class="col-md-3">
       <label class="control-label">手機</label>
       <input class="form-control" placeholder="ex: 0912345678"> </div>
+    <div class="col-md-4">
+      <label class="control-label">E-mail</label>
+      <input class="form-control" placeholder="FoodHub@gmail.com"> </div>
   </div>
   <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-2">
@@ -35,49 +32,44 @@
       <select name="user-area" class="form-control">
         <option value="area-choose">選擇居住地區</option>
         <option value="area-n">北部</option>
-        <option value="area-w">西部</option>
+        <option value="area-c">中部</option>
+        <option value="area-s">南部</option>
+        <option value="area-e">東部</option>
       </select>
     </div>
     <div class="col-md-2">
       <label class="control-label">縣市</label>
       <select name="user-country" class="form-control">
-        <option value="country-choose">選擇居住城市</option>
-        <option value="country-Taipei">台北</option>
-        <option value="country-nTaipei">新北</option>
-        <option value="country-Tainan">台南</option>
+        <option value="country">選擇居住城市</option>
+        <option value="country-taipei">台北</option>
+        <option value="country-taichung">台中</option>
+        <option value="country-tainan">台南</option>
+        <option value="country-taidong">台東</option>
       </select>
     </div>
     <div class="col-md-8">
       <label class="control-label">地址</label>
-      <input type="password" class="form-control" placeholder="輸入單位或個人地址"> </div>
+      <input class="form-control" placeholder="輸入單位或個人地址">
+    </div>
   </div>
-  <div class="row">
-    <hr style="border-width: 2px; border-color: #AAAAAA; margin: 30 0 30 0">
-    <h1 class="text-center" style="margin: 20 0 20 0">機關團體請填寫下列資料</h1>
-    <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-4">
-        <label class="control-label">聯絡人姓名</label>
-        <input class="form-control" placeholder="ex:周星星"> </div>
-      <div class="col-md-4">
-        <label class="control-label">聯絡人電話</label>
-        <input class="form-control" placeholder="ex:09123231239"> </div>
-    </div>
-    <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-3">
-        <label class="control-label">機關團體人數</label>
-        <input class="form-control" placeholder="ex:5"> </div>
-      <div class="col-md-3">
-        <label class="control-label">戶數</label>
-        <input class="form-control" placeholder="ex:1000"> </div>
-      <div class="col-md-6">
-        <label class="control-label">E-mail</label>
-        <input class="form-control" placeholder="ex:JohhhhnCena@google.com"> </div>
-    </div>
+  <div *ngIf="isGroup === true" class="row" style="margin: 10 10 10 10">
+      <div class="col-md-2">
+        <label class="control-label">聯絡人</label>
+        <input class="form-control" placeholder="機關團體聯絡人">
+      </div>
+      <div class="col-md-2">
+        <label class="control-label">聯絡電話</label>
+        <input class="form-control" placeholder="聯絡人之聯絡電話">
+      </div>
+      <div class="col-md-8">
+        <label class="control-label">聯絡人信箱</label>
+        <input class="form-control" placeholder="聯絡人之E-mail">
+      </div>
   </div>
   <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-12">
-      <button class="btn btn-success btn-lg">取消</button>
-      <button class="btn btn-warning btn-lg">送出</button>
+    <div class="col-md-12 text-center">
+      <button class="btn btn-success btn-lg">清除</button>
+      <button class="btn btn-warning btn-lg">新增</button>
     </div>
   </div>
 </div>

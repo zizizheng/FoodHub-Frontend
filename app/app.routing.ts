@@ -2,7 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login.component';
-import { ExpiryComponent } from './expiry.component';
+import { ExpiryComponent } from './expiry/expiry.component';
 import { DonateItemComponent } from './donateItem/donateItem.component';
 import { DonateMemberComponent } from './donateMember/donateMember.component';
 import { ReceiveMemberComponent } from './receiveMember/receiveMember.component';

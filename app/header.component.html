@@ -1,7 +1,7 @@
-<div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <button id="navbar-sm" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
                 <li>
                     <a href="#">聯絡人</a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" data-toggle="collapse" data-target="#navbar-ex-collapse">
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a routerLink="/donateItemPage" routerLinkActive="active">物資管理</a>

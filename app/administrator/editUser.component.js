@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var EditUserComponent = (function () {
     function EditUserComponent() {
+        this.demoId = "A001";
     }
     EditUserComponent.prototype.ngOnInit = function () { };
     EditUserComponent = __decorate([

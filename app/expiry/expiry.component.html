@@ -21,23 +21,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>2016/02/08</td>
-              <td>泡麵</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>2016/02/10</td>
-              <td>蘋果</td>
-              <td>6</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>2016/02/06</td>
-              <td>餅乾</td>
-              <td>9</td>
+            <tr *ngFor='let expiry of expiries'>
+              <td>{{expiry.id}}</td>
+              <td>{{expiry.date}}</td>
+              <td>{{expiry.name}}</td>
+              <td>{{expiry.quantity}}</td>
             </tr>
           </tbody>
         </table>
