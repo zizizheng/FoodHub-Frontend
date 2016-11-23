@@ -1,0 +1,12 @@
+{
+    "typescript.check.workspaceVersion": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/*.js": true,
+        "**/*.map": true,
+        "**/*.log.*": true
+    }
+}

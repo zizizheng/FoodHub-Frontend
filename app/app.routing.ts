@@ -9,7 +9,7 @@ import { ReceiveMemberComponent } from './receiveMember/receiveMember.component'
 import { AdministratorComponent } from './administrator/administrator.component';
 
 const appRoutes: Routes = [
-	{ path: '', redirectTo: '/loginPage', pathMatch: 'full' },
+	{ path: '', redirectTo: 'loginPage', pathMatch: 'full' },
 	{ path: 'loginPage', component: LoginComponent },
     { path: 'expiryPage', component: ExpiryComponent },
 	{ path: 'donateItemPage', component: DonateItemComponent },
