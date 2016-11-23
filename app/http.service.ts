@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Time } from './time';
 import 'rxjs/add/operator/map';
 
 @Injectable()

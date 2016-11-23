@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from './http.service';
-import { Time } from './time';
 //import { OnInit } from '@angular/core';
 declare let swal:any;
 
@@ -18,12 +17,6 @@ export class LoginComponent {
 	}
 
 	ngOnInit(){
-		this.httpService.getData()
-			.subscribe(
-				data => this.curTime = data,
-				error => alert(error),
-				() => alert(this.curTime.milliseconds_since_epoch)
-			);
 
 	}
 
