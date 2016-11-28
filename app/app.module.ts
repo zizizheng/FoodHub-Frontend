@@ -1,3 +1,4 @@
+import { LoginService } from './service/login.service';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
@@ -46,6 +47,7 @@ import { EditUserComponent } from './administrator/editUser.component';
                 RefreshItemComponent, ImportItemComponent, DonateMemberComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
                 SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
                 AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
+  providers: [ LoginService, HeaderComponent],
   bootstrap: [ AppComponent ]
 
 })

@@ -11,11 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var HeaderComponent = (function () {
     function HeaderComponent() {
+        this.userName = '使用者';
     }
+    HeaderComponent.prototype.setUserName = function (name) {
+        this.userName = name;
+        console.log(this.userName);
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'my-header',
-            templateUrl: 'app/header.component.html'
+            templateUrl: 'app/header.component.html',
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);

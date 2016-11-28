@@ -8,29 +8,52 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var header_component_1 = require('./header.component');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var http_service_1 = require('./http.service');
+var login_service_1 = require('./service/login.service');
 var LoginComponent = (function () {
-    function LoginComponent(router, httpService) {
+    function LoginComponent(router, loginService, headerComponent) {
         this.router = router;
-        this.httpService = httpService;
+        this.loginService = loginService;
+        this.headerComponent = headerComponent;
+        this.isLogin = false;
+        this.pack = undefined;
+        this.userName = undefined;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.httpService.getData()
-            .subscribe(function (data) { return _this.curTime = data; }, function (error) { return alert(error); }, function () { return alert(_this.curTime.milliseconds_since_epoch); });
+        this.userName = this.loginService.checkLogin();
+        this.isLogin = (this.userName == undefined) ? false : true;
+    };
+    LoginComponent.prototype.userInput = function ($event, inputType) {
+        if (inputType == 'a') {
+            this.account = $event.target.value;
+        }
+        else {
+            this.password = $event.target.value;
+        }
     };
     LoginComponent.prototype.loginClick = function () {
-        this.router.navigate(['expiryPage']);
+        var _this = this;
+        //swal("Account : " + this.account + ", and Password : " + this.password);
+        this.loginService.postData(this.account, this.password)
+            .subscribe(function (data) { return _this.pack = data; }, function (error) {
+            var err = error.json();
+            swal(err.error);
+        }, function () {
+            var gotName = _this.pack.name;
+            _this.loginService.recordLogin(gotName),
+                _this.headerComponent.setUserName(gotName),
+                swal('Login successed', 'Welcome to FoodBank, ' + gotName),
+                _this.router.navigate(['expiryPage']);
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'loginPage',
             templateUrl: 'app/login.component.html',
-            providers: [http_service_1.HttpService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, http_service_1.HttpService])
+        __metadata('design:paramtypes', [router_1.Router, login_service_1.LoginService, header_component_1.HeaderComponent])
     ], LoginComponent);
     return LoginComponent;
 }());
