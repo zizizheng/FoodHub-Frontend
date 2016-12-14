@@ -1,4 +1,3 @@
-import { LoginService } from './service/login.service';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
@@ -37,6 +36,11 @@ import { SearchUserComponent } from './administrator/searchUser.component';
 import { AddUserComponent } from './administrator/addUser.component';
 import { EditUserComponent } from './administrator/editUser.component';
 
+// Service
+import { LoginService } from './service/login.service';
+import { ServerService } from './service/server.service';
+import { PostSystemService } from './service/postSystem.service';
+
 @NgModule({
   imports:      [ BrowserModule,
                 FormsModule,
@@ -47,7 +51,7 @@ import { EditUserComponent } from './administrator/editUser.component';
                 RefreshItemComponent, ImportItemComponent, DonateMemberComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
                 SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
                 AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
-  providers: [ LoginService, HeaderComponent],
+  providers: [ LoginService, ServerService, PostSystemService], 
   bootstrap: [ AppComponent ]
 
 })

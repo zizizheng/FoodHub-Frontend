@@ -1,73 +1,65 @@
 <div class="text-center well" style="background-color: #FFFFFF">
   <h1 class="text-center" style="margin: 20 0 20 0">新增物資項目</h1>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-3">
-      <label class="control-label">全贈字號</label>
-      <input class="form-control" placeholder="10502001"> </div>
-    <div class="col-md-3">
-      <label class="control-label">品項名稱</label>
-      <input class="form-control" placeholder="開心果"> </div>
-    <div class="col-md-3">
-      <label class="control-label">品項流水號</label>
-      <input class="form-control" placeholder="2938410"> </div>
-    <div class="col-md-3">
-      <label class="control-label">條碼</label>
-      <input class="form-control" placeholder="29384923 92839187"> </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-2">
-      <label class="control-label">品項分類</label>
-      <select name="item-category" class="form-control">
-        <option>營養品</option>
-        <option>沖泡品</option>
-        <option>主食類</option>
-        <option>罐頭</option>
-        <option>生活用品</option>
-        <option>零食</option>
-        <option>調味品</option>
-        <option>飲料</option>
-        <option>生鮮食品</option>
-        <option>其他</option>
-      </select>
+
+  <form #itemForm="ngForm">
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-4 form-group">
+        <label class="control-label">全贈字號</label>
+        <input class="form-control" placeholder="10502001" [(ngModel)]="item._id" name="_id" > 
+      </div>
+      <div class="col-md-4">
+        <label class="control-label">品項名稱</label>
+        <input class="form-control" placeholder="開心果" [(ngModel)]="item.item_name" name="item_name" > </div>
+      <div class="col-md-4">
+        <label class="control-label">條碼</label>
+        <input class="form-control" placeholder="29384923 92839187" [(ngModel)]="item.barcode" name="barcode" > </div>
     </div>
-    <div class="col-md-2">
-      <label class="control-label">倉庫地區</label>
-      <select name="warehouse-area" class="form-control">
-        <option>台中</option>
-        <option>高雄</option>
-      </select>
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-2">
+        <label class="control-label">品項分類</label>
+        <select name="item-category" class="form-control" [(ngModel)]="item.category" name="category" >
+          <option *ngFor="let item of category" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="control-label">倉庫地區</label>
+        <select name="warehouse-area" class="form-control" [(ngModel)]="item.area" name="area" >
+          <option *ngFor="let item of area" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="control-label">數量</label>
+        <input class="form-control" placeholder="5" [(ngModel)]="item.item_qt" name="item_qt" > </div>
+      <div class="col-md-2">
+        <label class="control-label">單位</label>
+        <input class="form-control" placeholder="盒" [(ngModel)]="item.item_unit" name="item_unit" > </div>
+      <div class="col-md-2">
+        <label class="control-label">重量 (g)</label>
+        <input class="form-control" placeholder="150" [(ngModel)]="item.weight" name="weight" > </div>
+      <div class="col-md-2">
+        <label class="control-label">單價</label>
+        <input class="form-control" placeholder="200" [(ngModel)]="item.item_unitprice" name="item_unitprice" > </div>
     </div>
-    <div class="col-md-2">
-      <label class="control-label">數量</label>
-      <input class="form-control" placeholder="5"> </div>
-    <div class="col-md-2">
-      <label class="control-label">單位</label>
-      <input class="form-control" placeholder="盒"> </div>
-    <div class="col-md-2">
-      <label class="control-label">重量 (g)</label>
-      <input class="form-control" placeholder="150"> </div>
-    <div class="col-md-2">
-      <label class="control-label">單價</label>
-      <input class="form-control" placeholder="200"> </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-2">
-      <label class="control-label">捐贈日期</label>
-      <input class="form-control" placeholder="105-02-20"> </div>
-    <div class="col-md-2">
-      <label class="control-label">有效期限</label>
-      <input class="form-control" placeholder="105-03-01"> </div>
-    <div class="col-md-2">
-      <label class="control-label">捐贈者</label>
-      <input class="form-control" placeholder="boss"> </div>
-    <div class="col-md-6">
-      <label class="control-label">紀錄與描述</label>
-      <input type="password" class="form-control" placeholder="描述物品"> </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-12">
-      <button class="btn btn-success btn-md">取消</button>
-      <button class="btn btn-warning btn-md">送出</button>
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-2">
+        <label class="control-label">捐贈日期</label>
+        <input class="form-control" placeholder="105/02/20" [(ngModel)]="item.donate_dt" name="donate_dt" > </div>
+      <div class="col-md-2">
+        <label class="control-label">有效期限</label>
+        <input class="form-control" placeholder="105/03/01" [(ngModel)]="item.expire_dt" name="expire_dt" > </div>
+      <div class="col-md-2">
+        <label class="control-label">捐贈者</label>
+        <input class="form-control" placeholder="boss" [(ngModel)]="item.donor_name" name="donor_name" > </div>
+      <div class="col-md-6">
+        <label class="control-label">紀錄與描述</label>
+        <input type="text" class="form-control" placeholder="描述物品" [(ngModel)]="item.memo" name="memo" > </div>
     </div>
-  </div>
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-12">
+        <button class="btn btn-success btn-md">取消</button>
+        <button type="submit" class="btn btn-warning btn-md" (click)="addItemClick()" [disabled]="!itemForm.form.valid">送出</button>
+      </div>
+    </div>
+  </form>
+
 </div>

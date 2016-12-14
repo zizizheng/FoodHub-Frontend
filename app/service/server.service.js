@@ -8,23 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var login_service_1 = require('./service/login.service');
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent(loginService) {
-        var _this = this;
-        this.loginService = loginService;
-        loginService.nameChange$.subscribe(function (name) { return _this.userName = name; });
-        this.userName = '使用者';
+var ServerService = (function () {
+    function ServerService() {
+        this.serverUrl = 'http://localhost:8080/';
     }
-    HeaderComponent = __decorate([
-        core_1.Component({
-            selector: 'my-header',
-            templateUrl: 'app/header.component.html',
-        }), 
-        __metadata('design:paramtypes', [login_service_1.LoginService])
-    ], HeaderComponent);
-    return HeaderComponent;
+    // TODO : design different function for different call
+    ServerService.prototype.getDonationUrl = function (value) {
+        return this.serverUrl + 'donation/' + value;
+    };
+    ServerService.prototype.getDoneeUrl = function (value) {
+        return this.serverUrl + 'donee/' + value;
+    };
+    ServerService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], ServerService);
+    return ServerService;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.ServerService = ServerService;
+//# sourceMappingURL=server.service.js.map

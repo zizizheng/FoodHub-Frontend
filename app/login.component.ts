@@ -1,5 +1,4 @@
-import { HeaderComponent } from './header.component';
-import { Component } from '@angular/core';
+import { Component }  from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './service/login.service';
 //import { OnInit } from '@angular/core';
@@ -18,8 +17,7 @@ export class LoginComponent {
 	isLogin: boolean;
 
 	constructor(private router: Router, 
-				public loginService: LoginService,
-				public headerComponent: HeaderComponent){
+				public loginService: LoginService){
 		this.isLogin = false;
 		this.pack = undefined;
 		this.userName = undefined;
@@ -51,7 +49,6 @@ export class LoginComponent {
 				() => {
 					let gotName = this.pack.name;
 					this.loginService.recordLogin(gotName),
-					this.headerComponent.setUserName(gotName),
 					swal( 'Login successed', 'Welcome to FoodBank, ' + gotName),
 					this.router.navigate(['expiryPage'])
 				}

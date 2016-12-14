@@ -14,17 +14,22 @@ require('rxjs/add/operator/map');
 var LoginService = (function () {
     function LoginService(http) {
         this.http = http;
+        this.nameChange$ = new core_1.EventEmitter();
         this.serverUrl = 'http://localhost:8080/user/login/';
         this.loginName = undefined;
     }
     LoginService.prototype.recordLogin = function (name) {
         this.loginName = name;
-        console.log('Here is service, login name is : ' + this.loginName);
         this.checkLogin();
+        this.emitChange();
+        console.log('Here is service, login name is : ' + this.loginName);
     };
     LoginService.prototype.checkLogin = function () {
         console.log('Here is service, return name ' + this.loginName);
         return this.loginName;
+    };
+    LoginService.prototype.emitChange = function () {
+        this.nameChange$.emit(this.loginName);
     };
     LoginService.prototype.getData = function (name) {
         //console.log('login name = ' + name);
@@ -35,7 +40,7 @@ var LoginService = (function () {
     LoginService.prototype.postData = function (name, password) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        var params = { "password": password };
+        var params = { "pw": password };
         //console.log('login name = ' + name);
         //console.log(this.serverUrl + name);
         return this.http.post(this.serverUrl + name, JSON.stringify(params), options)

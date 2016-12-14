@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var login_service_1 = require('./service/login.service');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
@@ -41,6 +40,10 @@ var updateReceiver_component_1 = require('./receiveMember/updateReceiver.compone
 var searchUser_component_1 = require('./administrator/searchUser.component');
 var addUser_component_1 = require('./administrator/addUser.component');
 var editUser_component_1 = require('./administrator/editUser.component');
+// Service
+var login_service_1 = require('./service/login.service');
+var server_service_1 = require('./service/server.service');
+var postSystem_service_1 = require('./service/postSystem.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -55,7 +58,7 @@ var AppModule = (function () {
                 refreshItem_component_1.RefreshItemComponent, importItem_component_1.ImportItemComponent, donateMember_component_1.DonateMemberComponent, searchDonater_component_1.SearchDonaterComponent, updateDonater_component_1.UpdateDonaterComponent, addDonater_component_1.AddDonaterComponent, receiveMember_component_1.ReceiveMemberComponent,
                 searchReceiver_component_1.SearchReceiverComponent, addReceiver_component_1.AddReceiverComponent, updateReceiver_component_1.UpdateReceiverComponent,
                 administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, editUser_component_1.EditUserComponent],
-            providers: [login_service_1.LoginService, header_component_1.HeaderComponent],
+            providers: [login_service_1.LoginService, server_service_1.ServerService, postSystem_service_1.PostSystemService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

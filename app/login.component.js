@@ -8,15 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var header_component_1 = require('./header.component');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_service_1 = require('./service/login.service');
 var LoginComponent = (function () {
-    function LoginComponent(router, loginService, headerComponent) {
+    function LoginComponent(router, loginService) {
         this.router = router;
         this.loginService = loginService;
-        this.headerComponent = headerComponent;
         this.isLogin = false;
         this.pack = undefined;
         this.userName = undefined;
@@ -43,7 +41,6 @@ var LoginComponent = (function () {
         }, function () {
             var gotName = _this.pack.name;
             _this.loginService.recordLogin(gotName),
-                _this.headerComponent.setUserName(gotName),
                 swal('Login successed', 'Welcome to FoodBank, ' + gotName),
                 _this.router.navigate(['expiryPage']);
         });
@@ -53,7 +50,7 @@ var LoginComponent = (function () {
             selector: 'loginPage',
             templateUrl: 'app/login.component.html',
         }), 
-        __metadata('design:paramtypes', [router_1.Router, login_service_1.LoginService, header_component_1.HeaderComponent])
+        __metadata('design:paramtypes', [router_1.Router, login_service_1.LoginService])
     ], LoginComponent);
     return LoginComponent;
 }());

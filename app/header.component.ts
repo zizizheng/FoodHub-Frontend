@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { LoginService } from './service/login.service';
+import { Component, Input } from '@angular/core';
+declare let swal:any;
 
 @Component({
 	selector: 'my-header',
@@ -7,12 +9,8 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 	userName: string;
 
-	constructor(){
+	constructor(public loginService: LoginService){
+		loginService.nameChange$.subscribe(name => this.userName = name);
 		this.userName = '使用者';
-	}
-
-	setUserName(name){
-		this.userName = name;
-		console.log(this.userName);
 	}
 }

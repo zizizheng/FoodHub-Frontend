@@ -1,16 +1,15 @@
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-4">
-    <input class="form-control" placeholder="你要找什麼呢？"> </div>
+    
+    <!--use date form-->
+    <input class="form-control" placeholder="你要找什麼呢？" [(ngModel)]="searchWord"> </div>
   <div class="col-md-4">
-    <select name="category" class="form-control">
-      <option value="cat-name">品項名稱</option>
-      <option value="cat-expiry">過期日</option>
-      <option value="cat-cat">品項類別</option>
-      <option value="cat-area">倉庫地區</option>
+    <select name="category" class="form-control" [(ngModel)]="searchKey">
+      <option *ngFor="let item of category" [value]="item">{{item}}</option>
     </select>
   </div>
   <div class="col-md-2">
-    <button class="btn btn-primary">送出</button>
+    <button class="btn btn-primary" (click)="searchClick()">送出</button>
   </div>
 </div>
 <div class="row" style="margin: 20 10 10 10">
@@ -30,45 +29,21 @@
       </thead>
       <tbody>
         <!-- Need to do ngFor -->
-        <tr>
+        <tr *ngFor="let item of itemList">
           <td>
-            <input type="checkbox" value=""> </td>
-          <td id="number">10502001</td>
-          <td>開心果</td>
-          <td>105-02-28</td>
-          <td>零時</td>
-          <td>5</td>
-          <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>105</td>
-          <td>蔬菜</td>
-          <td>105-02-15</td>
-          <td>生鮮</td>
-          <td>7</td>
-          <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>1050203</td>
-          <td>維力炸醬麵</td>
-          <td>105</td>
-          <td>泡麵</td>
-          <td>8</td>
+            <input type="checkbox" (change)="checkChange(item, $event.target.checked)"> </td>
+          <td>{{item._id}}</td>
+          <td>{{item.item_name}}</td>
+          <td>{{item.expire_dt | date : 'dd/MM/yyyy'}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.item_qt}}</td>
           <td>
             <button class="btn btn-success" (click)="refreshClick()">更新</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-warning">刪除</button>
+    <button class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
 <refreshItem *ngIf="refreshBut"></refreshItem>
