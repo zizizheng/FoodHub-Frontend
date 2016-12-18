@@ -6,7 +6,7 @@ import { ServerService } from './../service/server.service';
 //global constants
 import itemCat = require('./donateItem');
 
-declare let swal:any; 
+declare let swal:any;
 
 @Component({
   selector: 'searchItem',
@@ -60,12 +60,14 @@ export class SearchItemComponent {
                     swal(err.error);
                 },
                 () => {
+                    console.log(this.itemList);
                     this.dealDate();
                     this.putIntoChecklist();
                 }
             );
     }
     
+    // process date for specific number
     dealDate(){
         let splitArray = [];
         for(let i = 0; i < this.itemList.length; i++){

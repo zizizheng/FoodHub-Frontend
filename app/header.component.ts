@@ -1,6 +1,5 @@
 import { LoginService } from './service/login.service';
 import { Component, Input } from '@angular/core';
-declare let swal:any;
 
 @Component({
 	selector: 'my-header',

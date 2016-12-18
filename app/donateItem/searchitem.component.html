@@ -28,7 +28,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Need to do ngFor -->
         <tr *ngFor="let item of itemList">
           <td>
             <input type="checkbox" (change)="checkChange(item, $event.target.checked)"> </td>

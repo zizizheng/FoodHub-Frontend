@@ -24,12 +24,11 @@ var AddItemComponent = (function () {
     }
     AddItemComponent.prototype.ngOnInit = function () { };
     AddItemComponent.prototype.addItemClick = function () {
-        var _this = this;
         var itemObject = this.item.getObject();
         var url = this.serverService.getDonationUrl(this.item._id);
         this.postSystemService
             .postData(url, itemObject)
-            .subscribe(function (data) { return _this.pack = data; }, function (error) {
+            .subscribe(function (data) { return swal('Congrations', data.success, 'success'); }, function (error) {
             var err = error.json();
             console.log(err.error);
         });

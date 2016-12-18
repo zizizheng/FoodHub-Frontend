@@ -7,7 +7,6 @@ import { DonateItem } from './donateItem';
 import { ServerService } from '../service/server.service';
 
 import itemCat = require('./donateItem');
-
 declare let swal:any;
 
 @Component({
@@ -32,7 +31,7 @@ export class AddItemComponent implements OnInit {
       this.postSystemService
           .postData(url, itemObject)
           .subscribe(
-            data => this.pack = data,
+            data => swal('Congrations', data.success, 'success'),
             error => {
               let err = error.json();
               console.log(err.error);

@@ -54,10 +54,12 @@ var SearchItemComponent = (function () {
             var err = error.json();
             swal(err.error);
         }, function () {
+            console.log(_this.itemList);
             _this.dealDate();
             _this.putIntoChecklist();
         });
     };
+    // process date for specific number
     SearchItemComponent.prototype.dealDate = function () {
         var splitArray = [];
         for (var i = 0; i < this.itemList.length; i++) {

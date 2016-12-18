@@ -17,4 +17,8 @@ export class ServerService{
     getDoneeUrl(value){
         return this.serverUrl + 'donee/' + value;
     }
+
+    getDonorUrl(value){
+        return this.serverUrl + 'donor/' + value;
+    }
 }
