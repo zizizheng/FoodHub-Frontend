@@ -18,8 +18,9 @@ export class SearchTemplateComponent {
     @Input() searchWord ='';
     @Input() searchKey = '';
     @Input() delArray = [];
-    @Input() categorySearch = [];
+    @Input() category = [];
     @Input() categoryKey = [];
+    @Input() categorySearch = [];
     @Input() dataList = [];
     @Input() primaryKey = '';
     @Input() parentUrl = '';
@@ -34,13 +35,16 @@ export class SearchTemplateComponent {
         this.postSystemService
             .getDataList(listUrl)
             .subscribe(
-                data => this.dataList = data,
+                data => {
+                    if (this.getType(data) === this.getType([])) this.dataList = data; 
+                    else this.dataList.push(data)
+                },
                 error => {
                     let err = error.json();
                     swal('Opps, something wrong!', err.error, 'warning');
                 },
                 () => {
-                    this.PutIntoChecklist(primaryKey, this.parentUrl);
+                    this.PutIntoChecklist(primaryKey);
                     // console.log(this.dataList);
                 }
             );
@@ -51,26 +55,30 @@ export class SearchTemplateComponent {
         this.postSystemService
             .getData(url, urlParam)
             .subscribe(
-                data => this.dataList.push(data),
+                data => {
+                    if (this.getType(data) === this.getType([])) this.dataList = data; 
+                    else this.dataList.push(data)
+                },
                 error => {
                     let err = error.json();
                     swal('Opps, something wrong!', err.error, 'warning');
                 },
                 () => {
-                    this.PutIntoChecklist(this.primaryKey, url);
+                    // console.log(this.dataList);
+                    this.PutIntoChecklist(this.primaryKey);
                 }
             );
     }
 
-    PutIntoChecklist(primaryKey, url){
+    PutIntoChecklist(primaryKey){
         // clean array
         this.delArray = [];
-
-        for(let i = 0; i < this.dataList.length; i++){
+        
+        for(let item of this.dataList){
             this.delArray.push({
-                primaryKey: this.dataList[i][primaryKey],
+                primaryKey: item[this.primaryKey],
                 checked: false,
-                url: url + this.dataList[i][primaryKey]
+                url: this.parentUrl + item[this.primaryKey]
             });
         }
         console.log(this.delArray);
@@ -126,5 +134,9 @@ export class SearchTemplateComponent {
 
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
+    }
+
+    getType = function(ele){
+        return Object.prototype.toString.call(ele);
     }
 }

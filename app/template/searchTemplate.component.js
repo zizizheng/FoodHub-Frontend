@@ -20,22 +20,31 @@ var SearchTemplateComponent = (function () {
         this.searchWord = '';
         this.searchKey = '';
         this.delArray = [];
-        this.categorySearch = [];
+        this.category = [];
         this.categoryKey = [];
+        this.categorySearch = [];
         this.dataList = [];
         this.primaryKey = '';
         this.parentUrl = '';
+        this.getType = function (ele) {
+            return Object.prototype.toString.call(ele);
+        };
         this.postSystemService = injector.get(postSystem_service_1.PostSystemService);
     }
     SearchTemplateComponent.prototype.GetList = function (listUrl, primaryKey) {
         var _this = this;
         this.postSystemService
             .getDataList(listUrl)
-            .subscribe(function (data) { return _this.dataList = data; }, function (error) {
+            .subscribe(function (data) {
+            if (_this.getType(data) === _this.getType([]))
+                _this.dataList = data;
+            else
+                _this.dataList.push(data);
+        }, function (error) {
             var err = error.json();
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
-            _this.PutIntoChecklist(primaryKey, _this.parentUrl);
+            _this.PutIntoChecklist(primaryKey);
             // console.log(this.dataList);
         });
     };
@@ -43,21 +52,28 @@ var SearchTemplateComponent = (function () {
         var _this = this;
         this.postSystemService
             .getData(url, urlParam)
-            .subscribe(function (data) { return _this.dataList.push(data); }, function (error) {
+            .subscribe(function (data) {
+            if (_this.getType(data) === _this.getType([]))
+                _this.dataList = data;
+            else
+                _this.dataList.push(data);
+        }, function (error) {
             var err = error.json();
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
-            _this.PutIntoChecklist(_this.primaryKey, url);
+            // console.log(this.dataList);
+            _this.PutIntoChecklist(_this.primaryKey);
         });
     };
-    SearchTemplateComponent.prototype.PutIntoChecklist = function (primaryKey, url) {
+    SearchTemplateComponent.prototype.PutIntoChecklist = function (primaryKey) {
         // clean array
         this.delArray = [];
-        for (var i = 0; i < this.dataList.length; i++) {
+        for (var _i = 0, _a = this.dataList; _i < _a.length; _i++) {
+            var item = _a[_i];
             this.delArray.push({
-                primaryKey: this.dataList[i][primaryKey],
+                primaryKey: item[this.primaryKey],
                 checked: false,
-                url: url + this.dataList[i][primaryKey]
+                url: this.parentUrl + item[this.primaryKey]
             });
         }
         console.log(this.delArray);
@@ -145,11 +161,15 @@ var SearchTemplateComponent = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "categorySearch", void 0);
+    ], SearchTemplateComponent.prototype, "category", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], SearchTemplateComponent.prototype, "categoryKey", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], SearchTemplateComponent.prototype, "categorySearch", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)

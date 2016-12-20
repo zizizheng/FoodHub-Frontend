@@ -41,7 +41,7 @@ var SearchUserComponent = (function (_super) {
     };
     SearchUserComponent.prototype.checkChange = function (item, checked) {
         var _this = this;
-        // console.log(this.delArray.filter(object => object.primaryKey == item[this.primaryKey]));
+        //console.log(this.delArray.filter(object => object.primaryKey == item[this.primaryKey]));
         this.delArray.filter(function (object) { return object.primaryKey == item[_this.primaryKey]; })[0].checked = checked;
     };
     SearchUserComponent.prototype.deleteClick = function () {

@@ -12,7 +12,8 @@ declare let swal:any;
 })
 export class SearchUserComponent extends SearchTemplateComponent implements OnInit {
 
-    constructor(injector: Injector, private serverService: ServerService){
+    constructor(injector: Injector, 
+                private serverService: ServerService){
         super(injector);
         this.categorySearch = userCat.CategorySearch;
         this.categoryKey = userCat.CategoryKey;
@@ -35,14 +36,14 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
     }
 
     checkChange(item, checked){
-        // console.log(this.delArray.filter(object => object.primaryKey == item[this.primaryKey]));
+        //console.log(this.delArray.filter(object => object.primaryKey == item[this.primaryKey]));
         this.delArray.filter(object => object.primaryKey == item[this.primaryKey])[0].checked = checked;
     }
 
     deleteClick(){
         this.Delete();
     }
-    
+
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
     }
