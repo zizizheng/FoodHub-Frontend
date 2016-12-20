@@ -12,11 +12,14 @@ var postSystem_service_1 = require('./../service/postSystem.service');
 var donee_1 = require('./donee');
 var core_1 = require('@angular/core');
 var server_service_1 = require('../service/server.service');
+var doneeCat = require('./donee');
 var AddReceiverComponent = (function () {
     function AddReceiverComponent(postSystemService, serverService) {
         this.postSystemService = postSystemService;
         this.serverService = serverService;
         this.donee = new donee_1.Donee();
+        this.category = [];
+        this.category = doneeCat.Category;
     }
     AddReceiverComponent.prototype.ngOnInit = function () { };
     AddReceiverComponent.prototype.addDoneeClick = function () {

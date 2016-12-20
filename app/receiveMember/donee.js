@@ -7,7 +7,6 @@ var Donee = (function () {
     };
     Donee.prototype.getObject = function () {
         var object = {
-            //_id: this._id,
             donee_name: this.donee_name,
             phone: this.phone,
             contact_phone: this.contact_phone,

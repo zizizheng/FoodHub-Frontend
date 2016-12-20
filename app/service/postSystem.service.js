@@ -15,6 +15,10 @@ var PostSystemService = (function () {
     function PostSystemService(http) {
         this.http = http;
     }
+    PostSystemService.prototype.getDataList = function (url) {
+        return this.http.get(url)
+            .map(function (response) { return response.json(); });
+    };
     PostSystemService.prototype.getData = function (url, key) {
         var params = new http_1.URLSearchParams();
         params.set('searchKey', key);

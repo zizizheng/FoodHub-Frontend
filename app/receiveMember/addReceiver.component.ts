@@ -2,6 +2,7 @@ import { PostSystemService } from './../service/postSystem.service';
 import { Donee } from './donee';
 import { Component } from '@angular/core';
 import { ServerService } from '../service/server.service';
+import doneeCat = require('./donee');
 
 declare let swal:any;
 
@@ -12,10 +13,11 @@ declare let swal:any;
 export class AddReceiverComponent {
     pack: any;
     donee = new Donee();
-    
+    category = [];
+
     constructor(private postSystemService: PostSystemService,
                 private serverService: ServerService){
-      
+          this.category = doneeCat.Category;
     }
 
     ngOnInit(): void{}

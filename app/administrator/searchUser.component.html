@@ -1,24 +1,22 @@
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-4">
-    <input class="form-control" placeholder="搜尋使用者"> </div>
+    <input class="form-control" placeholder="搜尋使用者" [(ngModel)]="searchWord"> </div>
   <div class="col-md-4">
-    <select name="user-info" class="form-control">
-      <option value="user-name">姓名</option>
-      <option value="user-address">地區</option>
+    <select name="user-info" class="form-control" [(ngModel)]="searchKey">
+      <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
     </select>
   </div>
   <div class="col-md-2">
-    <button class="btn btn-primary">送出</button>
+    <button class="btn btn-primary" (click)="searchClick()">送出</button>
   </div>
 </div>
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-12 text-center">
-    <table class="table table-bordered table-hover table-striped">
+    <table class="table table-bordered table-hover table-striped animated zoomIn">
       <thead>
         <tr>
           <th>
             <input type="checkbox" value=""> </th>
-          <th>ID</th>
           <th>姓名</th>
           <th>手機</th>
           <th>地區</th>
@@ -27,45 +25,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngFor="let user of dataList">
           <td>
-            <input type="checkbox" value=""> </td>
-          <td>A001</td>
-          <td>Cindy</td>
-          <td>(02)1234567</td>
-          <td>台中</td>
-          <td>cindy</td>
-          <td>
-            <button class="btn btn-success" (click)="editClick()">更改</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>T001</td>
-          <td>Erica</td>
-          <td>(02)2345678</td>
-          <td>台中</td>
-          <td>erica</td>
-          <td>
-            <button class="btn btn-success" (click)="editClick()">更改</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" value=""> </td>
-          <td>K001</td>
-          <td>Bryan</td>
-          <td>(07)2345678</td>
-          <td>高雄</td>
-          <td>bryan</td>
+            <input type="checkbox" value="" (change)="checkChange(user, $event.target.checked)"> </td>
+          <td>{{user.user_name}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.area}}</td>
+          <td>{{user.account}}</td>
           <td>
             <button class="btn btn-success" (click)="editClick()">更改</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-warning">刪除</button>
+    <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
   </div>
 </div>
 

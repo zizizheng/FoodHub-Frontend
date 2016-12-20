@@ -3,9 +3,14 @@ import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PostSystemService{
+export class PostSystemService {
     private pack;
     constructor( private http: Http ){
+    }
+
+    getDataList(url){
+        return this.http.get(url)
+                        .map(response => response.json());
     }
 
     getData(url, key){

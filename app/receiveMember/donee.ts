@@ -1,5 +1,4 @@
 export class Donee {
-     _id: string;
     donee_name: string;
     phone: string;
     contact_phone: string;
@@ -16,7 +15,6 @@ export class Donee {
 
     public getObject(){
         let object = { 
-            //_id: this._id,
             donee_name: this.donee_name,
             phone: this.phone,
             contact_phone: this.contact_phone,

@@ -18,13 +18,12 @@
 </div>
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-12 text-center table-responsive">
-    <table class="table table-bordered table-hover table-striped table-sm">
+    <table class="table table-bordered table-hover table-striped table-sm animated zoomIn">
       <thead>
         <tr>
           <th>
             <input type="checkbox" value=""> </th>
           <th>單位名稱</th>
-          <th>單位編號</th>
           <th>單位分類</th>
           <th>戶數</th>
           <th>人數</th>
@@ -42,7 +41,6 @@
             <input type="checkbox" (change)="checkChange(donee, $event.target.checked)"> 
           </td>
           <td>{{donee.donee_name}}</td>
-          <td>{{donee._id}}</td>
           <td>{{donee.category}}</td>
           <td>{{donee.house}}</td>
           <td>{{donee.people}}</td>

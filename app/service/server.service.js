@@ -23,6 +23,9 @@ var ServerService = (function () {
     ServerService.prototype.getDonorUrl = function (value) {
         return this.serverUrl + 'donor/' + value;
     };
+    ServerService.prototype.getUserUrl = function (value) {
+        return this.serverUrl + 'user/' + value;
+    };
     ServerService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

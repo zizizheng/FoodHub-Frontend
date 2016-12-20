@@ -1,5 +1,4 @@
 export class Donor {
-    _id: string;
     ic: string;
     donor_name: string;
     phone: string;
@@ -16,7 +15,6 @@ export class Donor {
 
     public getObject(){
         let object = { 
-            //_id: this._id,
             donor_name: this.donor_name,
             ic: this.ic,
             phone: this.phone,
