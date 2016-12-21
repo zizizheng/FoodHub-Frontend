@@ -9,27 +9,27 @@ import { HeaderComponent } from './header.component';
 import { MyFooterComponent } from './footer.component';
 import { LoginComponent } from './login.component';
 import { ExpiryComponent } from './expiry/expiry.component';
-import { DonateItemComponent } from './donateItem/donateItem.component';
-import { DonateMemberComponent } from './donateMember/donateMember.component';
-import { ReceiveMemberComponent } from './receiveMember/receiveMember.component';
+import { DonationComponent } from './donation/donation.component';
+import { DonorComponent } from './donor/donor.component';
+import { DoneeComponent } from './donee/donee.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 
 // Item Page Components
-import { SearchItemComponent } from './donateItem/searchItem.component';
-import { GiveItemComponent } from './donateItem/giveItem.component';
-import { AddItemComponent } from './donateItem/addItem.component';
-import { RefreshItemComponent } from './donateItem/refreshItem.component';
-import { ImportItemComponent } from './donateItem/importItem.component';
+import { SearchDonationComponent } from './donation/searchDonation.component';
+import { GiveDonationComponent } from './donation/giveDonation.component';
+import { AddDonationComponent } from './donation/addDonation.component';
+import { UpdateDonationComponent } from './donation/updateDonation.component';
+import { ImportDonationComponent } from './donation/importDonation.component';
 
 // Donater Page Components
-import { SearchDonaterComponent } from './donateMember/searchDonater.component';
-import { AddDonaterComponent } from './donateMember/addDonater.component';
-import { UpdateDonaterComponent } from './donateMember/updateDonater.component';
+import { SearchDonorComponent } from './donor/searchDonor.component';
+import { AddDonorComponent } from './donor/addDonor.component';
+import { UpdateDonorComponent } from './donor/updateDonor.component';
 
 // Receiver Page Components
-import { SearchReceiverComponent } from './receiveMember/searchReceiver.component';
-import { AddReceiverComponent } from './receiveMember/addReceiver.component';
-import { UpdateReceiverComponent } from './receiveMember/updateReceiver.component';
+import { SearchDoneeComponent } from './donee/searchDonee.component';
+import { AddDoneeComponent } from './donee/addDonee.component';
+import { UpdateDoneeComponent } from './donee/updateDonee.component';
 
 // Addministrator Page Components
 import { SearchUserComponent } from './administrator/searchUser.component';
@@ -47,9 +47,10 @@ import { PostSystemService } from './service/postSystem.service';
                 HttpModule,
                 routing],
   declarations: [AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,
-                DonateItemComponent, SearchItemComponent, AddItemComponent, GiveItemComponent,
-                RefreshItemComponent, ImportItemComponent, DonateMemberComponent, SearchDonaterComponent, UpdateDonaterComponent, AddDonaterComponent, ReceiveMemberComponent,
-                SearchReceiverComponent, AddReceiverComponent, UpdateReceiverComponent,
+                DonationComponent, SearchDonationComponent, AddDonationComponent, GiveDonationComponent,
+                UpdateDonationComponent, ImportDonationComponent, DonorComponent, SearchDonorComponent, 
+                UpdateDonorComponent, AddDonorComponent, DoneeComponent,
+                SearchDoneeComponent, AddDoneeComponent, UpdateDoneeComponent,
                 AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
   providers: [ LoginService, ServerService, PostSystemService], 
   bootstrap: [ AppComponent ]

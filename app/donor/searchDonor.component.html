@@ -1,0 +1,58 @@
+<div class="row" style="margin: 20 10 10 10">
+  <div class="col-md-4">
+    <input *ngIf="!selectCat" class="form-control" placeholder="你要找什麼呢？" [(ngModel)]="searchWord">
+    <!--選用分類時出現-->
+    <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord">
+      <option *ngFor="let item of category" [value]="item">{{item}}</option>
+    </select> 
+  </div>
+  
+  <div class="col-md-4">
+    <select name="user-info" class="form-control" [(ngModel)]="searchKey"
+            (change)="searchChange($event.target.value)">
+      <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary" (click)="searchClick()">送出</button>
+  </div>
+</div>
+<div class="row" style="margin: 20 10 10 10">
+  <div class="col-md-12 text-center table-responsive">
+    <table class="table table-bordered table-hover table-striped table-sm animated zoomIn">
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" value=""> </th>
+          <th>姓名</th>
+          <th>單位分類</th>
+          <th>統一編號</th>
+          <th>電話</th>
+          <th>手機</th>
+          <th>E-mail</th>
+          <th>地區</th>
+          <th>選項</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let donor of dataList">
+          <td>
+            <input type="checkbox" (change)="checkChange(donor, $event.target.checked)"> 
+          </td>
+          <td>{{donor.donor_name}}</td>
+          <td>{{donor.category}}</td>
+          <td>{{donor.ic}}</td>
+          <td>{{donor.phone}}</td>
+          <td>{{donor.contact_phone}}</td>
+          <td>{{donor.email}}</td>
+          <td>{{donor.area}}</td>
+          <td>
+            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
+  </div>
+</div>
+<updateDonor *ngIf="selectedBut"></updateDonor>

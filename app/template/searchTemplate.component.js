@@ -44,7 +44,7 @@ var SearchTemplateComponent = (function () {
             var err = error.json();
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
-            _this.PutIntoChecklist(primaryKey);
+            _this.putIntoChecklist(primaryKey);
             // console.log(this.dataList);
         });
     };
@@ -62,21 +62,8 @@ var SearchTemplateComponent = (function () {
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
             // console.log(this.dataList);
-            _this.PutIntoChecklist(_this.primaryKey);
+            _this.putIntoChecklist(_this.primaryKey);
         });
-    };
-    SearchTemplateComponent.prototype.PutIntoChecklist = function (primaryKey) {
-        // clean array
-        this.delArray = [];
-        for (var _i = 0, _a = this.dataList; _i < _a.length; _i++) {
-            var item = _a[_i];
-            this.delArray.push({
-                primaryKey: item[this.primaryKey],
-                checked: false,
-                url: this.parentUrl + item[this.primaryKey]
-            });
-        }
-        console.log(this.delArray);
     };
     SearchTemplateComponent.prototype.Delete = function () {
         var _this = this;
@@ -106,6 +93,19 @@ var SearchTemplateComponent = (function () {
             swal("請勾選欲刪除的項目", "不然要刪空氣喔", "question");
         }
     };
+    SearchTemplateComponent.prototype.putIntoChecklist = function (primaryKey) {
+        // clean array
+        this.delArray = [];
+        for (var _i = 0, _a = this.dataList; _i < _a.length; _i++) {
+            var item = _a[_i];
+            this.delArray.push({
+                primaryKey: item[this.primaryKey],
+                checked: false,
+                url: this.parentUrl + item[this.primaryKey]
+            });
+        }
+        console.log(this.delArray);
+    };
     SearchTemplateComponent.prototype.deleteObject = function () {
         var _this = this;
         for (var _i = 0, _a = this.delArray; _i < _a.length; _i++) {
@@ -122,9 +122,6 @@ var SearchTemplateComponent = (function () {
                 });
             }
         }
-    };
-    SearchTemplateComponent.prototype.searchChange = function (value) {
-        this.selectCat = (value === '單位分類') ? true : false;
     };
     __decorate([
         core_1.Input(), 
@@ -199,10 +196,7 @@ var SearchTemplateComponent = (function () {
         __metadata('design:returntype', void 0)
     ], SearchTemplateComponent.prototype, "Search", null);
     SearchTemplateComponent = __decorate([
-        core_1.Component({
-            selector: 'searchUser',
-            templateUrl: "app/administrator/searchUser.component.html"
-        }), 
+        core_1.Component({}), 
         __metadata('design:paramtypes', [core_1.Injector])
     ], SearchTemplateComponent);
     return SearchTemplateComponent;

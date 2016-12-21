@@ -4,8 +4,6 @@ import { User } from './user';
 import userCat = require('./user');
 import { SearchTemplateComponent } from '../template/searchTemplate.component';
 
-declare let swal:any;
-
 @Component({
   selector: 'searchUser',
   templateUrl: `app/administrator/searchUser.component.html`

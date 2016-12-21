@@ -13,36 +13,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var addTemplate_component_1 = require('./../template/addTemplate.component');
+var donee_1 = require('./donee');
 var core_1 = require('@angular/core');
 var server_service_1 = require('../service/server.service');
-var user_1 = require('./user');
-var addTemplate_component_1 = require('../template/addTemplate.component');
-var userCat = require('./user');
-var AddUserComponent = (function (_super) {
-    __extends(AddUserComponent, _super);
-    function AddUserComponent(injector, serverService) {
+var doneeCat = require('./donee');
+var AddDoneeComponent = (function (_super) {
+    __extends(AddDoneeComponent, _super);
+    function AddDoneeComponent(injector, serverService) {
         _super.call(this, injector);
         this.serverService = serverService;
-        this.user = new user_1.User();
-        this.area = [];
-        this.authCat = [];
-        this.area = userCat.Area;
-        this.authCat = userCat.Auth;
+        this.donee = new donee_1.Donee();
+        this.category = [];
+        this.category = doneeCat.Category;
     }
-    AddUserComponent.prototype.ngOnInit = function () { };
-    AddUserComponent.prototype.addUserClick = function () {
-        var userObject = this.user.getObject();
-        var url = this.serverService.getUserUrl(this.user.account);
-        this.Add(url, userObject);
+    AddDoneeComponent.prototype.addDoneeClick = function () {
+        var doneeObject = this.donee.getObject();
+        var url = this.serverService.getDoneeUrl(this.donee.donee_name);
+        this.Add(url, doneeObject);
     };
-    AddUserComponent = __decorate([
+    AddDoneeComponent = __decorate([
         core_1.Component({
-            selector: 'addUser',
-            templateUrl: "app/administrator/addUser.component.html"
+            selector: 'addDonee',
+            templateUrl: "app/donee/addDonee.component.html"
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddUserComponent);
-    return AddUserComponent;
+    ], AddDoneeComponent);
+    return AddDoneeComponent;
 }(addTemplate_component_1.AddTemplateComponent));
-exports.AddUserComponent = AddUserComponent;
-//# sourceMappingURL=addUser.component.js.map
+exports.AddDoneeComponent = AddDoneeComponent;
+//# sourceMappingURL=addDonee.component.js.map

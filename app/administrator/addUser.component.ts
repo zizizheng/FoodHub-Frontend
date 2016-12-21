@@ -1,23 +1,22 @@
-import { Component } from '@angular/core';
-import { PostSystemService } from '../service/postSystem.service';
+import { Component, Injector } from '@angular/core';
 import { ServerService } from '../service/server.service';
 import { User } from './user';
+import { AddTemplateComponent } from '../template/addTemplate.component';
 import userCat = require('./user');
-
-declare let swal:any;
 
 @Component({
   selector: 'addUser',
   templateUrl: `app/administrator/addUser.component.html`
 })
-export class AddUserComponent {
+export class AddUserComponent extends AddTemplateComponent {
     pack: any;
     user = new User();
     area = [];
     authCat = [];
 
-    constructor(private postSystemService: PostSystemService,
+    constructor(injector:Injector,
                 private serverService: ServerService){
+        super(injector);
         this.area = userCat.Area;
         this.authCat = userCat.Auth;
     }
@@ -26,17 +25,7 @@ export class AddUserComponent {
 
     addUserClick(){
       let userObject = this.user.getObject();
-      console.log(userObject);
       let url = this.serverService.getUserUrl(this.user.account);
-      console.log(url);
-      this.postSystemService
-          .postData(url, userObject)
-          .subscribe(
-            data => swal('Congrations', data.success, 'success'),
-            error => {
-              let err = error.json();
-              console.log(err.error);
-            }
-          );
+      this.Add(url, userObject);
     }
 }

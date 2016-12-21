@@ -5,10 +5,7 @@ import { Component, OnInit, Input, Injector } from '@angular/core';
 
 declare let swal:any;
 
-@Component({
-  selector: 'searchUser',
-  templateUrl: `app/administrator/searchUser.component.html`
-})
+@Component({})
 export class SearchTemplateComponent {
     @Input() refreshBut = false;
     @Input() importBut = false;
@@ -44,7 +41,7 @@ export class SearchTemplateComponent {
                     swal('Opps, something wrong!', err.error, 'warning');
                 },
                 () => {
-                    this.PutIntoChecklist(primaryKey);
+                    this.putIntoChecklist(primaryKey);
                     // console.log(this.dataList);
                 }
             );
@@ -65,24 +62,11 @@ export class SearchTemplateComponent {
                 },
                 () => {
                     // console.log(this.dataList);
-                    this.PutIntoChecklist(this.primaryKey);
+                    this.putIntoChecklist(this.primaryKey);
                 }
             );
     }
 
-    PutIntoChecklist(primaryKey){
-        // clean array
-        this.delArray = [];
-        
-        for(let item of this.dataList){
-            this.delArray.push({
-                primaryKey: item[this.primaryKey],
-                checked: false,
-                url: this.parentUrl + item[this.primaryKey]
-            });
-        }
-        console.log(this.delArray);
-    }
 
     Delete(){
         this.delCheck = false;
@@ -112,6 +96,20 @@ export class SearchTemplateComponent {
         
     }
 
+    putIntoChecklist(primaryKey){
+        // clean array
+        this.delArray = [];
+        
+        for(let item of this.dataList){
+            this.delArray.push({
+                primaryKey: item[this.primaryKey],
+                checked: false,
+                url: this.parentUrl + item[this.primaryKey]
+            });
+        }
+        console.log(this.delArray);
+    }
+
     deleteObject(){
         for( let ob of this.delArray ){
             if( ob.checked ){
@@ -130,10 +128,6 @@ export class SearchTemplateComponent {
                     );
             }
         }
-    }
-
-    searchChange(value){
-        this.selectCat = (value === '單位分類') ? true : false;
     }
 
     getType = function(ele){

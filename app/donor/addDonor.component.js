@@ -14,35 +14,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var donor_1 = require('./donor');
 var server_service_1 = require('../service/server.service');
-var user_1 = require('./user');
 var addTemplate_component_1 = require('../template/addTemplate.component');
-var userCat = require('./user');
-var AddUserComponent = (function (_super) {
-    __extends(AddUserComponent, _super);
-    function AddUserComponent(injector, serverService) {
+var donorCat = require('./donor');
+var AddDonorComponent = (function (_super) {
+    __extends(AddDonorComponent, _super);
+    function AddDonorComponent(injector, serverService) {
         _super.call(this, injector);
         this.serverService = serverService;
-        this.user = new user_1.User();
+        this.isGroup = false;
+        this.donor = new donor_1.Donor();
+        this.category = [];
         this.area = [];
-        this.authCat = [];
-        this.area = userCat.Area;
-        this.authCat = userCat.Auth;
+        this.category = donorCat.Category;
+        this.area = donorCat.Area;
     }
-    AddUserComponent.prototype.ngOnInit = function () { };
-    AddUserComponent.prototype.addUserClick = function () {
-        var userObject = this.user.getObject();
-        var url = this.serverService.getUserUrl(this.user.account);
-        this.Add(url, userObject);
+    AddDonorComponent.prototype.addDonorClick = function () {
+        var donorObject = this.donor.getObject();
+        var url = this.serverService.getDonorUrl(this.donor.donor_name);
+        this.Add(url, donorObject);
     };
-    AddUserComponent = __decorate([
+    AddDonorComponent.prototype.catChange = function (value) {
+        console.log(value);
+        this.isGroup = (value === '團體') ? true : false;
+    };
+    AddDonorComponent = __decorate([
         core_1.Component({
-            selector: 'addUser',
-            templateUrl: "app/administrator/addUser.component.html"
+            selector: 'addDonor',
+            templateUrl: "app/donor/addDonor.component.html"
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddUserComponent);
-    return AddUserComponent;
+    ], AddDonorComponent);
+    return AddDonorComponent;
 }(addTemplate_component_1.AddTemplateComponent));
-exports.AddUserComponent = AddUserComponent;
-//# sourceMappingURL=addUser.component.js.map
+exports.AddDonorComponent = AddDonorComponent;
+//# sourceMappingURL=addDonor.component.js.map

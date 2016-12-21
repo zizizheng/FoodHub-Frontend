@@ -18,24 +18,24 @@ var header_component_1 = require('./header.component');
 var footer_component_1 = require('./footer.component');
 var login_component_1 = require('./login.component');
 var expiry_component_1 = require('./expiry/expiry.component');
-var donateItem_component_1 = require('./donateItem/donateItem.component');
-var donateMember_component_1 = require('./donateMember/donateMember.component');
-var receiveMember_component_1 = require('./receiveMember/receiveMember.component');
+var donation_component_1 = require('./donation/donation.component');
+var donor_component_1 = require('./donor/donor.component');
+var donee_component_1 = require('./donee/donee.component');
 var administrator_component_1 = require('./administrator/administrator.component');
 // Item Page Components
-var searchItem_component_1 = require('./donateItem/searchItem.component');
-var giveItem_component_1 = require('./donateItem/giveItem.component');
-var addItem_component_1 = require('./donateItem/addItem.component');
-var refreshItem_component_1 = require('./donateItem/refreshItem.component');
-var importItem_component_1 = require('./donateItem/importItem.component');
+var searchDonation_component_1 = require('./donation/searchDonation.component');
+var giveDonation_component_1 = require('./donation/giveDonation.component');
+var addDonation_component_1 = require('./donation/addDonation.component');
+var updateDonation_component_1 = require('./donation/updateDonation.component');
+var importDonation_component_1 = require('./donation/importDonation.component');
 // Donater Page Components
-var searchDonater_component_1 = require('./donateMember/searchDonater.component');
-var addDonater_component_1 = require('./donateMember/addDonater.component');
-var updateDonater_component_1 = require('./donateMember/updateDonater.component');
+var searchDonor_component_1 = require('./donor/searchDonor.component');
+var addDonor_component_1 = require('./donor/addDonor.component');
+var updateDonor_component_1 = require('./donor/updateDonor.component');
 // Receiver Page Components
-var searchReceiver_component_1 = require('./receiveMember/searchReceiver.component');
-var addReceiver_component_1 = require('./receiveMember/addReceiver.component');
-var updateReceiver_component_1 = require('./receiveMember/updateReceiver.component');
+var searchDonee_component_1 = require('./donee/searchDonee.component');
+var addDonee_component_1 = require('./donee/addDonee.component');
+var updateDonee_component_1 = require('./donee/updateDonee.component');
 // Addministrator Page Components
 var searchUser_component_1 = require('./administrator/searchUser.component');
 var addUser_component_1 = require('./administrator/addUser.component');
@@ -54,9 +54,10 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 app_routing_1.routing],
             declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, expiry_component_1.ExpiryComponent, footer_component_1.MyFooterComponent,
-                donateItem_component_1.DonateItemComponent, searchItem_component_1.SearchItemComponent, addItem_component_1.AddItemComponent, giveItem_component_1.GiveItemComponent,
-                refreshItem_component_1.RefreshItemComponent, importItem_component_1.ImportItemComponent, donateMember_component_1.DonateMemberComponent, searchDonater_component_1.SearchDonaterComponent, updateDonater_component_1.UpdateDonaterComponent, addDonater_component_1.AddDonaterComponent, receiveMember_component_1.ReceiveMemberComponent,
-                searchReceiver_component_1.SearchReceiverComponent, addReceiver_component_1.AddReceiverComponent, updateReceiver_component_1.UpdateReceiverComponent,
+                donation_component_1.DonationComponent, searchDonation_component_1.SearchDonationComponent, addDonation_component_1.AddDonationComponent, giveDonation_component_1.GiveDonationComponent,
+                updateDonation_component_1.UpdateDonationComponent, importDonation_component_1.ImportDonationComponent, donor_component_1.DonorComponent, searchDonor_component_1.SearchDonorComponent,
+                updateDonor_component_1.UpdateDonorComponent, addDonor_component_1.AddDonorComponent, donee_component_1.DoneeComponent,
+                searchDonee_component_1.SearchDoneeComponent, addDonee_component_1.AddDoneeComponent, updateDonee_component_1.UpdateDoneeComponent,
                 administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, editUser_component_1.EditUserComponent],
             providers: [login_service_1.LoginService, server_service_1.ServerService, postSystem_service_1.PostSystemService],
             bootstrap: [app_component_1.AppComponent]
