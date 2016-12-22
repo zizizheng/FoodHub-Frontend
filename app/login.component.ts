@@ -10,8 +10,8 @@ declare let swal:any;
 })
 export class LoginComponent {
 	curTime: Object;
-	account: string;
-	password: string;
+	account: string = '';
+	password: string = '';
 	userName: string;
 	pack: any;
 	isLogin: boolean;
@@ -28,30 +28,25 @@ export class LoginComponent {
 		this.isLogin = (this.userName == undefined) ? false : true;
 	}
 
-	userInput($event, inputType){
-		if(inputType == 'a'){
-			this.account = $event.target.value;
-		}
-		else {
-			this.password = $event.target.value;
-		}
-	}
-
 	loginClick(){
 		//swal("Account : " + this.account + ", and Password : " + this.password);
-		this.loginService.postData(this.account, this.password)
-			.subscribe(
-				data => this.pack = data,
-				error => {
-					let err = error.json();
-					swal(err.error);
-				},
-				() => {
-					let gotName = this.pack.name;
-					this.loginService.recordLogin(gotName),
-					swal( 'Login successed', 'Welcome to FoodBank, ' + gotName),
-					this.router.navigate(['expiryPage'])
-				}
-			);
+		if( this.account == '' || this.password == '') 
+			swal('請輸入帳號密碼', '忘記帳密了嗎? 這功能也還沒實作QQ', 'warning');
+		else {
+			this.loginService.postData(this.account, this.password)
+				.subscribe(
+					data => this.pack = data,
+					error => {
+						let err = error.json();
+						swal('Error', err.error);
+					},
+					() => {
+						this.loginService.recordLogin(this.account),
+						swal( 'Login Successed', 'Welcome to FoodBank, ' + this.account),
+						this.router.navigate(['expiryPage'])
+					}
+				);
+
+		} 
 	}
 }

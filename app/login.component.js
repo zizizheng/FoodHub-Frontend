@@ -15,6 +15,8 @@ var LoginComponent = (function () {
     function LoginComponent(router, loginService) {
         this.router = router;
         this.loginService = loginService;
+        this.account = '';
+        this.password = '';
         this.isLogin = false;
         this.pack = undefined;
         this.userName = undefined;
@@ -23,27 +25,22 @@ var LoginComponent = (function () {
         this.userName = this.loginService.checkLogin();
         this.isLogin = (this.userName == undefined) ? false : true;
     };
-    LoginComponent.prototype.userInput = function ($event, inputType) {
-        if (inputType == 'a') {
-            this.account = $event.target.value;
-        }
-        else {
-            this.password = $event.target.value;
-        }
-    };
     LoginComponent.prototype.loginClick = function () {
         var _this = this;
         //swal("Account : " + this.account + ", and Password : " + this.password);
-        this.loginService.postData(this.account, this.password)
-            .subscribe(function (data) { return _this.pack = data; }, function (error) {
-            var err = error.json();
-            swal(err.error);
-        }, function () {
-            var gotName = _this.pack.name;
-            _this.loginService.recordLogin(gotName),
-                swal('Login successed', 'Welcome to FoodBank, ' + gotName),
-                _this.router.navigate(['expiryPage']);
-        });
+        if (this.account == '' || this.password == '')
+            swal('請輸入帳號密碼', '忘記帳密了嗎? 這功能也還沒實作QQ', 'warning');
+        else {
+            this.loginService.postData(this.account, this.password)
+                .subscribe(function (data) { return _this.pack = data; }, function (error) {
+                var err = error.json();
+                swal('Error', err.error);
+            }, function () {
+                _this.loginService.recordLogin(_this.account),
+                    swal('Login Successed', 'Welcome to FoodBank, ' + _this.account),
+                    _this.router.navigate(['expiryPage']);
+            });
+        }
     };
     LoginComponent = __decorate([
         core_1.Component({

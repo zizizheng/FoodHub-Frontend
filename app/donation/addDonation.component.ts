@@ -26,5 +26,6 @@ export class AddDonationComponent extends AddTemplateComponent{
       let itemObject = this.item.getObject();
       let url = this.serverService.getDonationUrl(this.item._id);
       this.Add(url, itemObject);
+    }
 
 }
