@@ -15,7 +15,6 @@ export class UpdateUserComponent extends UpdateTemplateComponent implements OnIn
     user: User;
     area = itemCat.Area;
     auth = itemCat.Auth;
-    authInChi = '';
 
     constructor(injector: Injector,
                 private serverService: ServerService){
@@ -25,16 +24,13 @@ export class UpdateUserComponent extends UpdateTemplateComponent implements OnIn
 
     ngOnInit(){
         this.user.pushData(this.inputItem);
-        this.authInChi = (this.user.auth == "admin") ? "管理員": "一般使用者";
     }
 
     ngOnChanges(){
-        this.user.pushData(this.inputItem);     
-        this.authInChi = (this.user.auth == "admin") ? "管理員": "一般使用者";           
+        this.user.pushData(this.inputItem);               
     }
 
     sendClick(){
-        this.user.auth = (this.authInChi == "管理員") ? "admin": "user";
         let itemObject = this.user.getObject();
         let url = this.serverService.getUserUrl(this.user.user_name);
         this.Update(url, itemObject);

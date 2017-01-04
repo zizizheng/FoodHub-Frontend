@@ -32,6 +32,9 @@ var AddDonationComponent = (function (_super) {
         var url = this.serverService.getDonationUrl(this.item._id);
         this.Add(url, itemObject);
     };
+    AddDonationComponent.prototype.cleanClick = function () {
+        this.item = new donation_1.Donation();
+    };
     AddDonationComponent = __decorate([
         core_1.Component({
             selector: 'addDonation',

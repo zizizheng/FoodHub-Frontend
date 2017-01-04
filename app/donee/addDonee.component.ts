@@ -24,4 +24,8 @@ export class AddDoneeComponent extends AddTemplateComponent {
       let url = this.serverService.getDoneeUrl(this.donee.donee_name);
       this.Add(url, doneeObject);
     }
+
+    cleanClick(){
+        this.donee = new Donee();
+    }
 }

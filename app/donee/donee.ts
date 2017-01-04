@@ -33,7 +33,7 @@ export class Donee {
         this.donee_name = ob.donee_name;
         this.phone = ob.phone;
         this.contact_phone = ob.contact_phone;
-        this.email = this.email;
+        this.email = ob.email;
         this.address = ob.address;
         this.contact = ob.contact;
         this.category = ob.category;

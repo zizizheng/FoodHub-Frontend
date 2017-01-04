@@ -1,43 +1,50 @@
-<div class="row" style="margin: 10 10 10 10">
-  <div class="col-md-12 text-left">
-    <div class="text-center" style="background-color: #FFFFFF">
-      <h1>新增使用者</h1>
-      <div class="row" style="margin: 10 10 10 10">
-        <div class="col-md-3">
-          <label class="control-label">姓名</label>
-          <input class="form-control" placeholder="姓名" [(ngModel)]="user.user_name"> </div>
-        <div class="col-md-3">
-          <label class="control-label">單位</label>
-          <input class="form-control" placeholder="單位" [(ngModel)]="user.user_unit"> </div>
-        <div class="col-md-3">
-          <label class="control-label">地區</label>
-          <select name="user-info" class="form-control" [(ngModel)]="user.area">
-            <option *ngFor="let item of area" [value]="item">{{item}}</option>
-          </select>
+<form #userForm="ngForm">
+  <div class="row" style="margin: 10 10 10 10">
+    <div class="col-md-12 text-left">
+      <div class="text-center" style="background-color: #FFFFFF">
+        <h1>新增使用者</h1>
+        <div class="row" style="margin: 10 10 10 10">
+          <div class="col-md-3">
+            <label class="control-label">姓名</label>
+            <input class="form-control" name="name" placeholder="姓名" [(ngModel)]="user.user_name"
+                   required> 
+          </div>
+          <div class="col-md-3">
+            <label class="control-label">單位</label>
+            <input class="form-control" name="unit" placeholder="單位" [(ngModel)]="user.user_unit"
+                   required> 
+          </div>
+          <div class="col-md-3">
+            <label class="control-label">地區</label>
+            <select name="user-info" name="area" class="form-control" [(ngModel)]="user.area">
+              <option *ngFor="let item of area" [value]="item">{{item}}</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label">手機</label>
+            <input class="form-control" name="phone" placeholder="手機" [(ngModel)]="user.phone"> </div>
         </div>
-        <div class="col-md-3">
-          <label class="control-label">手機</label>
-          <input class="form-control" placeholder="手機" [(ngModel)]="user.phone"> </div>
-      </div>
-      <div class="row" style="margin: 10 10 10 10">
-        <div class="col-md-4">
-          <label class="control-label">帳號</label>
-          <input class="form-control" placeholder="帳號" [(ngModel)]="user.account"> </div>
-        <div class="col-md-4">
-          <label class="control-label">密碼</label>
-          <input type="password" class="form-control" placeholder="密碼" [(ngModel)]="user.password"> </div>
-        <div class="col-md-4">
-          <label class="control-label">權限</label>
-          <select name="user-info" class="form-control" [(ngModel)]="user.auth">
-            <option *ngFor="let item of authCat" [value]="item">{{item}}</option>
-          </select>
+        <div class="row" style="margin: 10 10 10 10">
+          <div class="col-md-4">
+            <label class="control-label">帳號</label>
+            <input class="form-control" name="account" placeholder="帳號" [(ngModel)]="user.account"> </div>
+          <div class="col-md-4">
+            <label class="control-label">密碼</label>
+            <input type="password" class="form-control" name="password" placeholder="密碼" [(ngModel)]="user.password"> </div>
+          <div class="col-md-4">
+            <label class="control-label">權限</label>
+            <select name="user-info" name="auth" class="form-control" [(ngModel)]="user.auth">
+              <option *ngFor="let item of authCat" [value]="item">{{item}}</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <button class="btn btn-success btn-lg" (click)="addUserClick()">新增使用者</button>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-success btn-lg" (click)="addUserClick()"
+                    [disabled]="!userForm.form.valid">新增使用者</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>

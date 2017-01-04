@@ -28,4 +28,8 @@ export class AddDonationComponent extends AddTemplateComponent{
       this.Add(url, itemObject);
     }
 
+    cleanClick(){
+        this.item = new Donation();
+    }
+
 }

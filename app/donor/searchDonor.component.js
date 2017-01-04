@@ -31,6 +31,10 @@ var SearchDonorComponent = (function (_super) {
         this.parentUrl = this.serverService.getDonorUrl('');
         this.dataList = new Array();
     }
+    SearchDonorComponent.prototype.ngOnInit = function () {
+        var url = this.serverService.getDonorUrl('list');
+        this.GetList(url, this.primaryKey);
+    };
     SearchDonorComponent.prototype.searchClick = function () {
         this.dataList = [];
         var keyIndex = this.categorySearch.indexOf(this.searchKey);
@@ -49,6 +53,7 @@ var SearchDonorComponent = (function (_super) {
     };
     SearchDonorComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '分類') ? true : false;
+        this.searchWord = '';
     };
     SearchDonorComponent.prototype.updateClick = function (donor) {
         this.selectedItem = donor;

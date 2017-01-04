@@ -32,6 +32,9 @@ var AddDoneeComponent = (function (_super) {
         var url = this.serverService.getDoneeUrl(this.donee.donee_name);
         this.Add(url, doneeObject);
     };
+    AddDoneeComponent.prototype.cleanClick = function () {
+        this.donee = new donee_1.Donee();
+    };
     AddDoneeComponent = __decorate([
         core_1.Component({
             selector: 'addDonee',

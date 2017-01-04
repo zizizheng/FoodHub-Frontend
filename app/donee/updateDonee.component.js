@@ -31,6 +31,8 @@ var UpdateDoneeComponent = (function (_super) {
     };
     UpdateDoneeComponent.prototype.ngOnChanges = function () {
         this.donee.pushData(this.inputItem);
+        console.log(this.inputItem);
+        console.log(this.donee);
     };
     UpdateDoneeComponent.prototype.sendClick = function () {
         var itemObject = this.donee.getObject();

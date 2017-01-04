@@ -64,7 +64,12 @@ var SearchDonationComponent = (function (_super) {
         this.Delete();
     };
     SearchDonationComponent.prototype.searchChange = function (value) {
-        this.selectCat = (value === '品項類別') ? true : false;
+        if (value === '品項類別') {
+            this.selectCat = true;
+            this.searchWord = '';
+        }
+        else
+            this.selectCat = false;
     };
     SearchDonationComponent = __decorate([
         core_1.Component({

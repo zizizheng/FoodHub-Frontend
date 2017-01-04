@@ -1,6 +1,6 @@
 import { SearchTemplateComponent } from './../template/searchTemplate.component';
 import { ServerService } from '../service/server.service';
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { Donor, Area } from './donor';
 
 import donorCat = require('./donor');
@@ -10,7 +10,7 @@ declare let swal:any;
   selector: 'searchDonor',
   templateUrl: `app/donor/searchDonor.component.html`
 })
-export class SearchDonorComponent extends SearchTemplateComponent {
+export class SearchDonorComponent extends SearchTemplateComponent implements OnInit{
     private area = [];
 
     constructor( injector: Injector,
@@ -24,6 +24,12 @@ export class SearchDonorComponent extends SearchTemplateComponent {
         this.parentUrl = this.serverService.getDonorUrl('');
         this.dataList = new Array<Donor>();
     }
+
+    ngOnInit(){
+        let url = this.serverService.getDonorUrl('list');
+        this.GetList(url, this.primaryKey);      
+    }
+
     searchClick(){
         this.dataList = [];
         let keyIndex = this.categorySearch.indexOf(this.searchKey); 
@@ -45,6 +51,7 @@ export class SearchDonorComponent extends SearchTemplateComponent {
 
     searchChange(value){
         this.selectCat = (value === '分類') ? true : false;
+        this.searchWord = '';
     }
 
     updateClick(donor){

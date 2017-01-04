@@ -25,19 +25,15 @@ var UpdateUserComponent = (function (_super) {
         this.serverService = serverService;
         this.area = itemCat.Area;
         this.auth = itemCat.Auth;
-        this.authInChi = '';
         this.user = new user_1.User();
     }
     UpdateUserComponent.prototype.ngOnInit = function () {
         this.user.pushData(this.inputItem);
-        this.authInChi = (this.user.auth == "admin") ? "管理員" : "一般使用者";
     };
     UpdateUserComponent.prototype.ngOnChanges = function () {
         this.user.pushData(this.inputItem);
-        this.authInChi = (this.user.auth == "admin") ? "管理員" : "一般使用者";
     };
     UpdateUserComponent.prototype.sendClick = function () {
-        this.user.auth = (this.authInChi == "管理員") ? "admin" : "user";
         var itemObject = this.user.getObject();
         var url = this.serverService.getUserUrl(this.user.user_name);
         this.Update(url, itemObject);

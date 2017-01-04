@@ -25,7 +25,7 @@
     <div class="col-md-9">
       <label class="control-label">地址</label>
       <input type="text" class="form-control" placeholder="輸入單位或個人地址" 
-             [(ngModel)]="item.address"> </div>
+             [(ngModel)]="donee.address"> </div>
   </div>
   <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-2">
@@ -40,8 +40,8 @@
   </div>
   <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-12">
-      <button class="btn btn-success btn-lg">取消</button>
-      <button class="btn btn-warning btn-lg" (click)="sendClick()">送出</button>
+      <button class="btn btn-success btn-md">取消</button>
+      <button class="btn btn-warning btn-md" (click)="sendClick()">送出</button>
     </div>
   </div>
 </div>

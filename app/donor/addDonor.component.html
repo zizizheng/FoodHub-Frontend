@@ -1,66 +1,71 @@
-<div class="row">
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-3">
-      <label class="control-label">名字</label>
-      <input class="form-control" placeholder="姓名" [(ngModel)]="donor.donor_name"> </div>
-    <div class="col-md-2">
-      <label class="control-label">分類</label>
-      <select name="category" class="form-control" [(ngModel)]="donor.category" 
-              (change)="catChange($event.target.value)">
-        <option *ngFor="let item of category" [value]="item">{{item}}</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <label class="control-label">統一編號</label>
-      <input class="form-control" placeholder="0912384758" [(ngModel)]="donor.ic"> </div>
-    <div class="col-md-4">
-      <label class="control-label">E-mail</label>
-      <input class="form-control" placeholder="FoodHub@gmail.com" [(ngModel)]="donor.email"> 
-    </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-2">
-      <label class="control-label">電話</label>
-      <input class="form-control" placeholder="ex: 06-2757575" [(ngModel)]="donor.phone"> </div>
-    <div class="col-md-2">
-        <label class="control-label">地區</label>
-        <select name="user-area" class="form-control" [(ngModel)]="donor.area">
-          <option *ngFor="let item of area" [value]="item">{{item}}</option>
+<form #donorForm="ngForm">
+  <div class="row">
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-3">
+        <label class="control-label">名字</label>
+        <input class="form-control" name="name" placeholder="姓名" [(ngModel)]="donor.donor_name"
+               required> 
+      </div>
+      <div class="col-md-2">
+        <label class="control-label">分類</label>
+        <select name="category" class="form-control" [(ngModel)]="donor.category" 
+                (change)="catChange($event.target.value)" required>
+          <option *ngFor="let item of category" [value]="item">{{item}}</option>
         </select>
+      </div>
+      <div class="col-md-3">
+        <label class="control-label">統一編號</label>
+        <input class="form-control" name="ic" placeholder="0912384758" [(ngModel)]="donor.ic"> </div>
+      <div class="col-md-4">
+        <label class="control-label">E-mail</label>
+        <input class="form-control" name="email" placeholder="FoodHub@gmail.com" [(ngModel)]="donor.email"> 
+      </div>
     </div>
-    <div class="col-md-8">
-      <label class="control-label">地址</label>
-      <input class="form-control" placeholder="輸入單位或個人地址" [(ngModel)]="donor.address">
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-2">
+        <label class="control-label">電話</label>
+        <input class="form-control" name="phone" placeholder="ex: 06-2757575" [(ngModel)]="donor.phone"> </div>
+      <div class="col-md-2">
+          <label class="control-label">地區</label>
+          <select name="area" class="form-control" [(ngModel)]="donor.area">
+            <option *ngFor="let item of area" [value]="item">{{item}}</option>
+          </select>
+      </div>
+      <div class="col-md-8">
+        <label class="control-label">地址</label>
+        <input class="form-control" name="address" placeholder="輸入單位或個人地址" [(ngModel)]="donor.address">
+      </div>
+    </div>
+    <div class="row" style="margin: 10 10 10 10">
+      
+      <!--<div class="col-md-2">
+        <label class="control-label">縣市</label>
+        <select name="user-country" class="form-control">
+          <option value="country">選擇居住城市</option>
+          <option value="country-taipei">台北</option>
+          <option value="country-taichung">台中</option>
+          <option value="country-tainan">台南</option>
+          <option value="country-taidong">台東</option>
+        </select>
+      </div>-->
+      
+      <div class="group" *ngIf="isGroup === true">
+          <div class="col-md-4">
+            <label class="control-label">聯絡人</label>
+            <input class="form-control" name="contact" placeholder="機關團體聯絡人" [(ngModel)]="donor.contact">
+          </div>
+          <div class="col-md-4">
+            <label class="control-label">聯絡電話</label>
+            <input class="form-control" name="contact_phone" placeholder="聯絡人之聯絡電話" [(ngModel)]="donor.contact_phone">
+          </div>
+      </div>
+    </div>
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">取消</button>
+        <button type="submit" class="btn btn-warning btn-md" (click)="addDonorClick()"
+                [disabled]="!donorForm.form.valid">新增</button>
+      </div>
     </div>
   </div>
-  <div class="row" style="margin: 10 10 10 10">
-    
-    <!--<div class="col-md-2">
-      <label class="control-label">縣市</label>
-      <select name="user-country" class="form-control">
-        <option value="country">選擇居住城市</option>
-        <option value="country-taipei">台北</option>
-        <option value="country-taichung">台中</option>
-        <option value="country-tainan">台南</option>
-        <option value="country-taidong">台東</option>
-      </select>
-    </div>-->
-    
-    <div class="group" *ngIf="isGroup === true">
-        <div class="col-md-4">
-          <label class="control-label">聯絡人</label>
-          <input class="form-control" placeholder="機關團體聯絡人" [(ngModel)]="donor.contact">
-        </div>
-        <div class="col-md-4">
-          <label class="control-label">聯絡電話</label>
-          <input class="form-control" placeholder="聯絡人之聯絡電話" [(ngModel)]="donor.contact_phone">
-        </div>
-    </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-12 text-center">
-      <button class="btn btn-success btn-md">取消</button>
-      <button class="btn btn-warning btn-md" (click)="addDonorClick()">新增</button>
-    </div>
-  </div>
-</div>
+</form>

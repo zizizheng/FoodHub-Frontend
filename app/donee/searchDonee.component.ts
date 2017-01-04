@@ -1,5 +1,5 @@
 import { ServerService } from './../service/server.service';
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { Donee } from './donee';
 import { SearchTemplateComponent } from '../template/searchTemplate.component';
 
@@ -10,7 +10,7 @@ declare let swal:any;
   selector: 'searchDonee',
   templateUrl: `app/donee/searchDonee.component.html`
 })
-export class SearchDoneeComponent extends SearchTemplateComponent{
+export class SearchDoneeComponent extends SearchTemplateComponent implements OnInit{
 
     constructor(injector: Injector,
                 private serverService: ServerService){
@@ -21,6 +21,11 @@ export class SearchDoneeComponent extends SearchTemplateComponent{
         this.primaryKey = 'donee_name';
         this.parentUrl = this.serverService.getDoneeUrl('');
         this.dataList = new Array<Donee>();
+    }
+
+    ngOnInit(){
+        let url = this.serverService.getDoneeUrl('list');
+        this.GetList(url, this.primaryKey);      
     }
 
     searchClick(){
@@ -43,6 +48,7 @@ export class SearchDoneeComponent extends SearchTemplateComponent{
 
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
+        this.searchWord = '';
     }
 
     updateClick(donee){

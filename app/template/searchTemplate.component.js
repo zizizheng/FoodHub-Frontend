@@ -119,7 +119,7 @@ var SearchTemplateComponent = (function () {
                     swal(err.error);
                 }, function () {
                     // refresh form
-                    _this.dataList = [];
+                    _this.GetList(_this.parentUrl + 'list', _this.primaryKey);
                 });
             }
         }

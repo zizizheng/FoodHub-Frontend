@@ -34,6 +34,8 @@
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "typings": "^1.0.4",
+    "sweetalert2": "~6.2.9",
+    "animated.css": "3.5.2"
   }
 }

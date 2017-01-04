@@ -44,6 +44,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
 
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
+        this.searchWord = '';
     }
 
     editClick(user){

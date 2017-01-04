@@ -5,45 +5,60 @@
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-4 form-group">
         <label class="control-label">全贈字號</label>
-        <input class="form-control" placeholder="10502001" [(ngModel)]="item._id" name="_id" > 
+        <input class="form-control" name="_id" placeholder="10502001" [(ngModel)]="item._id"  
+               required> 
       </div>
       <div class="col-md-4">
         <label class="control-label">品項名稱</label>
-        <input class="form-control" placeholder="開心果" [(ngModel)]="item.item_name" name="item_name" > </div>
+        <input class="form-control" placeholder="開心果" name="item_name" [(ngModel)]="item.item_name" 
+               required> 
+      </div>
       <div class="col-md-4">
         <label class="control-label">條碼</label>
-        <input class="form-control" placeholder="29384923 92839187" [(ngModel)]="item.barcode" name="barcode" > </div>
+        <input class="form-control" name="barcode" placeholder="29384923 92839187" [(ngModel)]="item.barcode" 
+              required>
+      </div>
     </div>
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-2">
         <label class="control-label">品項分類</label>
-        <select name="item-category" class="form-control" [(ngModel)]="item.category" name="category" >
+        <select name="item-category" name="category" class="form-control" [(ngModel)]="item.category" 
+                required>
           <option *ngFor="let item of category" [value]="item">{{item}}</option>
         </select>
       </div>
       <div class="col-md-2">
         <label class="control-label">倉庫地區</label>
-        <select name="warehouse-area" class="form-control" [(ngModel)]="item.area" name="area" >
+        <select name="warehouse-area" class="form-control" name="area" [(ngModel)]="item.area"  
+                required>
           <option *ngFor="let item of area" [value]="item">{{item}}</option>
         </select>
       </div>
       <div class="col-md-2">
         <label class="control-label">數量</label>
-        <input class="form-control" placeholder="5" [(ngModel)]="item.item_qt" name="item_qt" > </div>
+        <input class="form-control" placeholder="5" name="item_qt" [(ngModel)]="item.item_qt"
+               required> </div>
       <div class="col-md-2">
         <label class="control-label">單位</label>
-        <input class="form-control" placeholder="盒" [(ngModel)]="item.item_unit" name="item_unit" > </div>
+        <input class="form-control" placeholder="盒" name="item_unit" [(ngModel)]="item.item_unit" 
+               required> 
+      </div>
       <div class="col-md-2">
         <label class="control-label">重量 (g)</label>
-        <input class="form-control" placeholder="150" [(ngModel)]="item.weight" name="weight" > </div>
+        <input class="form-control" placeholder="150" name="weight" [(ngModel)]="item.weight"
+               required> 
+      </div>
       <div class="col-md-2">
         <label class="control-label">單價</label>
-        <input class="form-control" placeholder="200" [(ngModel)]="item.item_unitprice" name="item_unitprice" > </div>
+        <input class="form-control" placeholder="200" name="item_unitprice" [(ngModel)]="item.item_unitprice"
+               required> 
+      </div>
     </div>
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-2">
         <label class="control-label">捐贈日期</label>
-        <input class="form-control" placeholder="105/02/20" [(ngModel)]="item.donate_dt" name="donate_dt" > </div>
+        <input class="form-control" placeholder="105/02/20" [(ngModel)]="item.donate_dt" name="donate_dt"> 
+      </div>
       <div class="col-md-2">
         <label class="control-label">有效期限</label>
         <input class="form-control" placeholder="105/03/01" [(ngModel)]="item.expire_dt" name="expire_dt" > </div>
@@ -56,7 +71,7 @@
     </div>
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-12">
-        <button class="btn btn-success btn-md">取消</button>
+        <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">清除</button>
         <button type="submit" class="btn btn-warning btn-md" (click)="addItemClick()" [disabled]="!itemForm.form.valid">送出</button>
       </div>
     </div>

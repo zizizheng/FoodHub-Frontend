@@ -1,21 +1,28 @@
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-4">
-    <input class="form-control" placeholder="你要找什麼呢？" [(ngModel)]="searchWord" *ngIf="!selectCat"> 
-    
-    <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord">
-      <option *ngFor="let item of category" [value]="item">{{item}}</option>
-    </select>
+<form #searchForm="ngForm">
+  <div class="row" style="margin: 20 10 10 10">
+    <div class="col-md-4">
+      <input class="form-control" placeholder="你要找什麼呢？" name="donee-search"
+             [(ngModel)]="searchWord" *ngIf="!selectCat" required> 
+      
+      <select *ngIf="selectCat" name="donee-cat" class="form-control" [(ngModel)]="searchWord" 
+              required>
+        <option *ngFor="let item of category" [value]="item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select name="category" class="form-control" [(ngModel)]="searchKey" 
+            (change)="searchChange($event.target.value)" required>
+        <option *ngFor="let donee of categorySearch" [value]="donee">{{donee}}</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary" (click)="searchClick()"
+              [disabled]="!searchForm.form.valid">送出</button>
+    </div>
   </div>
-  <div class="col-md-4">
-    <select name="user-info" class="form-control" [(ngModel)]="searchKey" 
-          (change)="searchChange($event.target.value)">
-      <option *ngFor="let donee of categorySearch" [value]="donee">{{donee}}</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <button class="btn btn-primary" (click)="searchClick()">送出</button>
-  </div>
-</div>
+</form>
+
+
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-12 text-center table-responsive">
     <table class="table table-bordered table-hover table-striped table-sm animated zoomIn">
@@ -32,7 +39,7 @@
           <th>聯絡人姓名</th>
           <th>聯絡人電話</th>
           <th>E-mail</th>
-          <th>物資管理</th>
+          <th>操作</th>
         </tr>
       </thead>
       <tbody>

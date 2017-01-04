@@ -1,23 +1,29 @@
 <!--search bar-->
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-4">  
-    <!--use date form-->
-    <input *ngIf="!selectCat" class="form-control" placeholder="你要找什麼呢？" [(ngModel)]="searchWord">
 
-    <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord">
-      <option *ngFor="let item of category" [value]="item">{{item}}</option>
-    </select>
+<form #searchForm="ngForm">
+  <div class="row" style="margin: 20 10 10 10">
+    <div class="col-md-4">  
+      <input  *ngIf="!selectCat" class="form-control" name="donation-search"
+              placeholder="你要找什麼呢？" [(ngModel)]="searchWord" required>
+
+      <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord" name="donation-cat"
+              required>
+        <option *ngFor="let item of category" [value]="item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select name="category" class="form-control" [(ngModel)]="searchKey" 
+              (change)="searchChange($event.target.value)" required>
+        <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="subit" class="btn btn-primary" (click)="searchClick()"
+              [disabled]="!searchForm.form.valid">送出</button>
+    </div>
   </div>
-  <div class="col-md-4">
-    <select name="category" class="form-control" [(ngModel)]="searchKey" 
-            (change)="searchChange($event.target.value)">
-      <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <button class="btn btn-primary" (click)="searchClick()">送出</button>
-  </div>
-</div>
+</form>
+
 
 <!--display form-->
 <div class="row" style="margin: 20 10 10 10">

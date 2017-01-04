@@ -123,7 +123,7 @@ export class SearchTemplateComponent {
                         },
                         () => {
                             // refresh form
-                            this.dataList = [];
+                            this.GetList(this.parentUrl + 'list', this.primaryKey);
                         }
                     );
             }

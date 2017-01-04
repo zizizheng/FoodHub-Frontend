@@ -12,12 +12,13 @@ export class User {
     }
 
     public getObject(){
+        let _auth = (this.auth == "管理員") ? "admin": "user";
         let object = { 
             user_name: this.user_name,
             user_unit: this.user_unit,
             phone: this.phone,
             area: this.area,
-            auth: this.auth,
+            auth: _auth,
             account: this.account,
             password: this.password
         };
@@ -30,7 +31,7 @@ export class User {
         this.user_unit = ob.user_unit;
         this.phone = ob.phone;
         this.area = ob.area;
-        this.auth = ob.auth;
+        this.auth = (ob.auth == "管理員") ? "admin":"user";
         this.account = ob.account;
         this.password = ob.password;
         console.log(ob);

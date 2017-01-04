@@ -49,6 +49,7 @@ var SearchUserComponent = (function (_super) {
     };
     SearchUserComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '單位分類') ? true : false;
+        this.searchWord = '';
     };
     SearchUserComponent.prototype.editClick = function (user) {
         this.selectedItem = user;
