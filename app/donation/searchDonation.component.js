@@ -29,17 +29,17 @@ var SearchDonationComponent = (function (_super) {
         this.primaryKey = '_id';
         this.parentUrl = this.serverService.getDonationUrl('');
     }
-    SearchDonationComponent.prototype.refreshClick = function () {
+    SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
-        this.refreshBut = true;
-        //alert(test);
+        this.selectedItem = item;
+        this.updateBut = true;
     };
     SearchDonationComponent.prototype.importClick = function () {
         this.cleanPage();
         this.importBut = true;
     };
     SearchDonationComponent.prototype.cleanPage = function () {
-        this.refreshBut = false;
+        this.updateBut = false;
         this.importBut = false;
     };
     // TODO : check search key
@@ -51,14 +51,6 @@ var SearchDonationComponent = (function (_super) {
         var url = this.serverService.getDonationUrl(this.searchWord);
         var urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
-        this.dealDate();
-    };
-    // process date for specific number
-    SearchDonationComponent.prototype.dealDate = function () {
-        var splitArray = [];
-        for (var i = 0; i < this.dataList.length; i++) {
-            this.dataList[i]._id = this.dataList[i]._id.slice(-8);
-        }
     };
     SearchDonationComponent.prototype.checkChange = function (item, checked) {
         var _this = this;

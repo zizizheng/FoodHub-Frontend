@@ -46,4 +46,9 @@ export class SearchDonorComponent extends SearchTemplateComponent {
     searchChange(value){
         this.selectCat = (value === '分類') ? true : false;
     }
+
+    updateClick(donor){
+        this.selectedItem = donor;
+        this.selectedBut = true;
+    }
 }

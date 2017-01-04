@@ -7,27 +7,27 @@ declare let swal:any;
 
 @Component({})
 export class SearchTemplateComponent {
-    @Input() refreshBut = false;
-    @Input() importBut = false;
-    @Input() delCheck = false;
-    @Input() selectedBut = false;
-    @Input() selectCat = false;
-    @Input() searchWord ='';
-    @Input() searchKey = '';
-    @Input() delArray = [];
-    @Input() category = [];
-    @Input() categoryKey = [];
-    @Input() categorySearch = [];
-    @Input() dataList = [];
-    @Input() primaryKey = '';
-    @Input() parentUrl = '';
-    @Input() protected postSystemService: PostSystemService;
+    updateBut = false;
+    importBut = false;
+    delCheck = false;
+    selectedBut = false;
+    selectCat = false;
+    searchWord ='';
+    searchKey = '';
+    delArray = [];
+    category = [];
+    categoryKey = [];
+    categorySearch = [];
+    dataList = [];
+    primaryKey = '';
+    parentUrl = '';
+    selectedItem;
+    protected postSystemService: PostSystemService;
 
     constructor(injector: Injector){
         this.postSystemService = injector.get(PostSystemService);
     }
     
-    @Input()
     GetList(listUrl, primaryKey){
         this.postSystemService
             .getDataList(listUrl)
@@ -47,13 +47,12 @@ export class SearchTemplateComponent {
             );
     }
 
-    @Input()
     Search(url, urlParam){
         this.postSystemService
             .getData(url, urlParam)
             .subscribe(
                 data => {
-                    if (this.getType(data) === this.getType([])) this.dataList = data; 
+                    if (this.getType(data) === this.getType([]))this.dataList = data; 
                     else this.dataList.push(data)
                 },
                 error => {
@@ -63,10 +62,11 @@ export class SearchTemplateComponent {
                 () => {
                     // console.log(this.dataList);
                     this.putIntoChecklist(this.primaryKey);
+                    this.dealId();
                 }
             );
-    }
 
+    }
 
     Delete(){
         this.delCheck = false;
@@ -128,6 +128,16 @@ export class SearchTemplateComponent {
                     );
             }
         }
+    }
+
+    dealId(){
+        if (this.getType(this.dataList) === this.getType([])){
+            for (let item of this.dataList){
+                if(item._id != undefined)
+                    item._id = item._id.slice(-8);
+            }
+        }
+        
     }
 
     getType = function(ele){

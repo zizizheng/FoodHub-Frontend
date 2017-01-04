@@ -47,7 +47,7 @@
           <td>{{donor.email}}</td>
           <td>{{donor.area}}</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="updateClick(donor)">更新</button>
           </td>
         </tr>
       </tbody>
@@ -55,4 +55,4 @@
     <button class="btn btn-warning" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonor *ngIf="selectedBut"></updateDonor>
+<updateDonor *ngIf="selectedBut" [inputItem]="selectedItem"></updateDonor>

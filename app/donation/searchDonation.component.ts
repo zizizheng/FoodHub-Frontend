@@ -23,10 +23,10 @@ export class SearchDonationComponent extends SearchTemplateComponent{
         this.parentUrl = this.serverService.getDonationUrl('');
     }
 
-    refreshClick(){
+    updateClick(item){
         this.cleanPage();
-        this.refreshBut = true;
-        //alert(test);
+        this.selectedItem = item;
+        this.updateBut = true;
     }
 
     importClick(){
@@ -35,7 +35,7 @@ export class SearchDonationComponent extends SearchTemplateComponent{
     }
 
     cleanPage(){
-        this.refreshBut = false;
+        this.updateBut = false;
         this.importBut = false;
     }
 
@@ -48,15 +48,6 @@ export class SearchDonationComponent extends SearchTemplateComponent{
         let url = this.serverService.getDonationUrl(this.searchWord);
         let urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
-        this.dealDate();
-    }
-    
-    // process date for specific number
-    dealDate(){
-        let splitArray = [];
-        for(let i = 0; i < this.dataList.length; i++){
-            this.dataList[i]._id = this.dataList[i]._id.slice(-8);
-        }
     }
 
     checkChange(item, checked){

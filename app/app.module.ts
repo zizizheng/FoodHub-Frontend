@@ -34,7 +34,7 @@ import { UpdateDoneeComponent } from './donee/updateDonee.component';
 // Addministrator Page Components
 import { SearchUserComponent } from './administrator/searchUser.component';
 import { AddUserComponent } from './administrator/addUser.component';
-import { EditUserComponent } from './administrator/editUser.component';
+import { UpdateUserComponent } from './administrator/updateUser.component';
 
 // Service
 import { LoginService } from './service/login.service';
@@ -51,7 +51,7 @@ import { PostSystemService } from './service/postSystem.service';
                 UpdateDonationComponent, ImportDonationComponent, DonorComponent, SearchDonorComponent, 
                 UpdateDonorComponent, AddDonorComponent, DoneeComponent,
                 SearchDoneeComponent, AddDoneeComponent, UpdateDoneeComponent,
-                AdministratorComponent, SearchUserComponent, AddUserComponent, EditUserComponent],
+                AdministratorComponent, SearchUserComponent, AddUserComponent, UpdateUserComponent],
   providers: [ LoginService, ServerService, PostSystemService], 
   bootstrap: [ AppComponent ]
 

@@ -42,15 +42,15 @@
           </td>
           <td>{{donee.donee_name}}</td>
           <td>{{donee.category}}</td>
-          <td>{{donee.house}}</td>
-          <td>{{donee.people}}</td>
+          <td>{{donee.house_num}}</td>
+          <td>{{donee.people_num}}</td>
           <td>{{donee.phone}}</td>
           <td>{{donee.address}}</td>
           <td>{{donee.contact}}</td>
           <td>{{donee.contact_phone}}</td>
           <td>{{donee.email}}</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="updateClick(donee)">更新</button>
           </td>
         </tr>
       </tbody>
@@ -58,4 +58,4 @@
     <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonee *ngIf="selectedBut"></updateDonee>
+<updateDonee *ngIf="selectedBut" [inputItem]="selectedItem"></updateDonee>

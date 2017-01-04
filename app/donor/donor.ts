@@ -28,6 +28,18 @@ export class Donor {
 
         return object;
     }
+
+    pushData(ob){
+        this.ic = ob.ic;
+        this.donor_name = ob.donor_name;
+        this.phone = ob.phone;
+        this.contact_phone = ob.contact_phone;
+        this.email = ob.email;
+        this.address = ob.address;
+        this.contact = ob.contact;
+        this.category = ob.category;
+        this.area = ob.area;
+    }
 }
 
 export let CategorySearch = ['', '姓名', '地區', '分類'];

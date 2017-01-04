@@ -12,7 +12,7 @@ var postSystem_service_1 = require('./../service/postSystem.service');
 var core_1 = require('@angular/core');
 var SearchTemplateComponent = (function () {
     function SearchTemplateComponent(injector) {
-        this.refreshBut = false;
+        this.updateBut = false;
         this.importBut = false;
         this.delCheck = false;
         this.selectedBut = false;
@@ -63,6 +63,7 @@ var SearchTemplateComponent = (function () {
         }, function () {
             // console.log(this.dataList);
             _this.putIntoChecklist(_this.primaryKey);
+            _this.dealId();
         });
     };
     SearchTemplateComponent.prototype.Delete = function () {
@@ -123,78 +124,15 @@ var SearchTemplateComponent = (function () {
             }
         }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "refreshBut", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "importBut", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "delCheck", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "selectedBut", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "selectCat", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "searchWord", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "searchKey", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "delArray", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "category", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "categoryKey", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "categorySearch", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "dataList", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "primaryKey", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SearchTemplateComponent.prototype, "parentUrl", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', postSystem_service_1.PostSystemService)
-    ], SearchTemplateComponent.prototype, "postSystemService", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object, Object]), 
-        __metadata('design:returntype', void 0)
-    ], SearchTemplateComponent.prototype, "GetList", null);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object, Object]), 
-        __metadata('design:returntype', void 0)
-    ], SearchTemplateComponent.prototype, "Search", null);
+    SearchTemplateComponent.prototype.dealId = function () {
+        if (this.getType(this.dataList) === this.getType([])) {
+            for (var _i = 0, _a = this.dataList; _i < _a.length; _i++) {
+                var item = _a[_i];
+                if (item._id != undefined)
+                    item._id = item._id.slice(-8);
+            }
+        }
+    };
     SearchTemplateComponent = __decorate([
         core_1.Component({}), 
         __metadata('design:paramtypes', [core_1.Injector])

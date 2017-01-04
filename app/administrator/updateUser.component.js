@@ -13,42 +13,47 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var updateTemplate_component_1 = require('./../template/updateTemplate.component');
 var core_1 = require('@angular/core');
-var updateTemplate_component_1 = require('../template/updateTemplate.component');
-var donee_1 = require('./donee');
 var server_service_1 = require('../service/server.service');
-var itemCat = require('./donee');
-var UpdateDoneeComponent = (function (_super) {
-    __extends(UpdateDoneeComponent, _super);
-    function UpdateDoneeComponent(injector, serverService) {
+var user_1 = require('./user');
+var itemCat = require('./user');
+var UpdateUserComponent = (function (_super) {
+    __extends(UpdateUserComponent, _super);
+    function UpdateUserComponent(injector, serverService) {
         _super.call(this, injector);
         this.serverService = serverService;
-        this.category = itemCat.Category;
-        this.donee = new donee_1.Donee();
+        this.area = itemCat.Area;
+        this.auth = itemCat.Auth;
+        this.authInChi = '';
+        this.user = new user_1.User();
     }
-    UpdateDoneeComponent.prototype.ngOnInit = function () {
-        this.donee.pushData(this.inputItem);
+    UpdateUserComponent.prototype.ngOnInit = function () {
+        this.user.pushData(this.inputItem);
+        this.authInChi = (this.user.auth == "admin") ? "管理員" : "一般使用者";
     };
-    UpdateDoneeComponent.prototype.ngOnChanges = function () {
-        this.donee.pushData(this.inputItem);
+    UpdateUserComponent.prototype.ngOnChanges = function () {
+        this.user.pushData(this.inputItem);
+        this.authInChi = (this.user.auth == "admin") ? "管理員" : "一般使用者";
     };
-    UpdateDoneeComponent.prototype.sendClick = function () {
-        var itemObject = this.donee.getObject();
-        var url = this.serverService.getDoneeUrl(this.donee.donee_name);
+    UpdateUserComponent.prototype.sendClick = function () {
+        this.user.auth = (this.authInChi == "管理員") ? "admin" : "user";
+        var itemObject = this.user.getObject();
+        var url = this.serverService.getUserUrl(this.user.user_name);
         this.Update(url, itemObject);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], UpdateDoneeComponent.prototype, "inputItem", void 0);
-    UpdateDoneeComponent = __decorate([
+    ], UpdateUserComponent.prototype, "inputItem", void 0);
+    UpdateUserComponent = __decorate([
         core_1.Component({
-            selector: 'updateDonee',
-            templateUrl: "app/donee/updateDonee.component.html"
+            selector: 'updateUser',
+            templateUrl: "app/administrator/updateUser.component.html"
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], UpdateDoneeComponent);
-    return UpdateDoneeComponent;
+    ], UpdateUserComponent);
+    return UpdateUserComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
-exports.UpdateDoneeComponent = UpdateDoneeComponent;
-//# sourceMappingURL=updateDonee.component.js.map
+exports.UpdateUserComponent = UpdateUserComponent;
+//# sourceMappingURL=updateUser.component.js.map

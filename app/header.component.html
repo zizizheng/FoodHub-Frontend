@@ -12,9 +12,9 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">聯絡人</a>
+                    <a>聯絡人</a>
                 </li>
-                <li *ngIf="userName != '使用者'" class="dropdown">
+                <li *ngIf="userName == '使用者'" class="dropdown">
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a routerLink="/donationPage" routerLinkActive="active">物資管理</a>

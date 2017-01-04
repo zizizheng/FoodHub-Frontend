@@ -6,8 +6,8 @@ export class Donee {
     address: string;
     contact: string;
     category: string;
-    house: string;
-    people: string;
+    house_num: number;
+    people_num: number;
 
     public checkInput(){
         // TODO : 確認各種字串輸入正確與否
@@ -22,11 +22,23 @@ export class Donee {
             address: this.address,
             contact: this.contact,
             category: this.category,
-            //house: this.house,
-            //people: this.people
+            house_num: this.house_num,
+            people_num: this.people_num
         };
 
         return object;
+    }
+
+    pushData(ob){
+        this.donee_name = ob.donee_name;
+        this.phone = ob.phone;
+        this.contact_phone = ob.contact_phone;
+        this.email = this.email;
+        this.address = ob.address;
+        this.contact = ob.contact;
+        this.category = ob.category;
+        this.house_num = ob.house_num;
+        this.people_num = ob.people_num;
     }
 }
 

@@ -50,6 +50,10 @@ var SearchUserComponent = (function (_super) {
     SearchUserComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '單位分類') ? true : false;
     };
+    SearchUserComponent.prototype.editClick = function (user) {
+        this.selectedItem = user;
+        this.selectedBut = true;
+    };
     SearchUserComponent = __decorate([
         core_1.Component({
             selector: 'searchUser',

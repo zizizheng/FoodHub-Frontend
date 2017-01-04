@@ -39,7 +39,7 @@ var updateDonee_component_1 = require('./donee/updateDonee.component');
 // Addministrator Page Components
 var searchUser_component_1 = require('./administrator/searchUser.component');
 var addUser_component_1 = require('./administrator/addUser.component');
-var editUser_component_1 = require('./administrator/editUser.component');
+var updateUser_component_1 = require('./administrator/updateUser.component');
 // Service
 var login_service_1 = require('./service/login.service');
 var server_service_1 = require('./service/server.service');
@@ -58,7 +58,7 @@ var AppModule = (function () {
                 updateDonation_component_1.UpdateDonationComponent, importDonation_component_1.ImportDonationComponent, donor_component_1.DonorComponent, searchDonor_component_1.SearchDonorComponent,
                 updateDonor_component_1.UpdateDonorComponent, addDonor_component_1.AddDonorComponent, donee_component_1.DoneeComponent,
                 searchDonee_component_1.SearchDoneeComponent, addDonee_component_1.AddDoneeComponent, updateDonee_component_1.UpdateDoneeComponent,
-                administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, editUser_component_1.EditUserComponent],
+                administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, updateUser_component_1.UpdateUserComponent],
             providers: [login_service_1.LoginService, server_service_1.ServerService, postSystem_service_1.PostSystemService],
             bootstrap: [app_component_1.AppComponent]
         }), 

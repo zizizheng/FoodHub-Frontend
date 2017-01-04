@@ -44,4 +44,9 @@ export class SearchDoneeComponent extends SearchTemplateComponent{
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
     }
+
+    updateClick(donee){
+        this.selectedItem = donee;
+        this.selectedBut = true;
+    }
 }

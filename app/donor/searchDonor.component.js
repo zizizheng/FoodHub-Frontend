@@ -50,6 +50,10 @@ var SearchDonorComponent = (function (_super) {
     SearchDonorComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '分類') ? true : false;
     };
+    SearchDonorComponent.prototype.updateClick = function (donor) {
+        this.selectedItem = donor;
+        this.selectedBut = true;
+    };
     SearchDonorComponent = __decorate([
         core_1.Component({
             selector: 'searchDonor',

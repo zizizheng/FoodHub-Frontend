@@ -1,4 +1,5 @@
 "use strict";
+var common_1 = require('@angular/common');
 var Donation = (function () {
     function Donation() {
     }
@@ -23,6 +24,21 @@ var Donation = (function () {
             area: this.area
         };
         return object;
+    };
+    Donation.prototype.pushData = function (ob) {
+        this._id = ob._id;
+        this.donor_name = ob.donor_name;
+        this.item_name = ob.item_name;
+        this.expire_dt = new common_1.DatePipe().transform(ob.expire_dt, 'yyyy/MM/dd');
+        this.category = ob.category;
+        this.weight = ob.weight;
+        this.item_unit = ob.item_unit;
+        this.item_qt = ob.item_qt;
+        this.donate_dt = new common_1.DatePipe().transform(ob.donate_dt, 'yyyy/MM/dd');
+        this.memo = ob.memo;
+        this.item_unitprice = ob.item_unitprice;
+        this.barcode = ob.barcode;
+        this.area = ob.area;
     };
     return Donation;
 }());

@@ -48,6 +48,10 @@ var SearchDoneeComponent = (function (_super) {
     SearchDoneeComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '單位分類') ? true : false;
     };
+    SearchDoneeComponent.prototype.updateClick = function (donee) {
+        this.selectedItem = donee;
+        this.selectedBut = true;
+    };
     SearchDoneeComponent = __decorate([
         core_1.Component({
             selector: 'searchDonee',

@@ -17,13 +17,23 @@ export class User {
             user_unit: this.user_unit,
             phone: this.phone,
             area: this.area,
-            // 字串還是數字
-            auth: 1,
+            auth: this.auth,
             account: this.account,
             password: this.password
         };
 
         return object;
+    }
+
+    pushData(ob){
+        this.user_name = ob.user_name;
+        this.user_unit = ob.user_unit;
+        this.phone = ob.phone;
+        this.area = ob.area;
+        this.auth = ob.auth;
+        this.account = ob.account;
+        this.password = ob.password;
+        console.log(ob);
     }
 }
 

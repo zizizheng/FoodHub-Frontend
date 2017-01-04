@@ -41,11 +41,11 @@
             <input type="checkbox" (change)="checkChange(item, $event.target.checked)"> </td>
           <td>{{item._id}}</td>
           <td>{{item.item_name}}</td>
-          <td>{{item.expire_dt | date : 'dd/MM/yyyy'}}</td>
+          <td>{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
           <td>{{item.category}}</td>
           <td>{{item.item_qt}}</td>
           <td>
-            <button class="btn btn-success" (click)="refreshClick()">更新</button>
+            <button class="btn btn-success" (click)="updateClick(item)">更新</button>
           </td>
         </tr>
       </tbody>
@@ -53,5 +53,5 @@
     <button class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonation *ngIf="refreshBut"></updateDonation>
+<updateDonation *ngIf="updateBut" [inputItem]="selectedItem"></updateDonation>
 <importDonation *ngIf="importBut"></importDonation>
