@@ -1,6 +1,7 @@
 "use strict";
 var User = (function () {
     function User() {
+        this.user_name = '';
     }
     User.prototype.checkInput = function () {
         // TODO : 確認各種字串輸入正確與否

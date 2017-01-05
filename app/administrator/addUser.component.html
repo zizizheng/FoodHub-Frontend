@@ -11,8 +11,7 @@
           </div>
           <div class="col-md-3">
             <label class="control-label">單位</label>
-            <input class="form-control" name="unit" placeholder="單位" [(ngModel)]="user.user_unit"
-                   required> 
+            <input class="form-control" name="unit" placeholder="單位" [(ngModel)]="user.user_unit"> 
           </div>
           <div class="col-md-3">
             <label class="control-label">地區</label>
@@ -33,7 +32,7 @@
             <input type="password" class="form-control" name="password" placeholder="密碼" [(ngModel)]="user.password"> </div>
           <div class="col-md-4">
             <label class="control-label">權限</label>
-            <select name="user-info" name="auth" class="form-control" [(ngModel)]="user.auth">
+            <select name="user-info" name="auth" class="form-control" [(ngModel)]="user.auth" required>
               <option *ngFor="let item of authCat" [value]="item">{{item}}</option>
             </select>
           </div>

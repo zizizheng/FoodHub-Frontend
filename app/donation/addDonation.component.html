@@ -15,8 +15,7 @@
       </div>
       <div class="col-md-4">
         <label class="control-label">條碼</label>
-        <input class="form-control" name="barcode" placeholder="29384923 92839187" [(ngModel)]="item.barcode" 
-              required>
+        <input class="form-control" name="barcode" placeholder="29384923 92839187" [(ngModel)]="item.barcode">
       </div>
     </div>
     <div class="row" style="margin: 10 10 10 10">
@@ -29,8 +28,7 @@
       </div>
       <div class="col-md-2">
         <label class="control-label">倉庫地區</label>
-        <select name="warehouse-area" class="form-control" name="area" [(ngModel)]="item.area"  
-                required>
+        <select name="warehouse-area" class="form-control" name="area" [(ngModel)]="item.area">
           <option *ngFor="let item of area" [value]="item">{{item}}</option>
         </select>
       </div>
@@ -40,8 +38,7 @@
                required> </div>
       <div class="col-md-2">
         <label class="control-label">單位</label>
-        <input class="form-control" placeholder="盒" name="item_unit" [(ngModel)]="item.item_unit" 
-               required> 
+        <input class="form-control" placeholder="盒" name="item_unit" [(ngModel)]="item.item_unit"> 
       </div>
       <div class="col-md-2">
         <label class="control-label">重量 (g)</label>
@@ -50,18 +47,20 @@
       </div>
       <div class="col-md-2">
         <label class="control-label">單價</label>
-        <input class="form-control" placeholder="200" name="item_unitprice" [(ngModel)]="item.item_unitprice"
-               required> 
+        <input class="form-control" placeholder="200" name="item_unitprice" [(ngModel)]="item.item_unitprice"> 
       </div>
     </div>
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-2">
         <label class="control-label">捐贈日期</label>
-        <input class="form-control" placeholder="105/02/20" [(ngModel)]="item.donate_dt" name="donate_dt"> 
+        <input class="form-control" placeholder="2016/02/20" [(ngModel)]="item.donate_dt" name="donate_dt"
+               required> 
       </div>
       <div class="col-md-2">
         <label class="control-label">有效期限</label>
-        <input class="form-control" placeholder="105/03/01" [(ngModel)]="item.expire_dt" name="expire_dt" > </div>
+        <input class="form-control" placeholder="2016/03/01" [(ngModel)]="item.expire_dt" name="expire_dt" 
+               required> 
+      </div>
       <div class="col-md-2">
         <label class="control-label">捐贈者</label>
         <input class="form-control" placeholder="boss" [(ngModel)]="item.donor_name" name="donor_name" > </div>

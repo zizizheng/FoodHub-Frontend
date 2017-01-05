@@ -62,7 +62,8 @@ export class SearchDonationComponent extends SearchTemplateComponent{
     }
 
     searchChange(value){
-        if ( value === '品項類別' ){
+        if ( value === '品項類別' || value === '倉庫地區'){
+            this.category = (value === '品項類別') ? itemCat.Category : itemCat.Warehouse;
             this.selectCat = true;
             this.searchWord = '';
         }

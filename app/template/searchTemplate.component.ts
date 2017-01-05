@@ -61,8 +61,8 @@ export class SearchTemplateComponent {
                 },
                 () => {
                     // console.log(this.dataList);
-                    this.putIntoChecklist(this.primaryKey);
                     this.dealId();
+                    this.putIntoChecklist(this.primaryKey);
                 }
             );
 

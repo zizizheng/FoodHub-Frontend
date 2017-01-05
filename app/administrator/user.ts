@@ -1,5 +1,5 @@
 export class User {
-    user_name: string;
+    user_name: string = '';
     user_unit: string;
     phone: string;
     area: string;

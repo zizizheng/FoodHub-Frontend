@@ -62,8 +62,8 @@ var SearchTemplateComponent = (function () {
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
             // console.log(this.dataList);
-            _this.putIntoChecklist(_this.primaryKey);
             _this.dealId();
+            _this.putIntoChecklist(_this.primaryKey);
         });
     };
     SearchTemplateComponent.prototype.Delete = function () {

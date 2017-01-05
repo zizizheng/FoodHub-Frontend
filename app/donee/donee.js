@@ -35,6 +35,6 @@ var Donee = (function () {
 exports.Donee = Donee;
 exports.CategorySearch = ['', '單位名稱', '單位分類'];
 exports.CategoryKey = ['', 'donee_name', 'category'];
-exports.Category = ['', '身心障礙', '街友 / 獨居老人', '弱勢清寒 / 課輔班',
-    '弱勢家庭 - 兒童 / 青少年 / 原住民 / 新移民 / 隔代教養', '其他 (特殊境遇)'];
+exports.Category = ['', '身心障礙', '街友 | 獨居老人', '弱勢清寒 | 課輔班',
+    '弱勢家庭 - 兒童 | 青少年 | 原住民 | 新移民 | 隔代教養', '其他 (特殊境遇)'];
 //# sourceMappingURL=donee.js.map

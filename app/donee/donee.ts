@@ -44,5 +44,5 @@ export class Donee {
 
 export let CategorySearch = ['', '單位名稱', '單位分類'];
 export let CategoryKey = ['', 'donee_name', 'category'];
-export let Category = [ '','身心障礙','街友 / 獨居老人', '弱勢清寒 / 課輔班', 
-                '弱勢家庭 - 兒童 / 青少年 / 原住民 / 新移民 / 隔代教養','其他 (特殊境遇)'];
+export let Category = [ '','身心障礙','街友 | 獨居老人', '弱勢清寒 | 課輔班', 
+                '弱勢家庭 - 兒童 | 青少年 | 原住民 | 新移民 | 隔代教養','其他 (特殊境遇)'];
