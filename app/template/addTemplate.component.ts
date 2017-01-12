@@ -11,17 +11,13 @@ export class AddTemplateComponent {
         this.postSystemService = injector.get(PostSystemService);
     }
 
-    ngOnInit(): void{}
-
     Add(url, urlParam){
-      this.postSystemService
-          .postData(url, urlParam)
-          .subscribe(
+        this.postSystemService.postData(url, urlParam).subscribe(
             data => swal('Congrations', data.success, 'success'),
             error => {
-              let err = error.json();
-              console.log(err.error);
+                let err = error.json();
+                console.log(err.error);
             }
-          );
+        );
     }
 }

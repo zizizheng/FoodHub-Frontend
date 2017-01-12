@@ -1,4 +1,5 @@
 "use strict";
+var contact_component_1 = require('./contact/contact.component');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./login.component');
 var expiry_component_1 = require('./expiry/expiry.component');
@@ -13,7 +14,8 @@ var appRoutes = [
     { path: 'donationPage', component: donation_component_1.DonationComponent },
     { path: 'donorPage', component: donor_component_1.DonorComponent },
     { path: 'doneePage', component: donee_component_1.DoneeComponent },
-    { path: 'administratorPage', component: administrator_component_1.AdministratorComponent }
+    { path: 'administratorPage', component: administrator_component_1.AdministratorComponent },
+    { path: 'contactPage', component: contact_component_1.ContactComponent }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

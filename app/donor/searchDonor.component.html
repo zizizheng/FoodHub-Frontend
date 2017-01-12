@@ -11,8 +11,8 @@
     </div>
     
     <div class="col-md-4">
-      <select name="category" class="form-control" [(ngModel)]="searchKey"
-              (change)="searchChange($event.target.value)" required>
+      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey"
+              (change)="searchChange(catSelect.value)" required>
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>

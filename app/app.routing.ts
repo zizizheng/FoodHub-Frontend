@@ -1,3 +1,4 @@
+import { ContactComponent } from './contact/contact.component';
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
 	{ path: 'donationPage', component: DonationComponent },
 	{ path: 'donorPage', component: DonorComponent },
 	{ path: 'doneePage', component: DoneeComponent },
-	{ path: 'administratorPage', component: AdministratorComponent }
+	{ path: 'administratorPage', component: AdministratorComponent },
+	{ path: 'contactPage', component: ContactComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

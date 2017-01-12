@@ -3,3 +3,19 @@
 #bootstrap-override input,div{ 
     font-family: Microsoft YaHei, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
 }
+
+/*form style*/
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-pristine[required] {
+    border-left: 5px solid #0066FF	; /* green */  
+}
+
+.ng-dirty.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+
+/*form styles end*/

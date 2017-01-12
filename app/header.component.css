@@ -1,0 +1,8 @@
+.page-scroll-header {
+    background-color: #ccc !important;
+    opacity: 0.9;
+}
+
+.my-header {
+    transition: background-color 1s ease-out;
+}

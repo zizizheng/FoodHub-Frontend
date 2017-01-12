@@ -40,6 +40,7 @@ import { UpdateUserComponent } from './administrator/updateUser.component';
 import { LoginService } from './service/login.service';
 import { ServerService } from './service/server.service';
 import { PostSystemService } from './service/postSystem.service';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   imports:      [ BrowserModule,
@@ -51,7 +52,8 @@ import { PostSystemService } from './service/postSystem.service';
                 UpdateDonationComponent, ImportDonationComponent, DonorComponent, SearchDonorComponent, 
                 UpdateDonorComponent, AddDonorComponent, DoneeComponent,
                 SearchDoneeComponent, AddDoneeComponent, UpdateDoneeComponent,
-                AdministratorComponent, SearchUserComponent, AddUserComponent, UpdateUserComponent],
+                AdministratorComponent, SearchUserComponent, AddUserComponent, UpdateUserComponent, 
+                ContactComponent],
   providers: [ LoginService, ServerService, PostSystemService], 
   bootstrap: [ AppComponent ]
 

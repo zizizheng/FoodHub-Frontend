@@ -14,11 +14,8 @@ var AddTemplateComponent = (function () {
     function AddTemplateComponent(injector) {
         this.postSystemService = injector.get(postSystem_service_1.PostSystemService);
     }
-    AddTemplateComponent.prototype.ngOnInit = function () { };
     AddTemplateComponent.prototype.Add = function (url, urlParam) {
-        this.postSystemService
-            .postData(url, urlParam)
-            .subscribe(function (data) { return swal('Congrations', data.success, 'success'); }, function (error) {
+        this.postSystemService.postData(url, urlParam).subscribe(function (data) { return swal('Congrations', data.success, 'success'); }, function (error) {
             var err = error.json();
             console.log(err.error);
         });

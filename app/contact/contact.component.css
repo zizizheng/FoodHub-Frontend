@@ -1,0 +1,15 @@
+h1.team-title{
+    padding: 15px 0 15px 0;
+    opacity: 0.8;
+}
+.pageTitle {
+    margin-top: 20px;
+}
+
+.img-size {
+    width: 250px;
+    height: 250px;
+}
+i.pos {
+    align-items: center;
+}

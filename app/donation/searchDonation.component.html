@@ -12,8 +12,8 @@
       </select>
     </div>
     <div class="col-md-4">
-      <select name="category" class="form-control" [(ngModel)]="searchKey" 
-              (change)="searchChange($event.target.value)" required>
+      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" 
+              (change)="searchChange(catSelect.value)" required>
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
@@ -44,7 +44,7 @@
       <tbody>
         <tr *ngFor="let item of dataList">
           <td>
-            <input type="checkbox" (change)="checkChange(item, $event.target.checked)"> </td>
+            <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck,checked)"> </td>
           <td>{{item._id}}</td>
           <td>{{item.item_name}}</td>
           <td>{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>

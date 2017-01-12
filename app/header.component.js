@@ -14,13 +14,35 @@ var HeaderComponent = (function () {
     function HeaderComponent(loginService) {
         var _this = this;
         this.loginService = loginService;
+        this.isScrolled = false;
+        this.recPos = 0;
+        this.lastPos = 0;
+        this.prePos = 0;
+        this.Disappear = 200;
         loginService.nameChange$.subscribe(function (name) { return _this.userName = name; });
         this.userName = '使用者';
     }
+    HeaderComponent.prototype.updateHeader = function () {
+        if (window.pageYOffset - this.prePos < 0) {
+            this.isScrolled = false;
+        }
+        else {
+            this.recPos += window.pageYOffset - this.prePos;
+            if (this.recPos > this.Disappear) {
+                this.isScrolled = true;
+                this.lastPos = window.pageYOffset;
+            }
+        }
+        this.prePos = window.pageYOffset;
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'my-header',
             templateUrl: 'app/header.component.html',
+            styleUrls: ['app/header.component.css'],
+            host: {
+                '(window:scroll)': 'updateHeader()'
+            }
         }), 
         __metadata('design:paramtypes', [login_service_1.LoginService])
     ], HeaderComponent);

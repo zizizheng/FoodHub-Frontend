@@ -36,7 +36,7 @@
       <tbody>
         <tr *ngFor="let user of dataList">
           <td>
-            <input type="checkbox" value="" (change)="checkChange(user, $event.target.checked)"> </td>
+            <input #userCheck type="checkbox" value="" (change)="checkChange(user, userCheck.checked)"> </td>
           <td>{{user.user_name}}</td>
           <td>{{user.phone}}</td>
           <td>{{user.area}}</td>
