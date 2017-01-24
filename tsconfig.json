@@ -13,5 +13,8 @@
         "**/*.ts",
         "**/*.tsx",
         "!node_modules/**"
+    ],
+    "types":[
+        "jquery"
     ]
 }

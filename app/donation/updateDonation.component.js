@@ -13,19 +13,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var donation_1 = require('./donation');
-var updateTemplate_component_1 = require('../template/updateTemplate.component');
-var server_service_1 = require('../service/server.service');
-var itemCat = require('./donation');
+var core_1 = require("@angular/core");
+var donation_1 = require("./donation");
+var updateTemplate_component_1 = require("../template/updateTemplate.component");
+var server_service_1 = require("../service/server.service");
+var itemCat = require("./donation");
 var UpdateDonationComponent = (function (_super) {
     __extends(UpdateDonationComponent, _super);
     function UpdateDonationComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.category = itemCat.Category;
-        this.area = itemCat.Warehouse;
-        this.item = new donation_1.Donation();
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.category = itemCat.Category;
+        _this.area = itemCat.Warehouse;
+        _this.item = new donation_1.Donation();
+        return _this;
     }
     UpdateDonationComponent.prototype.ngOnInit = function () {
         this.item.pushData(this.inputItem);
@@ -38,18 +39,19 @@ var UpdateDonationComponent = (function (_super) {
         var url = this.serverService.getDonationUrl(this.item._id);
         this.Update(url, itemObject);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], UpdateDonationComponent.prototype, "inputItem", void 0);
-    UpdateDonationComponent = __decorate([
-        core_1.Component({
-            selector: 'updateDonation',
-            templateUrl: "app/donation/updateDonation.component.html"
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], UpdateDonationComponent);
     return UpdateDonationComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], UpdateDonationComponent.prototype, "inputItem", void 0);
+UpdateDonationComponent = __decorate([
+    core_1.Component({
+        selector: 'updateDonation',
+        templateUrl: "app/donation/updateDonation.component.html"
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], UpdateDonationComponent);
 exports.UpdateDonationComponent = UpdateDonationComponent;
 //# sourceMappingURL=updateDonation.component.js.map

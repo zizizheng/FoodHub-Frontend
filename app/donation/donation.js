@@ -1,5 +1,5 @@
 "use strict";
-var common_1 = require('@angular/common');
+var common_1 = require("@angular/common");
 var Donation = (function () {
     function Donation() {
     }

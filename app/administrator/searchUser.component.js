@@ -13,20 +13,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var server_service_1 = require('./../service/server.service');
-var core_1 = require('@angular/core');
-var userCat = require('./user');
-var searchTemplate_component_1 = require('../template/searchTemplate.component');
+var server_service_1 = require("./../service/server.service");
+var core_1 = require("@angular/core");
+var userCat = require("./user");
+var searchTemplate_component_1 = require("../template/searchTemplate.component");
 var SearchUserComponent = (function (_super) {
     __extends(SearchUserComponent, _super);
     function SearchUserComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.categorySearch = userCat.CategorySearch;
-        this.categoryKey = userCat.CategoryKey;
-        this.dataList = new Array();
-        this.primaryKey = 'account';
-        this.parentUrl = this.serverService.getUserUrl('');
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.categorySearch = userCat.CategorySearch;
+        _this.categoryKey = userCat.CategoryKey;
+        _this.dataList = new Array();
+        _this.primaryKey = 'account';
+        _this.parentUrl = _this.serverService.getUserUrl('');
+        return _this;
     }
     SearchUserComponent.prototype.ngOnInit = function () {
         var url = this.serverService.getUserUrl('list');
@@ -55,14 +56,15 @@ var SearchUserComponent = (function (_super) {
         this.selectedItem = user;
         this.selectedBut = true;
     };
-    SearchUserComponent = __decorate([
-        core_1.Component({
-            selector: 'searchUser',
-            templateUrl: "app/administrator/searchUser.component.html"
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], SearchUserComponent);
     return SearchUserComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
+SearchUserComponent = __decorate([
+    core_1.Component({
+        selector: 'searchUser',
+        templateUrl: "app/administrator/searchUser.component.html"
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], SearchUserComponent);
 exports.SearchUserComponent = SearchUserComponent;
 //# sourceMappingURL=searchUser.component.js.map

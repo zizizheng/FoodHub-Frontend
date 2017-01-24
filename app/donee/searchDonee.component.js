@@ -13,21 +13,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var server_service_1 = require('./../service/server.service');
-var core_1 = require('@angular/core');
-var searchTemplate_component_1 = require('../template/searchTemplate.component');
-var doneeCat = require('./donee');
+var server_service_1 = require("./../service/server.service");
+var core_1 = require("@angular/core");
+var searchTemplate_component_1 = require("../template/searchTemplate.component");
+var doneeCat = require("./donee");
 var SearchDoneeComponent = (function (_super) {
     __extends(SearchDoneeComponent, _super);
     function SearchDoneeComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.category = doneeCat.Category;
-        this.categorySearch = doneeCat.CategorySearch;
-        this.categoryKey = doneeCat.CategoryKey;
-        this.primaryKey = 'donee_name';
-        this.parentUrl = this.serverService.getDoneeUrl('');
-        this.dataList = new Array();
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.category = doneeCat.Category;
+        _this.categorySearch = doneeCat.CategorySearch;
+        _this.categoryKey = doneeCat.CategoryKey;
+        _this.primaryKey = 'donee_name';
+        _this.parentUrl = _this.serverService.getDoneeUrl('');
+        _this.dataList = new Array();
+        return _this;
     }
     SearchDoneeComponent.prototype.ngOnInit = function () {
         var url = this.serverService.getDoneeUrl('list');
@@ -57,14 +58,15 @@ var SearchDoneeComponent = (function (_super) {
         this.selectedItem = donee;
         this.selectedBut = true;
     };
-    SearchDoneeComponent = __decorate([
-        core_1.Component({
-            selector: 'searchDonee',
-            templateUrl: "app/donee/searchDonee.component.html"
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], SearchDoneeComponent);
     return SearchDoneeComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
+SearchDoneeComponent = __decorate([
+    core_1.Component({
+        selector: 'searchDonee',
+        templateUrl: "app/donee/searchDonee.component.html"
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], SearchDoneeComponent);
 exports.SearchDoneeComponent = SearchDoneeComponent;
 //# sourceMappingURL=searchDonee.component.js.map

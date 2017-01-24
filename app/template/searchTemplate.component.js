@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var postSystem_service_1 = require('./../service/postSystem.service');
-var core_1 = require('@angular/core');
+var postSystem_service_1 = require("./../service/postSystem.service");
+var core_1 = require("@angular/core");
 var SearchTemplateComponent = (function () {
     function SearchTemplateComponent(injector) {
         this.updateBut = false;
@@ -133,11 +133,11 @@ var SearchTemplateComponent = (function () {
             }
         }
     };
-    SearchTemplateComponent = __decorate([
-        core_1.Component({}), 
-        __metadata('design:paramtypes', [core_1.Injector])
-    ], SearchTemplateComponent);
     return SearchTemplateComponent;
 }());
+SearchTemplateComponent = __decorate([
+    core_1.Component({}),
+    __metadata("design:paramtypes", [core_1.Injector])
+], SearchTemplateComponent);
 exports.SearchTemplateComponent = SearchTemplateComponent;
 //# sourceMappingURL=searchTemplate.component.js.map

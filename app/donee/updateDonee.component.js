@@ -13,18 +13,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var updateTemplate_component_1 = require('../template/updateTemplate.component');
-var donee_1 = require('./donee');
-var server_service_1 = require('../service/server.service');
-var itemCat = require('./donee');
+var core_1 = require("@angular/core");
+var updateTemplate_component_1 = require("../template/updateTemplate.component");
+var donee_1 = require("./donee");
+var server_service_1 = require("../service/server.service");
+var itemCat = require("./donee");
 var UpdateDoneeComponent = (function (_super) {
     __extends(UpdateDoneeComponent, _super);
     function UpdateDoneeComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.category = itemCat.Category;
-        this.donee = new donee_1.Donee();
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.category = itemCat.Category;
+        _this.donee = new donee_1.Donee();
+        return _this;
     }
     UpdateDoneeComponent.prototype.ngOnInit = function () {
         this.donee.pushData(this.inputItem);
@@ -39,18 +40,19 @@ var UpdateDoneeComponent = (function (_super) {
         var url = this.serverService.getDoneeUrl(this.donee.donee_name);
         this.Update(url, itemObject);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], UpdateDoneeComponent.prototype, "inputItem", void 0);
-    UpdateDoneeComponent = __decorate([
-        core_1.Component({
-            selector: 'updateDonee',
-            templateUrl: "app/donee/updateDonee.component.html"
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], UpdateDoneeComponent);
     return UpdateDoneeComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], UpdateDoneeComponent.prototype, "inputItem", void 0);
+UpdateDoneeComponent = __decorate([
+    core_1.Component({
+        selector: 'updateDonee',
+        templateUrl: "app/donee/updateDonee.component.html"
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], UpdateDoneeComponent);
 exports.UpdateDoneeComponent = UpdateDoneeComponent;
 //# sourceMappingURL=updateDonee.component.js.map

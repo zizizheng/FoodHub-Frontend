@@ -2,13 +2,16 @@ h1.team-title {
     font-family: Georgia, Serif;
     font-weight: 500;
     padding: 15px 0 15px 0;
-    opacity: 0.8;
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
 }
 
-.team-text {
-    border: 2px solid lightgreen;
+.team-text{
+    border: 2px solid rgba(170, 205, 50, 0.7);
     width: 80%;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .img-size {

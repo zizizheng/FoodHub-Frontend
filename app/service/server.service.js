@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var ServerService = (function () {
     function ServerService() {
         this.serverUrl = 'http://localhost:8080/';
@@ -26,11 +26,11 @@ var ServerService = (function () {
     ServerService.prototype.getUserUrl = function (value) {
         return this.serverUrl + 'user/' + value;
     };
-    ServerService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], ServerService);
     return ServerService;
 }());
+ServerService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], ServerService);
 exports.ServerService = ServerService;
 //# sourceMappingURL=server.service.js.map

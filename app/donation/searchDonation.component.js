@@ -13,21 +13,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var server_service_1 = require('./../service/server.service');
-var itemCat = require('./donation');
-var searchTemplate_component_1 = require('../template/searchTemplate.component');
+var core_1 = require("@angular/core");
+var server_service_1 = require("./../service/server.service");
+var itemCat = require("./donation");
+var searchTemplate_component_1 = require("../template/searchTemplate.component");
 var SearchDonationComponent = (function (_super) {
     __extends(SearchDonationComponent, _super);
     function SearchDonationComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.category = itemCat.Category;
-        this.categorySearch = itemCat.CategorySearch;
-        this.categoryKey = itemCat.CategoryKey;
-        this.dataList = new Array();
-        this.primaryKey = '_id';
-        this.parentUrl = this.serverService.getDonationUrl('');
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.category = itemCat.Category;
+        _this.categorySearch = itemCat.CategorySearch;
+        _this.categoryKey = itemCat.CategoryKey;
+        _this.dataList = new Array();
+        _this.primaryKey = '_id';
+        _this.parentUrl = _this.serverService.getDonationUrl('');
+        return _this;
     }
     SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
@@ -72,14 +73,15 @@ var SearchDonationComponent = (function (_super) {
         else
             this.selectCat = false;
     };
-    SearchDonationComponent = __decorate([
-        core_1.Component({
-            selector: 'searchDonation',
-            templateUrl: "app/donation/searchDonation.component.html",
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], SearchDonationComponent);
     return SearchDonationComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
+SearchDonationComponent = __decorate([
+    core_1.Component({
+        selector: 'searchDonation',
+        templateUrl: "app/donation/searchDonation.component.html",
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], SearchDonationComponent);
 exports.SearchDonationComponent = SearchDonationComponent;
 //# sourceMappingURL=searchDonation.component.js.map

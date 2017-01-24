@@ -13,21 +13,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var addTemplate_component_1 = require('./../template/addTemplate.component');
-var core_1 = require('@angular/core');
-var server_service_1 = require('../service/server.service');
-var user_1 = require('./user');
-var userCat = require('./user');
+var addTemplate_component_1 = require("./../template/addTemplate.component");
+var core_1 = require("@angular/core");
+var server_service_1 = require("../service/server.service");
+var user_1 = require("./user");
+var userCat = require("./user");
 var AddUserComponent = (function (_super) {
     __extends(AddUserComponent, _super);
     function AddUserComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.user = new user_1.User();
-        this.area = [];
-        this.authCat = [];
-        this.area = userCat.Area;
-        this.authCat = userCat.Auth;
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.user = new user_1.User();
+        _this.area = [];
+        _this.authCat = [];
+        _this.area = userCat.Area;
+        _this.authCat = userCat.Auth;
+        return _this;
     }
     AddUserComponent.prototype.ngOnInit = function () { };
     AddUserComponent.prototype.addUserClick = function () {
@@ -35,15 +36,16 @@ var AddUserComponent = (function (_super) {
         var url = this.serverService.getUserUrl(this.user.account);
         this.Add(url, userObject);
     };
-    AddUserComponent = __decorate([
-        core_1.Component({
-            selector: 'addUser',
-            templateUrl: "app/administrator/addUser.component.html",
-            styleUrls: ['app/template/addTemplate.component.css']
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddUserComponent);
     return AddUserComponent;
 }(addTemplate_component_1.AddTemplateComponent));
+AddUserComponent = __decorate([
+    core_1.Component({
+        selector: 'addUser',
+        templateUrl: "app/administrator/addUser.component.html",
+        styleUrls: ['app/template/addTemplate.component.css']
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], AddUserComponent);
 exports.AddUserComponent = AddUserComponent;
 //# sourceMappingURL=addUser.component.js.map

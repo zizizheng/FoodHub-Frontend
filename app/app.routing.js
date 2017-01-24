@@ -1,12 +1,12 @@
 "use strict";
-var contact_component_1 = require('./contact/contact.component');
-var router_1 = require('@angular/router');
-var login_component_1 = require('./login.component');
-var expiry_component_1 = require('./expiry/expiry.component');
-var donation_component_1 = require('./donation/donation.component');
-var donor_component_1 = require('./donor/donor.component');
-var donee_component_1 = require('./donee/donee.component');
-var administrator_component_1 = require('./administrator/administrator.component');
+var contact_component_1 = require("./contact/contact.component");
+var router_1 = require("@angular/router");
+var login_component_1 = require("./login.component");
+var expiry_component_1 = require("./expiry/expiry.component");
+var donation_component_1 = require("./donation/donation.component");
+var donor_component_1 = require("./donor/donor.component");
+var donee_component_1 = require("./donee/donee.component");
+var administrator_component_1 = require("./administrator/administrator.component");
 var appRoutes = [
     { path: '', redirectTo: 'loginPage', pathMatch: 'full' },
     { path: 'loginPage', component: login_component_1.LoginComponent },

@@ -13,19 +13,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var donation_1 = require('./donation');
-var core_1 = require('@angular/core');
-var server_service_1 = require('../service/server.service');
-var addTemplate_component_1 = require('../template/addTemplate.component');
-var itemCat = require('./donation');
+var donation_1 = require("./donation");
+var core_1 = require("@angular/core");
+var server_service_1 = require("../service/server.service");
+var addTemplate_component_1 = require("../template/addTemplate.component");
+var itemCat = require("./donation");
 var AddDonationComponent = (function (_super) {
     __extends(AddDonationComponent, _super);
     function AddDonationComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.item = new donation_1.Donation();
-        this.category = itemCat.Category;
-        this.area = itemCat.Warehouse;
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.item = new donation_1.Donation();
+        _this.category = itemCat.Category;
+        _this.area = itemCat.Warehouse;
+        return _this;
     }
     AddDonationComponent.prototype.addItemClick = function () {
         var itemObject = this.item.getObject();
@@ -35,15 +36,16 @@ var AddDonationComponent = (function (_super) {
     AddDonationComponent.prototype.cleanClick = function () {
         this.item = new donation_1.Donation();
     };
-    AddDonationComponent = __decorate([
-        core_1.Component({
-            selector: 'addDonation',
-            templateUrl: "app/donation/addDonation.component.html",
-            styleUrls: ['app/template/addTemplate.component.css']
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddDonationComponent);
     return AddDonationComponent;
 }(addTemplate_component_1.AddTemplateComponent));
+AddDonationComponent = __decorate([
+    core_1.Component({
+        selector: 'addDonation',
+        templateUrl: "app/donation/addDonation.component.html",
+        styleUrls: ['app/template/addTemplate.component.css']
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], AddDonationComponent);
 exports.AddDonationComponent = AddDonationComponent;
 //# sourceMappingURL=addDonation.component.js.map

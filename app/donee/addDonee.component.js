@@ -13,19 +13,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var addTemplate_component_1 = require('./../template/addTemplate.component');
-var donee_1 = require('./donee');
-var core_1 = require('@angular/core');
-var server_service_1 = require('../service/server.service');
-var doneeCat = require('./donee');
+var addTemplate_component_1 = require("./../template/addTemplate.component");
+var donee_1 = require("./donee");
+var core_1 = require("@angular/core");
+var server_service_1 = require("../service/server.service");
+var doneeCat = require("./donee");
 var AddDoneeComponent = (function (_super) {
     __extends(AddDoneeComponent, _super);
     function AddDoneeComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.donee = new donee_1.Donee();
-        this.category = [];
-        this.category = doneeCat.Category;
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.donee = new donee_1.Donee();
+        _this.category = [];
+        _this.category = doneeCat.Category;
+        return _this;
     }
     AddDoneeComponent.prototype.addDoneeClick = function () {
         var doneeObject = this.donee.getObject();
@@ -35,15 +36,16 @@ var AddDoneeComponent = (function (_super) {
     AddDoneeComponent.prototype.cleanClick = function () {
         this.donee = new donee_1.Donee();
     };
-    AddDoneeComponent = __decorate([
-        core_1.Component({
-            selector: 'addDonee',
-            templateUrl: "app/donee/addDonee.component.html",
-            styleUrls: ['app/template/addTemplate.component.css']
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddDoneeComponent);
     return AddDoneeComponent;
 }(addTemplate_component_1.AddTemplateComponent));
+AddDoneeComponent = __decorate([
+    core_1.Component({
+        selector: 'addDonee',
+        templateUrl: "app/donee/addDonee.component.html",
+        styleUrls: ['app/template/addTemplate.component.css']
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], AddDoneeComponent);
 exports.AddDoneeComponent = AddDoneeComponent;
 //# sourceMappingURL=addDonee.component.js.map

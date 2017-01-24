@@ -13,22 +13,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var donor_1 = require('./donor');
-var server_service_1 = require('../service/server.service');
-var addTemplate_component_1 = require('../template/addTemplate.component');
-var donorCat = require('./donor');
+var core_1 = require("@angular/core");
+var donor_1 = require("./donor");
+var server_service_1 = require("../service/server.service");
+var addTemplate_component_1 = require("../template/addTemplate.component");
+var donorCat = require("./donor");
 var AddDonorComponent = (function (_super) {
     __extends(AddDonorComponent, _super);
     function AddDonorComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.isGroup = false;
-        this.donor = new donor_1.Donor();
-        this.category = [];
-        this.area = [];
-        this.category = donorCat.Category;
-        this.area = donorCat.Area;
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.isGroup = false;
+        _this.donor = new donor_1.Donor();
+        _this.category = [];
+        _this.area = [];
+        _this.category = donorCat.Category;
+        _this.area = donorCat.Area;
+        return _this;
     }
     AddDonorComponent.prototype.addDonorClick = function () {
         var donorObject = this.donor.getObject();
@@ -39,15 +40,16 @@ var AddDonorComponent = (function (_super) {
         console.log(value);
         this.isGroup = (value === '團體') ? true : false;
     };
-    AddDonorComponent = __decorate([
-        core_1.Component({
-            selector: 'addDonor',
-            templateUrl: "app/donor/addDonor.component.html",
-            styleUrls: ['app/template/addTemplate.component.css']
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], AddDonorComponent);
     return AddDonorComponent;
 }(addTemplate_component_1.AddTemplateComponent));
+AddDonorComponent = __decorate([
+    core_1.Component({
+        selector: 'addDonor',
+        templateUrl: "app/donor/addDonor.component.html",
+        styleUrls: ['app/template/addTemplate.component.css']
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], AddDonorComponent);
 exports.AddDonorComponent = AddDonorComponent;
 //# sourceMappingURL=addDonor.component.js.map

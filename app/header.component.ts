@@ -1,7 +1,6 @@
 import { Headers } from '@angular/http';
 import { LoginService } from './service/login.service';
 import { Component, Input, HostListener } from '@angular/core';
-// import $ = require('jquery');
 
 @Component({
 	selector: 'my-header',
@@ -25,20 +24,24 @@ export class HeaderComponent {
 		this.userName = '使用者';
 	}
 
-	
-
     updateHeader() {
-		// $(window).scroll(function() {
-		// 	let lastScrollTop = 0;		
-		// 	let st = $(this).scrollTop();
-		// 	if (st < lastScrollTop){
-		// 		$('#Header ').fadeIn();
-		// 	} 
-		// 	else {
-		// 		$('#Header').fadeOut();
-		// 	}
-		// 	lastScrollTop = st;
-  		// })
+		let com = this;
+		$(window).scroll(function() {
+			let st = $(this).scrollTop();
+			console.log(st);
+			if (st - com.prePos < 0){
+				$('#Header').fadeIn(300);
+				com.recPos = 0;
+			} 
+			else {
+				com.recPos += st - com.prePos;
+
+				if (com.recPos > com.Disappear){
+					$('#Header').fadeOut(300);
+				}
+			}
+			com.prePos = st;
+  		})
 		// if(window.pageYOffset - this.prePos < 0){
 		// 	this.isScrolled = false;
 		// }

@@ -13,23 +13,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var searchTemplate_component_1 = require('./../template/searchTemplate.component');
-var server_service_1 = require('../service/server.service');
-var core_1 = require('@angular/core');
-var donorCat = require('./donor');
+var searchTemplate_component_1 = require("./../template/searchTemplate.component");
+var server_service_1 = require("../service/server.service");
+var core_1 = require("@angular/core");
+var donorCat = require("./donor");
 var SearchDonorComponent = (function (_super) {
     __extends(SearchDonorComponent, _super);
     function SearchDonorComponent(injector, serverService) {
-        _super.call(this, injector);
-        this.serverService = serverService;
-        this.area = [];
-        this.area = donorCat.Area;
-        this.category = donorCat.Category;
-        this.categorySearch = donorCat.CategorySearch;
-        this.categoryKey = donorCat.CategoryKey;
-        this.primaryKey = 'donor_name';
-        this.parentUrl = this.serverService.getDonorUrl('');
-        this.dataList = new Array();
+        var _this = _super.call(this, injector) || this;
+        _this.serverService = serverService;
+        _this.area = [];
+        _this.area = donorCat.Area;
+        _this.category = donorCat.Category;
+        _this.categorySearch = donorCat.CategorySearch;
+        _this.categoryKey = donorCat.CategoryKey;
+        _this.primaryKey = 'donor_name';
+        _this.parentUrl = _this.serverService.getDonorUrl('');
+        _this.dataList = new Array();
+        return _this;
     }
     SearchDonorComponent.prototype.ngOnInit = function () {
         var url = this.serverService.getDonorUrl('list');
@@ -59,14 +60,15 @@ var SearchDonorComponent = (function (_super) {
         this.selectedItem = donor;
         this.selectedBut = true;
     };
-    SearchDonorComponent = __decorate([
-        core_1.Component({
-            selector: 'searchDonor',
-            templateUrl: "app/donor/searchDonor.component.html"
-        }), 
-        __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
-    ], SearchDonorComponent);
     return SearchDonorComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
+SearchDonorComponent = __decorate([
+    core_1.Component({
+        selector: 'searchDonor',
+        templateUrl: "app/donor/searchDonor.component.html"
+    }),
+    __metadata("design:paramtypes", [core_1.Injector,
+        server_service_1.ServerService])
+], SearchDonorComponent);
 exports.SearchDonorComponent = SearchDonorComponent;
 //# sourceMappingURL=searchDonor.component.js.map

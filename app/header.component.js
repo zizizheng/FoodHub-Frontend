@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var login_service_1 = require('./service/login.service');
-var core_1 = require('@angular/core');
-// import $ = require('jquery');
+var login_service_1 = require("./service/login.service");
+var core_1 = require("@angular/core");
 var HeaderComponent = (function () {
     function HeaderComponent(loginService) {
         var _this = this;
@@ -24,17 +23,22 @@ var HeaderComponent = (function () {
         this.userName = '使用者';
     }
     HeaderComponent.prototype.updateHeader = function () {
-        // $(window).scroll(function() {
-        // 	let lastScrollTop = 0;		
-        // 	let st = $(this).scrollTop();
-        // 	if (st < lastScrollTop){
-        // 		$('#Header ').fadeIn();
-        // 	} 
-        // 	else {
-        // 		$('#Header').fadeOut();
-        // 	}
-        // 	lastScrollTop = st;
-        // })
+        var com = this;
+        $(window).scroll(function () {
+            var st = $(this).scrollTop();
+            console.log(st);
+            if (st - com.prePos < 0) {
+                $('#Header').fadeIn(300);
+                com.recPos = 0;
+            }
+            else {
+                com.recPos += st - com.prePos;
+                if (com.recPos > com.Disappear) {
+                    $('#Header').fadeOut(300);
+                }
+            }
+            com.prePos = st;
+        });
         // if(window.pageYOffset - this.prePos < 0){
         // 	this.isScrolled = false;
         // }
@@ -47,18 +51,18 @@ var HeaderComponent = (function () {
         // }
         // this.prePos = window.pageYOffset;
     };
-    HeaderComponent = __decorate([
-        core_1.Component({
-            selector: 'my-header',
-            templateUrl: 'app/header.component.html',
-            styleUrls: ['app/header.component.css'],
-            host: {
-                '(window:scroll)': 'updateHeader()'
-            }
-        }), 
-        __metadata('design:paramtypes', [login_service_1.LoginService])
-    ], HeaderComponent);
     return HeaderComponent;
 }());
+HeaderComponent = __decorate([
+    core_1.Component({
+        selector: 'my-header',
+        templateUrl: 'app/header.component.html',
+        styleUrls: ['app/header.component.css'],
+        host: {
+            '(window:scroll)': 'updateHeader()'
+        }
+    }),
+    __metadata("design:paramtypes", [login_service_1.LoginService])
+], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map
