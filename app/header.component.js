@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var login_service_1 = require('./service/login.service');
 var core_1 = require('@angular/core');
+// import $ = require('jquery');
 var HeaderComponent = (function () {
     function HeaderComponent(loginService) {
         var _this = this;
@@ -23,17 +24,28 @@ var HeaderComponent = (function () {
         this.userName = '使用者';
     }
     HeaderComponent.prototype.updateHeader = function () {
-        if (window.pageYOffset - this.prePos < 0) {
-            this.isScrolled = false;
-        }
-        else {
-            this.recPos += window.pageYOffset - this.prePos;
-            if (this.recPos > this.Disappear) {
-                this.isScrolled = true;
-                this.lastPos = window.pageYOffset;
-            }
-        }
-        this.prePos = window.pageYOffset;
+        // $(window).scroll(function() {
+        // 	let lastScrollTop = 0;		
+        // 	let st = $(this).scrollTop();
+        // 	if (st < lastScrollTop){
+        // 		$('#Header ').fadeIn();
+        // 	} 
+        // 	else {
+        // 		$('#Header').fadeOut();
+        // 	}
+        // 	lastScrollTop = st;
+        // })
+        // if(window.pageYOffset - this.prePos < 0){
+        // 	this.isScrolled = false;
+        // }
+        // else {
+        // 	this.recPos += window.pageYOffset - this.prePos;
+        // 	if (this.recPos > this.Disappear){
+        // 		this.isScrolled = true;
+        // 		this.lastPos = window.pageYOffset;
+        // 	}
+        // }
+        // this.prePos = window.pageYOffset;
     };
     HeaderComponent = __decorate([
         core_1.Component({

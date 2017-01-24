@@ -10,6 +10,7 @@ declare let swal:any;
 @Component({
     selector: 'addDonation',
     templateUrl: `app/donation/addDonation.component.html`,
+    styleUrls: ['app/template/addTemplate.component.css']
 })
 export class AddDonationComponent extends AddTemplateComponent{
     pack: any;

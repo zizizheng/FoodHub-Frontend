@@ -6,7 +6,8 @@ import doneeCat = require('./donee');
 
 @Component({
     selector: 'addDonee',
-    templateUrl: `app/donee/addDonee.component.html`
+    templateUrl: `app/donee/addDonee.component.html`,
+    styleUrls: ['app/template/addTemplate.component.css']
 })
 export class AddDoneeComponent extends AddTemplateComponent {
     pack: any;

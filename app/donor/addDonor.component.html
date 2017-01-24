@@ -1,6 +1,8 @@
 <form #donorForm="ngForm">
+   <h1 class="text-center" style="margin: 20 0 20 0">新增捐贈者</h1>
+
   <div class="row">
-    <div class="row" style="margin: 10 10 10 10">
+    <div class="row text-center" style="margin: 10 10 10 10">
       <div class="col-md-3">
         <label class="control-label">名字</label>
         <input class="form-control" name="name" placeholder="姓名" [(ngModel)]="donor.donor_name"
@@ -20,8 +22,6 @@
         <label class="control-label">E-mail</label>
         <input class="form-control" name="email" placeholder="FoodHub@gmail.com" [(ngModel)]="donor.email"> 
       </div>
-    </div>
-    <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-2">
         <label class="control-label">電話</label>
         <input class="form-control" name="phone" placeholder="ex: 06-2757575" [(ngModel)]="donor.phone"> </div>
@@ -35,9 +35,17 @@
         <label class="control-label">地址</label>
         <input class="form-control" name="address" placeholder="輸入單位或個人地址" [(ngModel)]="donor.address">
       </div>
+       <div class="group" *ngIf="isGroup === true">
+          <div class="col-md-4">
+            <label class="control-label">聯絡人</label>
+            <input class="form-control" name="contact" placeholder="機關團體聯絡人" [(ngModel)]="donor.contact">
+          </div>
+          <div class="col-md-4">
+            <label class="control-label">聯絡電話</label>
+            <input class="form-control" name="contact_phone" placeholder="聯絡人之聯絡電話" [(ngModel)]="donor.contact_phone">
+          </div>
+      </div>
     </div>
-    <div class="row" style="margin: 10 10 10 10">
-      
       <!--<div class="col-md-2">
         <label class="control-label">縣市</label>
         <select name="user-country" class="form-control">
@@ -49,17 +57,6 @@
         </select>
       </div>-->
       
-      <div class="group" *ngIf="isGroup === true">
-          <div class="col-md-4">
-            <label class="control-label">聯絡人</label>
-            <input class="form-control" name="contact" placeholder="機關團體聯絡人" [(ngModel)]="donor.contact">
-          </div>
-          <div class="col-md-4">
-            <label class="control-label">聯絡電話</label>
-            <input class="form-control" name="contact_phone" placeholder="聯絡人之聯絡電話" [(ngModel)]="donor.contact_phone">
-          </div>
-      </div>
-    </div>
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-12 text-center">
         <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">取消</button>

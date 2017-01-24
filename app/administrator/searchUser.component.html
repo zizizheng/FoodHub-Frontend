@@ -2,16 +2,16 @@
 
 <div class="row" style="margin: 20 10 10 10">
   <form #searchForm="ngForm">
-    <div class="col-md-4">
+    <div class="col-md-4 searchBar">
       <input name="user-name" type="text" class="form-control" placeholder="搜尋使用者" 
             [(ngModel)]="searchWord" required> 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 searchBar">
       <select name="user-info" class="form-control" [(ngModel)]="searchKey" required>
         <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 searchBar">
       <button type="submit" class="btn btn-primary" (click)="searchClick()" 
               [disabled]="!searchForm.form.valid">送出</button>
     </div>

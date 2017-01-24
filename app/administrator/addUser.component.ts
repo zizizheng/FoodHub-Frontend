@@ -1,12 +1,13 @@
+import { AddTemplateComponent } from './../template/addTemplate.component';
 import { Component, Injector } from '@angular/core';
 import { ServerService } from '../service/server.service';
 import { User } from './user';
-import { AddTemplateComponent } from '../template/addTemplate.component';
 import userCat = require('./user');
 
 @Component({
-  selector: 'addUser',
-  templateUrl: `app/administrator/addUser.component.html`
+    selector: 'addUser',
+    templateUrl: `app/administrator/addUser.component.html`,
+    styleUrls: ['app/template/addTemplate.component.css']
 })
 export class AddUserComponent extends AddTemplateComponent {
     pack: any;

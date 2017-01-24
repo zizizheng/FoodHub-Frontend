@@ -1,8 +1,8 @@
 <form #userForm="ngForm">
   <div class="row" style="margin: 10 10 10 10">
-    <div class="col-md-12 text-left">
+    <div class="col-md-12">
       <div class="text-center" style="background-color: #FFFFFF">
-        <h1>新增使用者</h1>
+        <h1>新增平台使用者</h1>
         <div class="row" style="margin: 10 10 10 10">
           <div class="col-md-3">
             <label class="control-label">姓名</label>
@@ -22,14 +22,15 @@
           <div class="col-md-3">
             <label class="control-label">手機</label>
             <input class="form-control" name="phone" placeholder="手機" [(ngModel)]="user.phone"> </div>
-        </div>
-        <div class="row" style="margin: 10 10 10 10">
+       
           <div class="col-md-4">
             <label class="control-label">帳號</label>
-            <input class="form-control" name="account" placeholder="帳號" [(ngModel)]="user.account"> </div>
+            <input class="form-control" name="account" placeholder="帳號" [(ngModel)]="user.account"> 
+          </div>
           <div class="col-md-4">
             <label class="control-label">密碼</label>
-            <input type="password" class="form-control" name="password" placeholder="密碼" [(ngModel)]="user.password"> </div>
+            <input type="password" class="form-control" name="password" placeholder="密碼" [(ngModel)]="user.password">
+          </div>
           <div class="col-md-4">
             <label class="control-label">權限</label>
             <select name="user-info" name="auth" class="form-control" [(ngModel)]="user.auth" required>

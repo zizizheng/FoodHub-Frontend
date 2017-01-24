@@ -13,10 +13,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var addTemplate_component_1 = require('./../template/addTemplate.component');
 var core_1 = require('@angular/core');
 var server_service_1 = require('../service/server.service');
 var user_1 = require('./user');
-var addTemplate_component_1 = require('../template/addTemplate.component');
 var userCat = require('./user');
 var AddUserComponent = (function (_super) {
     __extends(AddUserComponent, _super);
@@ -38,7 +38,8 @@ var AddUserComponent = (function (_super) {
     AddUserComponent = __decorate([
         core_1.Component({
             selector: 'addUser',
-            templateUrl: "app/administrator/addUser.component.html"
+            templateUrl: "app/administrator/addUser.component.html",
+            styleUrls: ['app/template/addTemplate.component.css']
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
     ], AddUserComponent);

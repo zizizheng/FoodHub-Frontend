@@ -7,8 +7,9 @@ import donorCat = require('./donor');
 declare let swal:any;
 
 @Component({
-  selector: 'addDonor',
-  templateUrl: `app/donor/addDonor.component.html`
+    selector: 'addDonor',
+    templateUrl: `app/donor/addDonor.component.html`,
+    styleUrls: ['app/template/addTemplate.component.css']
 })
 export class AddDonorComponent extends AddTemplateComponent {
     pack: any;

@@ -38,7 +38,8 @@ var AddDoneeComponent = (function (_super) {
     AddDoneeComponent = __decorate([
         core_1.Component({
             selector: 'addDonee',
-            templateUrl: "app/donee/addDonee.component.html"
+            templateUrl: "app/donee/addDonee.component.html",
+            styleUrls: ['app/template/addTemplate.component.css']
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
     ], AddDoneeComponent);

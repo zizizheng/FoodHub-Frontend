@@ -1,5 +1,7 @@
 <form #doneeForm="ngForm">
-  <div class="row" style="margin: 10 10 10 10">
+   <h1 class="text-center" style="margin: 20 0 20 0">新增受贈者</h1>
+
+  <div class="row text-center" style="margin: 10 10 10 10">
     <div class="col-md-4">
       <label class="control-label">名稱</label>
       <input class="form-control" name="name" placeholder="社福名稱" [(ngModel)]="donee.donee_name"
@@ -15,8 +17,6 @@
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
     </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-2">
       <label class="control-label">戶數</label>
       <input class="form-control" name="house_num" placeholder="ex: 2" [(ngModel)]="donee.house"> </div>
@@ -25,9 +25,8 @@
       <input class="form-control" name="people_num" placeholder="ex: 5" [(ngModel)]="donee.people"> </div>
     <div class="col-md-8">
       <label class="control-label">地址</label>
-      <input type="text" class="form-control" name="address" placeholder="輸入單位或個人地址" [(ngModel)]="donee.address"> </div>
-  </div>
-  <div class="row" style="margin: 10 10 10 10">
+      <input type="text" class="form-control" name="address" placeholder="輸入單位或個人地址" [(ngModel)]="donee.address"> 
+    </div>
     <div class="col-md-2">
       <label class="control-label">聯絡人姓名</label>
       <input class="form-control" name="contact" placeholder="應該是填人吧" [(ngModel)]="donee.contact"> </div>
@@ -36,8 +35,10 @@
       <input class="form-control" name="contact_phone" placeholder="人的電話吧" [(ngModel)]="donee.contact_phone"> </div>
     <div class="col-md-7">
       <label class="control-label">E-mail</label>
-      <input class="form-control" name="email" placeholder="a123912489123@gmail.com" [(ngModel)]="donee.email"> </div>
+      <input class="form-control" name="email" placeholder="a123912489123@gmail.com" [(ngModel)]="donee.email"> 
+    </div>
   </div>
+
   <div class="row" style="margin: 10 10 10 10">
     <div class="col-md-12 text-center">
       <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">取消</button>

@@ -1,12 +1,14 @@
 <!-- History not yet -->
 <div class="section">
   <div class="container">
+
     <!-- Cover -->
     <div class="row">
       <div class="col-md-12 text-left">
-        <div class="text-center well">
+        <div class="text-center well pageWell">
           <h1>
-            <i class="fa fa-fw fa-spin lery fa-gear"></i>系統管理員</h1>
+            <i class="fa fa-fw fa-spin lery fa-gear"></i>系統管理員
+          </h1>
           <blockquote>
             <p>不能浪費食物</p>
             <footer>Someone famous</footer>
@@ -14,10 +16,12 @@
         </div>
       </div>
     </div>
+    <!--Cover End-->
+
     <!-- Panel -->
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
-        <h4 class="panel-title pull-right" style="padding-top: 7.5px;">系統管理員</h4>
+        <h4 class="panel-title pull-right" style="">系統管理員</h4>
         <div class="btn-group pull-left">
           <a class="btn btn-default btn-md" (click)="butClick('search')" [class.active]="selectedBut === 'search'"> ## 搜尋 </a>
           <a class="btn btn-default btn-md" (click)="butClick('add')" [class.active]="selectedBut === 'add'"> ## 新增</a>
@@ -26,5 +30,6 @@
       <searchUser *ngIf="selectedBut === 'search'"></searchUser>
       <addUser *ngIf="selectedBut === 'add'"></addUser>
     </div>
+    <!--Panel End-->
   </div>
 </div>

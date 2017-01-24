@@ -1,6 +1,6 @@
 <form #searchForm="ngForm">
   <div class="row" style="margin: 20 10 10 10">
-    <div class="col-md-4">
+    <div class="col-md-4 searchBar">
       <input class="form-control" placeholder="你要找什麼呢？" name="donee-search"
              [(ngModel)]="searchWord" *ngIf="!selectCat" required> 
       
@@ -9,13 +9,13 @@
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 searchBar">
       <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" 
             (change)="searchChange(catSelect.value)" required>
         <option *ngFor="let donee of categorySearch" [value]="donee">{{donee}}</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 searchBar">
       <button type="submit" class="btn btn-primary" (click)="searchClick()"
               [disabled]="!searchForm.form.valid">送出</button>
     </div>

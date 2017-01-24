@@ -42,7 +42,8 @@ var AddDonorComponent = (function (_super) {
     AddDonorComponent = __decorate([
         core_1.Component({
             selector: 'addDonor',
-            templateUrl: "app/donor/addDonor.component.html"
+            templateUrl: "app/donor/addDonor.component.html",
+            styleUrls: ['app/template/addTemplate.component.css']
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
     ], AddDonorComponent);

@@ -39,6 +39,7 @@ var AddDonationComponent = (function (_super) {
         core_1.Component({
             selector: 'addDonation',
             templateUrl: "app/donation/addDonation.component.html",
+            styleUrls: ['app/template/addTemplate.component.css']
         }), 
         __metadata('design:paramtypes', [core_1.Injector, server_service_1.ServerService])
     ], AddDonationComponent);

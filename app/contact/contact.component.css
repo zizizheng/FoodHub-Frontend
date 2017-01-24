@@ -1,9 +1,14 @@
-h1.team-title{
+h1.team-title {
+    font-family: Georgia, Serif;
+    font-weight: 500;
     padding: 15px 0 15px 0;
     opacity: 0.8;
 }
-.pageTitle {
-    margin-top: 20px;
+
+.team-text {
+    border: 2px solid lightgreen;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .img-size {
