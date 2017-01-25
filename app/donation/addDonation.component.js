@@ -36,6 +36,22 @@ var AddDonationComponent = (function (_super) {
     AddDonationComponent.prototype.cleanClick = function () {
         this.item = new donation_1.Donation();
     };
+    AddDonationComponent.prototype.enterBarcode = function (e) {
+        var _this = this;
+        console.log(e.key);
+        var comp = this;
+        if (e.key == 'Enter') {
+            var url = this.serverService.getBarcodeUrl(e.target.value);
+            this.GetSpecificObject(url).then(function (res) {
+                _this.item.item_name = res.item_name;
+                _this.item.item_unit = res.item_unit;
+                _this.item.item_unitprice = res.item_unitprice;
+            }).catch(function (e) {
+                // add warning to input
+                console.log('oh fuck i cant find anything');
+            });
+        }
+    };
     return AddDonationComponent;
 }(addTemplate_component_1.AddTemplateComponent));
 AddDonationComponent = __decorate([

@@ -30,6 +30,10 @@ var SearchDonationComponent = (function (_super) {
         _this.parentUrl = _this.serverService.getDonationUrl('');
         return _this;
     }
+    SearchDonationComponent.prototype.ngOnInit = function () {
+        var url = this.serverService.getDonationUrl('list');
+        this.GetList(url, this.primaryKey);
+    };
     SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
         this.selectedItem = item;
@@ -55,11 +59,12 @@ var SearchDonationComponent = (function (_super) {
     };
     SearchDonationComponent.prototype.checkChange = function (item, checked) {
         var _this = this;
-        // console.log(item._id);
+        console.log(item._id);
         // console.log(this.delArray.filter(object => object.id == item._id));
         this.delArray.filter(function (object) {
             return object.primaryKey == item[_this.primaryKey];
         })[0].checked = checked;
+        console.log(this.delArray);
     };
     SearchDonationComponent.prototype.deleteClick = function () {
         this.Delete();

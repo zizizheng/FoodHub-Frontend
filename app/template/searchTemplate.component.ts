@@ -41,6 +41,7 @@ export class SearchTemplateComponent {
                     swal('Opps, something wrong!', err.error, 'warning');
                 },
                 () => {
+                    this.dealId();                    
                     this.putIntoChecklist(primaryKey);
                     // console.log(this.dataList);
                 }

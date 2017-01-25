@@ -20,4 +20,17 @@ export class AddTemplateComponent {
             }
         );
     }
+    
+    GetSpecificObject(url){
+        return new Promise((resolve, reject)=>{
+            this.postSystemService.getSpecificData(url).subscribe(
+                data => {
+                    resolve(data);
+                },
+                error => {
+                    reject(error);
+                }
+            );
+        });
+        
 }

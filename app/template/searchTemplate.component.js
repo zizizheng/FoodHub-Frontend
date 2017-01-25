@@ -44,6 +44,7 @@ var SearchTemplateComponent = (function () {
             var err = error.json();
             swal('Opps, something wrong!', err.error, 'warning');
         }, function () {
+            _this.dealId();
             _this.putIntoChecklist(primaryKey);
             // console.log(this.dataList);
         });

@@ -25,4 +25,8 @@ export class ServerService{
     getUserUrl(value){
         return this.serverUrl + 'user/' + value;
     }
+
+    getBarcodeUrl(value){
+        return this.serverUrl + 'barcode/' + value;
+    }
 }

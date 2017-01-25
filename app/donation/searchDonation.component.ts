@@ -23,6 +23,11 @@ export class SearchDonationComponent extends SearchTemplateComponent{
         this.parentUrl = this.serverService.getDonationUrl('');
     }
 
+    ngOnInit(){
+        let url = this.serverService.getDonationUrl('list');
+        this.GetList(url, this.primaryKey);      
+    }
+
     updateClick(item){
         this.cleanPage();
         this.selectedItem = item;
@@ -51,10 +56,11 @@ export class SearchDonationComponent extends SearchTemplateComponent{
     }
 
     checkChange(item, checked){
-        // console.log(item._id);
+        console.log(item._id);
         // console.log(this.delArray.filter(object => object.id == item._id));
         this.delArray.filter(object => 
                     object.primaryKey == item[this.primaryKey])[0].checked = checked;
+        console.log(this.delArray);
     }
 
     deleteClick(){

@@ -26,6 +26,10 @@ var PostSystemService = (function () {
         return this.http.get(url, { search: params })
             .map(function (response) { return response.json(); });
     };
+    PostSystemService.prototype.getSpecificData = function (url) {
+        return this.http.get(url)
+            .map(function (response) { return response.json(); });
+    };
     PostSystemService.prototype.postData = function (url, object) {
         // TODO : move subscribe to corresponding component
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });

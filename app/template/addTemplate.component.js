@@ -20,6 +20,16 @@ var AddTemplateComponent = (function () {
             console.log(err.error);
         });
     };
+    AddTemplateComponent.prototype.GetSpecificObject = function (url) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.postSystemService.getSpecificData(url).subscribe(function (data) {
+                resolve(data);
+            }, function (error) {
+                reject(error);
+            });
+        });
+    };
     return AddTemplateComponent;
 }());
 __decorate([

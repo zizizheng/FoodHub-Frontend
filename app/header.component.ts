@@ -28,7 +28,7 @@ export class HeaderComponent {
 		let com = this;
 		$(window).scroll(function() {
 			let st = $(this).scrollTop();
-			console.log(st);
+			// console.log(st);
 			if (st - com.prePos < 0){
 				$('#Header').fadeIn(300);
 				com.recPos = 0;

@@ -33,4 +33,21 @@ export class AddDonationComponent extends AddTemplateComponent{
         this.item = new Donation();
     }
 
+    enterBarcode(e){
+     
+        console.log(e.key);
+        let comp = this;
+        if(e.key == 'Enter'){
+            let url = this.serverService.getBarcodeUrl(e.target.value);
+            this.GetSpecificObject(url).then((res: Donation) => {
+                this.item.item_name = res.item_name;
+                this.item.item_unit = res.item_unit;
+                this.item.item_unitprice = res.item_unitprice;
+            }).catch(function(e){
+                // add warning to input
+                console.log('oh fuck i cant find anything');
+            });
+        }
+        
+    }
 }

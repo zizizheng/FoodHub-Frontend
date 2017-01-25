@@ -26,6 +26,9 @@ var ServerService = (function () {
     ServerService.prototype.getUserUrl = function (value) {
         return this.serverUrl + 'user/' + value;
     };
+    ServerService.prototype.getBarcodeUrl = function (value) {
+        return this.serverUrl + 'barcode/' + value;
+    };
     return ServerService;
 }());
 ServerService = __decorate([

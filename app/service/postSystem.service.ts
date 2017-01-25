@@ -22,6 +22,11 @@ export class PostSystemService {
                         .map(response => response.json());
     }
 
+    getSpecificData(url){
+        return this.http.get(url)
+                        .map(response => response.json());
+    }
+
     postData(url, object){
         // TODO : move subscribe to corresponding component
         let headers = new Headers({ 'Content-Type': 'application/json' });

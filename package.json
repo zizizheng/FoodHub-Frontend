@@ -35,7 +35,7 @@
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "sweetalert2": "~6.2.9",
-    "typescript": "^2.1.0",
+    "typescript": "^2.1.4",
     "typings": "^1.0.4"
   }
 }
