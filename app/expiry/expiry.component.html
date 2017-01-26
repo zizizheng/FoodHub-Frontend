@@ -5,11 +5,17 @@
         
         
         <div class="text-center well pageWell">
-          <h1>
-            <i class="fa fa-fw fa-spin lery fa-pagelines"></i>三周內到期貨品</h1>
+
+            <h1 id="hExpiry" title="選擇過期天數">
+              <i id="iExpiry" class="fa fa-fw fa-spin lery fa-pagelines animated" 
+                (mouseover)="iconHover(true)"
+                (mouseleave)="iconHover(false)"
+                (click)="iconClick()">
+              </i>{{title}}
+            </h1>
           <blockquote>
             <p>不能浪費食物</p>
-            <footer>Someone famous</footer>
+            <footer>點選圖示可調整過期天數</footer>
           </blockquote>
           <p></p>
         </div>
@@ -18,18 +24,18 @@
         <table class="table table-bordered table-hover table-striped animated zoomIn">
           <thead>
             <tr>
-              <th>#</th>
+              <th>ID</th>
               <th>到期日</th>
-              <th>貨品</th>
+              <th>名稱</th>
               <th>數量</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor='let expiry of expiries'>
-              <td>{{expiry.id}}</td>
-              <td>{{expiry.date}}</td>
-              <td>{{expiry.name}}</td>
-              <td>{{expiry.quantity}}</td>
+              <td>{{expiry.item_id}}</td>
+              <td>{{expiry.expire_dt}}</td>
+              <td>{{expiry.item_name}}</td>
+              <td>{{expiry.item_qt}}</td>
             </tr>
           </tbody>
         </table>

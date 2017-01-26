@@ -29,4 +29,8 @@ export class ServerService{
     getBarcodeUrl(value){
         return this.serverUrl + 'barcode/' + value;
     }
+
+    getExpiryUrl(value){
+        return this.serverUrl + 'stock/expire_dt/' + value;
+    }
 }

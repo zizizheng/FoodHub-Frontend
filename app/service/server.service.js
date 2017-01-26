@@ -29,6 +29,9 @@ var ServerService = (function () {
     ServerService.prototype.getBarcodeUrl = function (value) {
         return this.serverUrl + 'barcode/' + value;
     };
+    ServerService.prototype.getExpiryUrl = function (value) {
+        return this.serverUrl + 'stock/expire_dt/' + value;
+    };
     return ServerService;
 }());
 ServerService = __decorate([
