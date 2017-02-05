@@ -22,7 +22,7 @@ var HeaderComponent = (function () {
         loginService.nameChange$.subscribe(function (name) { return _this.userName = name; });
         this.userName = '使用者';
     }
-    HeaderComponent.prototype.updateHeader = function () {
+    HeaderComponent.prototype.ngOnInit = function () {
         var com = this;
         $(window).scroll(function () {
             var st = $(this).scrollTop();
@@ -39,17 +39,6 @@ var HeaderComponent = (function () {
             }
             com.prePos = st;
         });
-        // if(window.pageYOffset - this.prePos < 0){
-        // 	this.isScrolled = false;
-        // }
-        // else {
-        // 	this.recPos += window.pageYOffset - this.prePos;
-        // 	if (this.recPos > this.Disappear){
-        // 		this.isScrolled = true;
-        // 		this.lastPos = window.pageYOffset;
-        // 	}
-        // }
-        // this.prePos = window.pageYOffset;
     };
     return HeaderComponent;
 }());
@@ -57,10 +46,7 @@ HeaderComponent = __decorate([
     core_1.Component({
         selector: 'my-header',
         templateUrl: 'app/header.component.html',
-        styleUrls: ['app/header.component.css'],
-        host: {
-            '(window:scroll)': 'updateHeader()'
-        }
+        styleUrls: ['app/header.component.css']
     }),
     __metadata("design:paramtypes", [login_service_1.LoginService])
 ], HeaderComponent);

@@ -43,6 +43,7 @@ var AddDonationComponent = (function (_super) {
     };
     AddDonationComponent.prototype.enterBarcode = function (e) {
         var _this = this;
+        $('#barcodeInput').removeClass('success fail');
         console.log(e.key);
         var comp = this;
         if (e.key == 'Enter') {
@@ -51,9 +52,12 @@ var AddDonationComponent = (function (_super) {
                 _this.item.item_name = res.item_name;
                 _this.item.item_unit = res.item_unit;
                 _this.item.item_unitprice = res.item_unitprice;
+                $('#barcodeInput').addClass('success');
+                setTimeout(function () { }, 2500);
             }).catch(function (e) {
                 // add warning to input
                 console.log('oh fuck i cant find anything');
+                $('#barcodeInput').addClass('fail');
             });
         }
     };

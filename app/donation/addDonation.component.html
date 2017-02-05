@@ -15,8 +15,8 @@
       </div>
       <div class="col-md-4">
         <label class="control-label">條碼</label>
-        <input class="form-control" name="barcode" placeholder="29384923 92839187" [(ngModel)]="item.barcode"
-               (keypress)="enterBarcode($event)">
+        <input id="barcodeInput" class="form-control" name="barcode" placeholder="輸入完成後按enter自動填入歷史資料" 
+               [(ngModel)]="item.barcode" (keypress)="enterBarcode($event)">
       </div>
       <div class="col-md-2">
         <label class="control-label">品項分類</label>

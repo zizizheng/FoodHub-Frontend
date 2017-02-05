@@ -1,3 +1,23 @@
 label {
     margin: 5px 0px;
 }
+
+.success{
+    background-color: green;
+    /*transition: background-color 0.5s linear;*/
+}
+
+.fail {
+    animation: fail 1s;
+    /*transition: background-color 0.5s linear;*/    
+}
+
+@keyframes fail {
+    0%   { background-color: red; }
+    100% { background-color: #fff; }
+}
+
+@keyframes success {
+    0%   { background-color: green; }
+    100% { background-color: #fff; }
+}
