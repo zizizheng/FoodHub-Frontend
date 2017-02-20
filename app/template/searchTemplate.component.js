@@ -26,6 +26,7 @@ var SearchTemplateComponent = (function () {
         this.dataList = [];
         this.primaryKey = '';
         this.parentUrl = '';
+        this.listUrl = '';
         this.getType = function (ele) {
             return Object.prototype.toString.call(ele);
         };
@@ -88,7 +89,12 @@ var SearchTemplateComponent = (function () {
                 confirmButtonText: "是的，確定刪除",
                 cancelButtonText: "取消"
             }).then(function () {
-                _this.deleteObject();
+                for (var _i = 0, _a = _this.delArray; _i < _a.length; _i++) {
+                    var ob = _a[_i];
+                    if (ob.checked) {
+                        _this.deleteObject(ob.url);
+                    }
+                }
             });
         }
         else {
@@ -108,22 +114,17 @@ var SearchTemplateComponent = (function () {
         }
         console.log(this.delArray);
     };
-    SearchTemplateComponent.prototype.deleteObject = function () {
+    SearchTemplateComponent.prototype.deleteObject = function (ob) {
         var _this = this;
-        for (var _i = 0, _a = this.delArray; _i < _a.length; _i++) {
-            var ob = _a[_i];
-            if (ob.checked) {
-                this.postSystemService
-                    .deleteData(ob.url)
-                    .subscribe(function (data) { return swal('Delete', data.success, 'success'); }, function (error) {
-                    var err = error.json();
-                    swal(err.error);
-                }, function () {
-                    // refresh form
-                    _this.GetList(_this.parentUrl + 'list', _this.primaryKey);
-                });
-            }
-        }
+        this.postSystemService
+            .deleteData(ob)
+            .subscribe(function (data) { return swal('Delete', data.success, 'success'); }, function (error) {
+            var err = error.json();
+            swal(err.error);
+        }, function () {
+            // refresh form
+            _this.GetList(_this.parentUrl + 'list', _this.primaryKey);
+        });
     };
     SearchTemplateComponent.prototype.dealId = function () {
         if (this.getType(this.dataList) === this.getType([])) {

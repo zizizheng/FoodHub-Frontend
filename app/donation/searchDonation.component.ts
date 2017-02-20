@@ -3,12 +3,14 @@ import { ServerService } from './../service/server.service';
 import itemCat = require('./donation');
 import { SearchTemplateComponent } from '../template/searchTemplate.component';
 import { Donation } from './donation';
+import { UpdateDonationComponent } from './updateDonation.component';
 
 declare let swal:any;
 
 @Component({
   selector: 'searchDonation',
   templateUrl: `app/donation/searchDonation.component.html`,
+  directives: [ UpdateDonationComponent ]
 })
 export class SearchDonationComponent extends SearchTemplateComponent{
 
@@ -21,11 +23,11 @@ export class SearchDonationComponent extends SearchTemplateComponent{
         this.dataList = new Array<Donation>();
         this.primaryKey = '_id';
         this.parentUrl = this.serverService.getDonationUrl('');
+        this.listUrl = this.serverService.getDonationUrl('list');
     }
 
     ngOnInit(){
-        let url = this.serverService.getDonationUrl('list');
-        this.GetList(url, this.primaryKey);      
+        this.GetList(this.listUrl, this.primaryKey);      
     }
 
     updateClick(item){
@@ -74,5 +76,11 @@ export class SearchDonationComponent extends SearchTemplateComponent{
             this.searchWord = '';
         }
         else this.selectCat = false;
+    }
+
+    notifyUpdate(isUpdate){
+        // console.log('got emit');
+        if( isUpdate ) this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     }
 }

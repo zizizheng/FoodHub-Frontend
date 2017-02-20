@@ -22,12 +22,12 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
         this.categoryKey = donorCat.CategoryKey;
         this.primaryKey = 'donor_name';
         this.parentUrl = this.serverService.getDonorUrl('');
+        this.listUrl = this.serverService.getDonorUrl('list');
         this.dataList = new Array<Donor>();
     }
 
     ngOnInit(){
-        let url = this.serverService.getDonorUrl('list');
-        this.GetList(url, this.primaryKey);      
+        this.GetList(this.listUrl, this.primaryKey);      
     }
 
     searchClick(){
@@ -56,6 +56,12 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
 
     updateClick(donor){
         this.selectedItem = donor;
-        this.selectedBut = true;
+        this.updateBut = true;
+    }
+
+    notifyUpdate(isUpdate){
+        // console.log('got emit');
+        if(isUpdate) this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     }
 }

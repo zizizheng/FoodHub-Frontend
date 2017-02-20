@@ -1,18 +1,24 @@
 import { DatePipe } from '@angular/common';
 export class Donation {
-    _id: string;
+    dn_id: string;
     donor_name: string;
     item_name: string;
     expire_dt: string;
     category: string;
     weight: number;
-    item_unit: number;
+    item_unit: string;
     item_qt: number;
     donate_dt: string;
     memo: string;
     item_unitprice: number;
     barcode: string;
     area: string;
+
+    constructor(){
+        this.weight = 0;
+        this.item_qt = 0;
+        this.item_unitprice = 0;
+    }
 
     public checkInput(){
         // TODO : 確認各種字串輸入正確與否
@@ -21,7 +27,7 @@ export class Donation {
     public getObject(){
         // TODO : 確認 id 與 date 格式如何處理
         let object = { 
-            _id: this._id,
+            dn_id: this.dn_id,
             donor_name: this.donor_name,
             item_name: this.item_name,
             expire_dt: Date.parse(this.expire_dt),
@@ -40,7 +46,7 @@ export class Donation {
     }
 
     pushData(ob){
-        this._id = ob._id;
+        this.dn_id = ob.dn_id;
         this.donor_name = ob.donor_name;
         this.item_name = ob.item_name;
         this.expire_dt = new DatePipe().transform(ob.expire_dt, 'yyyy/MM/dd');

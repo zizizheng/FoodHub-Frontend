@@ -11,6 +11,7 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
+var common_1 = require("@angular/common");
 var header_component_1 = require("./header.component");
 var footer_component_1 = require("./footer.component");
 var login_component_1 = require("./login.component");
@@ -49,18 +50,25 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule,
+        imports: [
+            platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            app_routing_1.routing],
-        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, expiry_component_1.ExpiryComponent, footer_component_1.MyFooterComponent,
+            app_routing_1.routing
+        ],
+        declarations: [
+            app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, expiry_component_1.ExpiryComponent, footer_component_1.MyFooterComponent,
             donation_component_1.DonationComponent, searchDonation_component_1.SearchDonationComponent, addDonation_component_1.AddDonationComponent, giveDonation_component_1.GiveDonationComponent,
             updateDonation_component_1.UpdateDonationComponent, importDonation_component_1.ImportDonationComponent, donor_component_1.DonorComponent, searchDonor_component_1.SearchDonorComponent,
             updateDonor_component_1.UpdateDonorComponent, addDonor_component_1.AddDonorComponent, donee_component_1.DoneeComponent,
             searchDonee_component_1.SearchDoneeComponent, addDonee_component_1.AddDoneeComponent, updateDonee_component_1.UpdateDoneeComponent,
             administrator_component_1.AdministratorComponent, searchUser_component_1.SearchUserComponent, addUser_component_1.AddUserComponent, updateUser_component_1.UpdateUserComponent,
-            contact_component_1.ContactComponent],
-        providers: [login_service_1.LoginService, server_service_1.ServerService, postSystem_service_1.PostSystemService],
+            contact_component_1.ContactComponent
+        ],
+        providers: [
+            login_service_1.LoginService, server_service_1.ServerService, postSystem_service_1.PostSystemService,
+            { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

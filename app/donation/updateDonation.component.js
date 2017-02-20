@@ -28,6 +28,7 @@ var UpdateDonationComponent = (function (_super) {
     function UpdateDonationComponent(injector, serverService) {
         var _this = _super.call(this, injector) || this;
         _this.serverService = serverService;
+        _this.updated = new core_1.EventEmitter();
         _this.category = itemCat.Category;
         _this.area = itemCat.Warehouse;
         _this.item = new donation_1.Donation();
@@ -40,9 +41,18 @@ var UpdateDonationComponent = (function (_super) {
         this.item.pushData(this.inputItem);
     };
     UpdateDonationComponent.prototype.sendClick = function () {
+        var _this = this;
         var itemObject = this.item.getObject();
         var url = this.serverService.getDonationUrl(this.item._id);
-        this.Update(url, itemObject);
+        this.Update(url, itemObject).then(function (data) {
+            // edit and update, emit true
+            if (data)
+                _this.updated.emit(true);
+        });
+    };
+    UpdateDonationComponent.prototype.clearClick = function () {
+        // cancel update, emit false
+        this.updated.emit(false);
     };
     return UpdateDonationComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
@@ -50,6 +60,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], UpdateDonationComponent.prototype, "inputItem", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], UpdateDonationComponent.prototype, "updated", void 0);
 UpdateDonationComponent = __decorate([
     core_1.Component({
         selector: 'updateDonation',

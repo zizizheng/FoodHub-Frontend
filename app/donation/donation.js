@@ -2,6 +2,9 @@
 var common_1 = require("@angular/common");
 var Donation = (function () {
     function Donation() {
+        this.weight = 0;
+        this.item_qt = 0;
+        this.item_unitprice = 0;
     }
     Donation.prototype.checkInput = function () {
         // TODO : 確認各種字串輸入正確與否
@@ -9,7 +12,7 @@ var Donation = (function () {
     Donation.prototype.getObject = function () {
         // TODO : 確認 id 與 date 格式如何處理
         var object = {
-            _id: this._id,
+            dn_id: this.dn_id,
             donor_name: this.donor_name,
             item_name: this.item_name,
             expire_dt: Date.parse(this.expire_dt),
@@ -26,7 +29,7 @@ var Donation = (function () {
         return object;
     };
     Donation.prototype.pushData = function (ob) {
-        this._id = ob._id;
+        this.dn_id = ob.dn_id;
         this.donor_name = ob.donor_name;
         this.item_name = ob.item_name;
         this.expire_dt = new common_1.DatePipe().transform(ob.expire_dt, 'yyyy/MM/dd');

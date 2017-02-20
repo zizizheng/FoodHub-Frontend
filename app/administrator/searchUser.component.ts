@@ -17,12 +17,12 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
         this.categoryKey = userCat.CategoryKey;
         this.dataList = new Array<User>();
         this.primaryKey = 'account';
+        this.listUrl = this.serverService.getUserUrl('list');
         this.parentUrl = this.serverService.getUserUrl('')
     }
 
     ngOnInit(){
-        let url = this.serverService.getUserUrl('list');
-        this.GetList(url, this.primaryKey);      
+        this.GetList(this.listUrl, this.primaryKey);      
     }
 
     searchClick(){
@@ -49,6 +49,12 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
 
     editClick(user){
         this.selectedItem = user;
-        this.selectedBut = true;
+        this.updateBut = true;
+    }
+
+    notifyUpdate(isUpdate){
+        // console.log('got emit');
+        if(isUpdate) this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     }
 }

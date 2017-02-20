@@ -13,8 +13,11 @@ export class ContactComponent {
             photo:'http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png'
         },
         { 
-            name: 'AnChe', title: 'Backend Developer', fb:'', github:'', web:'', 
-            photo:'http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png'
+            name: 'AnChe', title: 'Backend Developer', 
+            fb:'', 
+            github:'', 
+            web:'', 
+            photo:'app/img/anche.jpg'
         },
         { 
             name: 'Zizi', title: 'Frontend Developer', 

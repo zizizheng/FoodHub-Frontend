@@ -4,6 +4,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { HeaderComponent } from './header.component';
 import { MyFooterComponent } from './footer.component';
@@ -43,18 +44,25 @@ import { PostSystemService } from './service/postSystem.service';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  imports:      [ BrowserModule,
-                FormsModule,
-                HttpModule,
-                routing],
-  declarations: [AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,
-                DonationComponent, SearchDonationComponent, AddDonationComponent, GiveDonationComponent,
-                UpdateDonationComponent, ImportDonationComponent, DonorComponent, SearchDonorComponent, 
-                UpdateDonorComponent, AddDonorComponent, DoneeComponent,
-                SearchDoneeComponent, AddDoneeComponent, UpdateDoneeComponent,
-                AdministratorComponent, SearchUserComponent, AddUserComponent, UpdateUserComponent, 
-                ContactComponent],
-  providers: [ LoginService, ServerService, PostSystemService], 
+  imports:      [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing
+  ],
+  declarations: [
+    AppComponent, HeaderComponent, LoginComponent, ExpiryComponent, MyFooterComponent,
+    DonationComponent, SearchDonationComponent, AddDonationComponent, GiveDonationComponent,
+    UpdateDonationComponent, ImportDonationComponent, DonorComponent, SearchDonorComponent, 
+    UpdateDonorComponent, AddDonorComponent, DoneeComponent,
+    SearchDoneeComponent, AddDoneeComponent, UpdateDoneeComponent,
+    AdministratorComponent, SearchUserComponent, AddUserComponent, UpdateUserComponent, 
+    ContactComponent
+  ],
+  providers: [ 
+    LoginService, ServerService, PostSystemService, 
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ], 
   bootstrap: [ AppComponent ]
 
 })

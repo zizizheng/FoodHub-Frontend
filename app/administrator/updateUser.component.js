@@ -28,6 +28,7 @@ var UpdateUserComponent = (function (_super) {
     function UpdateUserComponent(injector, serverService) {
         var _this = _super.call(this, injector) || this;
         _this.serverService = serverService;
+        _this.updated = new core_1.EventEmitter();
         _this.area = itemCat.Area;
         _this.auth = itemCat.Auth;
         _this.user = new user_1.User();
@@ -40,9 +41,16 @@ var UpdateUserComponent = (function (_super) {
         this.user.pushData(this.inputItem);
     };
     UpdateUserComponent.prototype.sendClick = function () {
+        var _this = this;
         var itemObject = this.user.getObject();
         var url = this.serverService.getUserUrl(this.user.user_name);
-        this.Update(url, itemObject);
+        this.Update(url, itemObject).then(function (data) {
+            if (data)
+                _this.updated.emit(true);
+        });
+    };
+    UpdateUserComponent.prototype.clearClick = function () {
+        this.updated.emit(false);
     };
     return UpdateUserComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
@@ -50,6 +58,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], UpdateUserComponent.prototype, "inputItem", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], UpdateUserComponent.prototype, "updated", void 0);
 UpdateUserComponent = __decorate([
     core_1.Component({
         selector: 'updateUser',

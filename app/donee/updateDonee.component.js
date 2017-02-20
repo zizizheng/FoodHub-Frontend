@@ -28,6 +28,7 @@ var UpdateDoneeComponent = (function (_super) {
     function UpdateDoneeComponent(injector, serverService) {
         var _this = _super.call(this, injector) || this;
         _this.serverService = serverService;
+        _this.updated = new core_1.EventEmitter();
         _this.category = itemCat.Category;
         _this.donee = new donee_1.Donee();
         return _this;
@@ -41,9 +42,16 @@ var UpdateDoneeComponent = (function (_super) {
         console.log(this.donee);
     };
     UpdateDoneeComponent.prototype.sendClick = function () {
+        var _this = this;
         var itemObject = this.donee.getObject();
         var url = this.serverService.getDoneeUrl(this.donee.donee_name);
-        this.Update(url, itemObject);
+        this.Update(url, itemObject).then(function (data) {
+            if (data)
+                _this.updated.emit();
+        });
+    };
+    UpdateDoneeComponent.prototype.clearClick = function () {
+        this.updated.emit(false);
     };
     return UpdateDoneeComponent;
 }(updateTemplate_component_1.UpdateTemplateComponent));
@@ -51,6 +59,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], UpdateDoneeComponent.prototype, "inputItem", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], UpdateDoneeComponent.prototype, "updated", void 0);
 UpdateDoneeComponent = __decorate([
     core_1.Component({
         selector: 'updateDonee',

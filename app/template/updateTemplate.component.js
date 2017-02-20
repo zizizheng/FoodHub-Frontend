@@ -14,12 +14,19 @@ var UpdateTemplateComponent = (function () {
     function UpdateTemplateComponent(injector) {
         this.postSystemService = injector.get(postSystem_service_1.PostSystemService);
     }
+    // update the item and emit to parent for refreshing table
     UpdateTemplateComponent.prototype.Update = function (url, urlParam) {
-        this.postSystemService
-            .postData(url, urlParam)
-            .subscribe(function (data) { return swal('Updating Successed', data.success, 'success'); }, function (error) {
-            var err = error.json();
-            console.log(err.error);
+        var that = this;
+        return new Promise(function (resolve, reject) {
+            that.postSystemService
+                .postData(url, urlParam)
+                .subscribe(function (data) { return swal('Updating Successed', data.success, 'success'); }, function (error) {
+                var err = error.json();
+                console.log(err.error);
+                resolve(false);
+            }, function () {
+                resolve(true);
+            });
         });
     };
     return UpdateTemplateComponent;

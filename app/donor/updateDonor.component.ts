@@ -1,5 +1,5 @@
 import { UpdateTemplateComponent } from './../template/updateTemplate.component';
-import { Component, OnInit, Injector, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, Injector, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { ServerService } from '../service/server.service';
 import { Donor } from './donor';
 import itemCat = require('./donor');
@@ -11,6 +11,7 @@ import itemCat = require('./donor');
 })
 export class UpdateDonorComponent extends UpdateTemplateComponent implements OnInit, OnChanges {
     @Input() public inputItem;
+    @Output() updated: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     isGroup = false;
     donor: Donor;
@@ -34,7 +35,15 @@ export class UpdateDonorComponent extends UpdateTemplateComponent implements OnI
     sendClick(){
         let itemObject = this.donor.getObject();
         let url = this.serverService.getDonorUrl(this.donor.donor_name);
-        this.Update(url, itemObject);
+        this.Update(url, itemObject).then(
+            (data) => {
+                if(data) this.updated.emit(true);
+            }
+        );
+    }
+
+    clearClick(){
+        this.updated.emit(false);
     }
 
     catChange(value){

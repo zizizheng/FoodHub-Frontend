@@ -65,4 +65,4 @@
     <button class="btn btn-warning" [disabled]="dataList.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
-<updateDonee *ngIf="selectedBut" [inputItem]="selectedItem"></updateDonee>
+<updateDonee *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate()"></updateDonee>

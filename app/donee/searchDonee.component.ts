@@ -20,12 +20,12 @@ export class SearchDoneeComponent extends SearchTemplateComponent implements OnI
         this.categoryKey = doneeCat.CategoryKey;
         this.primaryKey = 'donee_name';
         this.parentUrl = this.serverService.getDoneeUrl('');
+        this.listUrl = this.serverService.getDoneeUrl('list');
         this.dataList = new Array<Donee>();
     }
 
     ngOnInit(){
-        let url = this.serverService.getDoneeUrl('list');
-        this.GetList(url, this.primaryKey);      
+        this.GetList(this.listUrl, this.primaryKey);      
     }
 
     searchClick(){
@@ -53,6 +53,12 @@ export class SearchDoneeComponent extends SearchTemplateComponent implements OnI
 
     updateClick(donee){
         this.selectedItem = donee;
-        this.selectedBut = true;
+        this.updateBut = true;
+    }
+
+    notifyUpdate(isUpdate){
+        // console.log('got emit');
+        if(isUpdate) this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     }
 }

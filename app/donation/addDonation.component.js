@@ -22,44 +22,54 @@ var donation_1 = require("./donation");
 var core_1 = require("@angular/core");
 var server_service_1 = require("../service/server.service");
 var addTemplate_component_1 = require("../template/addTemplate.component");
+var common_1 = require("@angular/common");
 var itemCat = require("./donation");
 var AddDonationComponent = (function (_super) {
     __extends(AddDonationComponent, _super);
     function AddDonationComponent(injector, serverService) {
         var _this = _super.call(this, injector) || this;
         _this.serverService = serverService;
-        _this.item = new donation_1.Donation();
         _this.category = itemCat.Category;
         _this.area = itemCat.Warehouse;
+        _this.donations = [new donation_1.Donation()];
+        _this.donate_dt = new common_1.DatePipe().transform(Date.now(), 'yyyy-MM-dd');
         return _this;
     }
-    AddDonationComponent.prototype.addItemClick = function () {
-        var itemObject = this.item.getObject();
-        var url = this.serverService.getDonationUrl(this.item._id);
-        this.Add(url, itemObject);
+    AddDonationComponent.prototype.addDonation = function () {
+        for (var dn in this.donations) {
+            console.log(dn);
+        }
+        //   let url = this.serverService.getDonationUrl(this.item._id);
+        //   this.Add(url, itemObject);
     };
     AddDonationComponent.prototype.cleanClick = function () {
-        this.item = new donation_1.Donation();
+        console.log(this.donations);
+        // this.item = new Donation();
     };
-    AddDonationComponent.prototype.enterBarcode = function (e) {
-        var _this = this;
-        $('#barcodeInput').removeClass('success fail');
-        console.log(e.key);
-        var comp = this;
-        if (e.key == 'Enter') {
-            var url = this.serverService.getBarcodeUrl(e.target.value);
-            this.GetSpecificObject(url).then(function (res) {
-                _this.item.item_name = res.item_name;
-                _this.item.item_unit = res.item_unit;
-                _this.item.item_unitprice = res.item_unitprice;
-                $('#barcodeInput').addClass('success');
-                setTimeout(function () { }, 2500);
-            }).catch(function (e) {
-                // add warning to input
-                console.log('oh fuck i cant find anything');
-                $('#barcodeInput').addClass('fail');
-            });
-        }
+    // enterBarcode(e){
+    //     $('#barcodeInput').removeClass('success fail');
+    //     console.log(e.key);
+    //     let comp = this;
+    //     if(e.key == 'Enter'){
+    //         let url = this.serverService.getBarcodeUrl(e.target.value);
+    //         this.GetSpecificObject(url).then((res: Donation) => {
+    //             this.item.item_name = res.item_name;
+    //             this.item.item_unit = res.item_unit;
+    //             this.item.item_unitprice = res.item_unitprice;
+    //             $('#barcodeInput').addClass('success');
+    //             setTimeout(function() {}, 2500);
+    //         }).catch(function(e){
+    //             // add warning to input
+    //             console.log('oh fuck i cant find anything');
+    //             $('#barcodeInput').addClass('fail');
+    //         });
+    //     }
+    // }
+    AddDonationComponent.prototype.newRow = function () {
+        this.donations.push(new donation_1.Donation());
+    };
+    AddDonationComponent.prototype.delRow = function () {
+        this.donations.pop();
     };
     return AddDonationComponent;
 }(addTemplate_component_1.AddTemplateComponent));

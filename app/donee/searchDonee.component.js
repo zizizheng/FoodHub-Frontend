@@ -32,12 +32,12 @@ var SearchDoneeComponent = (function (_super) {
         _this.categoryKey = doneeCat.CategoryKey;
         _this.primaryKey = 'donee_name';
         _this.parentUrl = _this.serverService.getDoneeUrl('');
+        _this.listUrl = _this.serverService.getDoneeUrl('list');
         _this.dataList = new Array();
         return _this;
     }
     SearchDoneeComponent.prototype.ngOnInit = function () {
-        var url = this.serverService.getDoneeUrl('list');
-        this.GetList(url, this.primaryKey);
+        this.GetList(this.listUrl, this.primaryKey);
     };
     SearchDoneeComponent.prototype.searchClick = function () {
         this.dataList = [];
@@ -61,7 +61,13 @@ var SearchDoneeComponent = (function (_super) {
     };
     SearchDoneeComponent.prototype.updateClick = function (donee) {
         this.selectedItem = donee;
-        this.selectedBut = true;
+        this.updateBut = true;
+    };
+    SearchDoneeComponent.prototype.notifyUpdate = function (isUpdate) {
+        // console.log('got emit');
+        if (isUpdate)
+            this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     };
     return SearchDoneeComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));

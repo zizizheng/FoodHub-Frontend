@@ -2,7 +2,30 @@ label {
     margin: 5px 0px;
 }
 
-.success{
+textarea {
+    resize: none;
+}
+
+th {
+    text-align: center;
+}
+
+td > label {
+    text-align: right;
+}
+
+i.animated.bounceIn {
+    animation-iteration-count: 1;
+}
+
+i.animated.bounceIn:hover {
+    animation-iteration-count: infinite;
+    animation-duration: 1.1s;
+    cursor: hand;
+    cursor: pointer;
+}
+
+.success {
     background-color: green;
     /*transition: background-color 0.5s linear;*/
 }

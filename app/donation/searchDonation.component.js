@@ -22,6 +22,7 @@ var core_1 = require("@angular/core");
 var server_service_1 = require("./../service/server.service");
 var itemCat = require("./donation");
 var searchTemplate_component_1 = require("../template/searchTemplate.component");
+var updateDonation_component_1 = require("./updateDonation.component");
 var SearchDonationComponent = (function (_super) {
     __extends(SearchDonationComponent, _super);
     function SearchDonationComponent(injector, serverService) {
@@ -33,11 +34,11 @@ var SearchDonationComponent = (function (_super) {
         _this.dataList = new Array();
         _this.primaryKey = '_id';
         _this.parentUrl = _this.serverService.getDonationUrl('');
+        _this.listUrl = _this.serverService.getDonationUrl('list');
         return _this;
     }
     SearchDonationComponent.prototype.ngOnInit = function () {
-        var url = this.serverService.getDonationUrl('list');
-        this.GetList(url, this.primaryKey);
+        this.GetList(this.listUrl, this.primaryKey);
     };
     SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
@@ -83,12 +84,19 @@ var SearchDonationComponent = (function (_super) {
         else
             this.selectCat = false;
     };
+    SearchDonationComponent.prototype.notifyUpdate = function (isUpdate) {
+        // console.log('got emit');
+        if (isUpdate)
+            this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
+    };
     return SearchDonationComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
 SearchDonationComponent = __decorate([
     core_1.Component({
         selector: 'searchDonation',
         templateUrl: "app/donation/searchDonation.component.html",
+        directives: [updateDonation_component_1.UpdateDonationComponent]
     }),
     __metadata("design:paramtypes", [core_1.Injector,
         server_service_1.ServerService])

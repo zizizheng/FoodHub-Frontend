@@ -3,76 +3,81 @@
 
   <form #itemForm="ngForm">
     <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label class="control-label">全贈字號</label>
-        <input class="form-control" name="_id" placeholder="10502001" [(ngModel)]="item._id"  
-               required> 
+        <input class="form-control" name="dn_id" placeholder="10502001" [(ngModel)]="dn_id" required>
       </div>
-      <div class="col-md-4">
-        <label class="control-label">品項名稱</label>
-        <input class="form-control" placeholder="開心果" name="item_name" [(ngModel)]="item.item_name" 
-               required> 
-      </div>
-      <div class="col-md-4">
-        <label class="control-label">條碼</label>
-        <input id="barcodeInput" class="form-control" name="barcode" placeholder="輸入完成後按enter自動填入歷史資料" 
-               [(ngModel)]="item.barcode" (keypress)="enterBarcode($event)">
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">品項分類</label>
-        <select name="item-category" name="category" class="form-control" [(ngModel)]="item.category" 
-                required>
-          <option *ngFor="let item of category" [value]="item">{{item}}</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">倉庫地區</label>
-        <select name="warehouse-area" class="form-control" name="area" [(ngModel)]="item.area">
-          <option *ngFor="let item of area" [value]="item">{{item}}</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">數量</label>
-        <input class="form-control" placeholder="5" name="item_qt" [(ngModel)]="item.item_qt"
-               required> </div>
-      <div class="col-md-2">
-        <label class="control-label">單位</label>
-        <input class="form-control" placeholder="盒" name="item_unit" [(ngModel)]="item.item_unit"> 
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">重量 (g)</label>
-        <input class="form-control" placeholder="150" name="weight" [(ngModel)]="item.weight"
-               required> 
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">單價</label>
-        <input class="form-control" placeholder="200" name="item_unitprice" [(ngModel)]="item.item_unitprice"> 
-      </div>
-      
-      <div class="col-md-2">
-        <label class="control-label">捐贈日期</label>
-        <input class="form-control" placeholder="2016/02/20" [(ngModel)]="item.donate_dt" name="donate_dt"
-               required> 
-      </div>
-      <div class="col-md-2">
-        <label class="control-label">有效期限</label>
-        <input class="form-control" placeholder="2016/03/01" [(ngModel)]="item.expire_dt" name="expire_dt" 
-               required> 
-      </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <label class="control-label">捐贈者</label>
-        <input class="form-control" placeholder="boss" [(ngModel)]="item.donor_name" name="donor_name" > 
+        <input class="form-control" placeholder="boss" name="donor_name" [(ngModel)]="donor_name" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
+        <label class="control-label">捐贈日期</label>
+        <input type="date" class="form-control" name="donate_dt" [(ngModel)]="donate_dt" value="donate_dt" required>
+      </div>
+      <div class="col-md-3">
+        <label for="" class="control-label">承辦人</label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row" style="margin: 10 10 10 10">
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th class="col-md-2">別類</th>
+            <th class="col-md-2">財務名稱</th>
+            <th class="col-md-2">保存日期</th>
+            <th class="col-md-1">重量(g)</th>
+            <th class="col-md-1">單位</th>
+            <th class="col-md-1">數量</th>
+            <th class="col-md-1">單價</th>
+            <th class="col-md-1">重量合計</th>
+            <th class="col-md-1">金額合計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dn of donations">
+            <td>
+              <select class="form-control" name="category" [(ngModel)]="dn.category">
+                <option *ngFor="let item of category" [value]="item">{{item}}</option>
+              </select>
+            </td>
+            <td><input name="item_name" class="form-control" [(ngModel)]="dn.item_name"></td>
+            <td><input name="expire_dt" class="form-control" [(ngModel)]="dn.expire_dt"></td>
+            <td><input name="weight" class="form-control" [(ngModel)]="dn.weight"></td>
+            <td><input name="item_unit" class="form-control" [(ngModel)]="dn.item_unit"></td>
+            <td><input name="item_qt" class="form-control" [(ngModel)]="dn.item_qt"></td>
+            <td><input name="item_unitprice" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
+            <td class="text-right">
+              <label name="totalWeight" class="control-label">{{dn.item_qt * dn.weight}}</label>
+            </td>
+            <td class="text-right">
+              <label name="totalPrice"class="control-label">{{dn.item_qt * dn.item_unitprice}}</label>
+            </td>          
+          </tr>
+        </tbody>
+      </table>
+      
+      <i id="newRow" class="fa fa-4x fa-caret-down fa-fw text-info text-center animated bounceIn"
+         (click)="newRow()"></i>
+      <i *ngIf="donations.length > 1" class="fa fa-4x fa-caret-up fa-fw text-info text-center animated bounceIn"
+      (click)="delRow()"></i>
+
+      <hr>
+
+      <div class="col-md-12">
         <label class="control-label">紀錄與描述</label>
-        <input type="text" class="form-control" placeholder="描述物品" [(ngModel)]="item.memo" name="memo" > 
+        <textarea rows="4" class="form-control" placeholder="描述物品" name="memo"></textarea>
       </div>
     </div>
 
     <div class="row" style="margin: 10 10 10 10">
       <div class="col-md-12">
         <button type="button" class="btn btn-success btn-md" (click)="cleanClick()">清除</button>
-        <button type="submit" class="btn btn-warning btn-md" (click)="addItemClick()" [disabled]="!itemForm.form.valid">送出</button>
+        <button type="submit" class="btn btn-warning btn-md" (click)="addDonation()" [disabled]="!itemForm.form.valid">送出</button>
       </div>
     </div>
   </form>

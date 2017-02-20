@@ -21,6 +21,7 @@ export class SearchTemplateComponent {
     dataList = [];
     primaryKey = '';
     parentUrl = '';
+    listUrl = '';
     selectedItem;
     protected postSystemService: PostSystemService;
 
@@ -88,7 +89,11 @@ export class SearchTemplateComponent {
                 confirmButtonText: "是的，確定刪除",
                 cancelButtonText: "取消"
             }).then(() => {
-                this.deleteObject();
+                for( let ob of this.delArray ){
+                    if( ob.checked ){
+                        this.deleteObject(ob.url);
+                    }
+                }
             });
         }
         else {
@@ -111,24 +116,21 @@ export class SearchTemplateComponent {
         console.log(this.delArray);
     }
 
-    deleteObject(){
-        for( let ob of this.delArray ){
-            if( ob.checked ){
-                this.postSystemService
-                    .deleteData(ob.url)
-                    .subscribe( 
-                        data => swal('Delete', data.success ,'success'),
-                        error => {
-                            let err = error.json();
-                            swal(err.error);
-                        },
-                        () => {
-                            // refresh form
-                            this.GetList(this.parentUrl + 'list', this.primaryKey);
-                        }
-                    );
-            }
-        }
+    deleteObject(ob){
+        this.postSystemService
+            .deleteData(ob)
+            .subscribe( 
+                data => swal('Delete', data.success ,'success'),
+                error => {
+                    let err = error.json();
+                    swal(err.error);
+                },
+                () => {
+                    // refresh form
+                    this.GetList(this.parentUrl + 'list', this.primaryKey);
+                }
+        );
+        
     }
 
     dealId(){

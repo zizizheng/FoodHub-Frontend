@@ -31,12 +31,12 @@ var SearchUserComponent = (function (_super) {
         _this.categoryKey = userCat.CategoryKey;
         _this.dataList = new Array();
         _this.primaryKey = 'account';
+        _this.listUrl = _this.serverService.getUserUrl('list');
         _this.parentUrl = _this.serverService.getUserUrl('');
         return _this;
     }
     SearchUserComponent.prototype.ngOnInit = function () {
-        var url = this.serverService.getUserUrl('list');
-        this.GetList(url, this.primaryKey);
+        this.GetList(this.listUrl, this.primaryKey);
     };
     SearchUserComponent.prototype.searchClick = function () {
         this.dataList = [];
@@ -59,7 +59,13 @@ var SearchUserComponent = (function (_super) {
     };
     SearchUserComponent.prototype.editClick = function (user) {
         this.selectedItem = user;
-        this.selectedBut = true;
+        this.updateBut = true;
+    };
+    SearchUserComponent.prototype.notifyUpdate = function (isUpdate) {
+        // console.log('got emit');
+        if (isUpdate)
+            this.GetList(this.listUrl, this.primaryKey);
+        this.updateBut = false;
     };
     return SearchUserComponent;
 }(searchTemplate_component_1.SearchTemplateComponent));
