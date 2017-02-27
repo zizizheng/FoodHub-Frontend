@@ -1,18 +1,23 @@
-<div class="row" style="margin: 20 10 10 10">
-  <div class="col-md-4">
-    <input class="form-control" placeholder="你要找什麼呢？"> </div>
-  <div class="col-md-4">
-    <select name="category" class="form-control">
-      <option value="cat-name">品項名稱</option>
-      <option value="cat-expiry">過期日</option>
-      <option value="cat-cat">品項分類</option>
-      <option value="cat-area">倉庫地區</option>
-    </select>
+<form #searchForm="ngForm">
+  <div class="row" style="margin: 20 10 10 10">
+    <div class="col-md-4 searchBar">
+      <input *ngIf="!selectCat" class="form-control" name="donation-search" placeholder="你要找什麼呢？" [(ngModel)]="searchWord" required>
+
+      <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord" name="donation-cat" required>
+          <option *ngFor="let item of category" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <div class="col-md-4 searchBar">
+      <select #catSelect name="category" class="form-control" [(ngModel)]="searchKey" (change)="searchChange(catSelect.value)" required>
+          <option *ngFor="let item of categorySearch" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <div class="col-md-2 searchBar">
+      <button type="submit" class="btn btn-primary" (click)="searchClick()" [disabled]="!searchForm.form.valid">送出</button>
+    </div>
   </div>
-  <div class="col-md-2">
-    <button class="btn btn-primary">確認</button>
-  </div>
-</div>
+</form>
+
 <div class="row" style="margin: 20 10 10 10">
   <div class="col-md-12 text-center">
     <table class="table table-bordered table-hover table-striped">
@@ -32,20 +37,6 @@
           <td>105-02-28</td>
           <td>零時</td>
           <td>5</td>
-        </tr>
-        <tr>
-          <td>105</td>
-          <td>蔬菜</td>
-          <td>105-02-15</td>
-          <td>生鮮</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>1050203</td>
-          <td>維力炸醬麵</td>
-          <td>105</td>
-          <td>泡麵</td>
-          <td>8</td>
         </tr>
       </tbody>
     </table>

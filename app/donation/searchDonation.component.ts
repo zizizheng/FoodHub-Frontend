@@ -1,4 +1,4 @@
-import { Component, enableProdMode, ModuleWithProviders, Injector } from '@angular/core';
+import { Component, enableProdMode, ModuleWithProviders, Injector, OnChanges, SimpleChanges  } from '@angular/core';
 import { ServerService } from './../service/server.service';
 import itemCat = require('./donation');
 import { SearchTemplateComponent } from '../template/searchTemplate.component';
@@ -12,7 +12,7 @@ declare let swal:any;
   templateUrl: `app/donation/searchDonation.component.html`,
   directives: [ UpdateDonationComponent ]
 })
-export class SearchDonationComponent extends SearchTemplateComponent{
+export class SearchDonationComponent extends SearchTemplateComponent implements OnChanges{
 
     constructor(injector: Injector,
                 private serverService: ServerService){
@@ -21,13 +21,18 @@ export class SearchDonationComponent extends SearchTemplateComponent{
         this.categorySearch = itemCat.CategorySearch;
         this.categoryKey = itemCat.CategoryKey;
         this.dataList = new Array<Donation>();
-        this.primaryKey = '_id';
+        this.primaryKey = 'dn_id';
         this.parentUrl = this.serverService.getDonationUrl('');
         this.listUrl = this.serverService.getDonationUrl('list');
+
     }
 
     ngOnInit(){
-        this.GetList(this.listUrl, this.primaryKey);      
+        this.GetList( this.listUrl, this.primaryKey ); 
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+        console.log(changes);
     }
 
     updateClick(item){
@@ -80,7 +85,9 @@ export class SearchDonationComponent extends SearchTemplateComponent{
 
     notifyUpdate(isUpdate){
         // console.log('got emit');
-        if( isUpdate ) this.GetList(this.listUrl, this.primaryKey);
+        if( isUpdate ){
+            this.GetList( this.listUrl, this.primaryKey );
+        }
         this.updateBut = false;
     }
 }

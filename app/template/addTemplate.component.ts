@@ -11,25 +11,24 @@ export class AddTemplateComponent {
         this.postSystemService = injector.get(PostSystemService);
     }
 
-    Add(url, urlParam){
+    Add(url, urlParam, showMsg = true){
         this.postSystemService.postData(url, urlParam).subscribe(
-            data => swal('Congrations', data.success, 'success'),
+            data => {
+                swal('Congrations', data.success, 'success')
+            },
             error => {
                 let err = error.json();
-                console.log(err.error);
+                swal('Oops!', err.error, 'warning');
             }
         );
     }
-    
-    GetSpecificObject(url){
-        return new Promise((resolve, reject)=>{
-            this.postSystemService.getSpecificData(url).subscribe(
-                data => {
-                    resolve(data);
-                },
-                error => {
-                    reject(error);
-                }
+
+    GetSpecificData(url){
+        let that = this;
+        return new Promise(function(resolve, reject){
+            that.postSystemService.getSpecificData(url).subscribe(
+                data => resolve(data),
+                error => reject(error),
             );
         });
     }

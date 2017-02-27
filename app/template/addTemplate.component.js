@@ -14,20 +14,19 @@ var AddTemplateComponent = (function () {
     function AddTemplateComponent(injector) {
         this.postSystemService = injector.get(postSystem_service_1.PostSystemService);
     }
-    AddTemplateComponent.prototype.Add = function (url, urlParam) {
-        this.postSystemService.postData(url, urlParam).subscribe(function (data) { return swal('Congrations', data.success, 'success'); }, function (error) {
+    AddTemplateComponent.prototype.Add = function (url, urlParam, showMsg) {
+        if (showMsg === void 0) { showMsg = true; }
+        this.postSystemService.postData(url, urlParam).subscribe(function (data) {
+            swal('Congrations', data.success, 'success');
+        }, function (error) {
             var err = error.json();
-            console.log(err.error);
+            swal('Oops!', err.error, 'warning');
         });
     };
-    AddTemplateComponent.prototype.GetSpecificObject = function (url) {
-        var _this = this;
+    AddTemplateComponent.prototype.GetSpecificData = function (url) {
+        var that = this;
         return new Promise(function (resolve, reject) {
-            _this.postSystemService.getSpecificData(url).subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                reject(error);
-            });
+            that.postSystemService.getSpecificData(url).subscribe(function (data) { return resolve(data); }, function (error) { return reject(error); });
         });
     };
     return AddTemplateComponent;

@@ -43,7 +43,7 @@ var UpdateDonationComponent = (function (_super) {
     UpdateDonationComponent.prototype.sendClick = function () {
         var _this = this;
         var itemObject = this.item.getObject();
-        var url = this.serverService.getDonationUrl(this.item._id);
+        var url = this.serverService.getDonationUrl(this.item.dn_id);
         this.Update(url, itemObject).then(function (data) {
             // edit and update, emit true
             if (data)

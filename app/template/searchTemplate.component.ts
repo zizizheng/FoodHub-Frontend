@@ -44,7 +44,7 @@ export class SearchTemplateComponent {
                 () => {
                     this.dealId();                    
                     this.putIntoChecklist(primaryKey);
-                    // console.log(this.dataList);
+                    // console.log(callback);
                 }
             );
     }
@@ -113,7 +113,7 @@ export class SearchTemplateComponent {
                 url: this.parentUrl + item[this.primaryKey]
             });
         }
-        console.log(this.delArray);
+        // console.log(this.delArray);
     }
 
     deleteObject(ob){

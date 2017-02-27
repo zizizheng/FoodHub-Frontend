@@ -26,24 +26,36 @@ var common_1 = require("@angular/common");
 var itemCat = require("./donation");
 var AddDonationComponent = (function (_super) {
     __extends(AddDonationComponent, _super);
-    function AddDonationComponent(injector, serverService) {
+    function AddDonationComponent(injector, serverService, ref) {
         var _this = _super.call(this, injector) || this;
         _this.serverService = serverService;
+        _this.ref = ref;
+        _this.donations = [];
         _this.category = itemCat.Category;
         _this.area = itemCat.Warehouse;
-        _this.donations = [new donation_1.Donation()];
-        _this.donate_dt = new common_1.DatePipe().transform(Date.now(), 'yyyy-MM-dd');
         return _this;
     }
+    AddDonationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.dnUrl = this.serverService.getDonationUrl('');
+        this.GetSpecificData(this.dnUrl + 'max_dnid')
+            .then(function (data) { return _this.dn_id = data + 1; });
+        this.donate_dt = new common_1.DatePipe().transform(Date.now(), 'yyyy-MM-dd');
+        this.newRow();
+    };
     AddDonationComponent.prototype.addDonation = function () {
-        for (var dn in this.donations) {
-            console.log(dn);
-        }
-        //   let url = this.serverService.getDonationUrl(this.item._id);
-        //   this.Add(url, itemObject);
+        var comp = this;
+        var url = this.dnUrl + this.dn_id;
+        // console.log(this.dnUrl);
+        this.donations.forEach(function (dn) {
+            dn.donor_name = comp.donor_name;
+            dn.donate_dt = comp.donate_dt;
+            dn.memo = comp.memo;
+            comp.Add(url, dn.getObject(), false);
+            // console.log(dn.getObject());
+        });
     };
     AddDonationComponent.prototype.cleanClick = function () {
-        console.log(this.donations);
         // this.item = new Donation();
     };
     // enterBarcode(e){
@@ -66,7 +78,9 @@ var AddDonationComponent = (function (_super) {
     //     }
     // }
     AddDonationComponent.prototype.newRow = function () {
-        this.donations.push(new donation_1.Donation());
+        this.donations[this.donations.length] = new donation_1.Donation();
+        this.ref.detectChanges();
+        console.log(this.donations);
     };
     AddDonationComponent.prototype.delRow = function () {
         this.donations.pop();
@@ -80,7 +94,8 @@ AddDonationComponent = __decorate([
         styleUrls: ['app/template/addTemplate.component.css']
     }),
     __metadata("design:paramtypes", [core_1.Injector,
-        server_service_1.ServerService])
+        server_service_1.ServerService,
+        core_1.ChangeDetectorRef])
 ], AddDonationComponent);
 exports.AddDonationComponent = AddDonationComponent;
 //# sourceMappingURL=addDonation.component.js.map

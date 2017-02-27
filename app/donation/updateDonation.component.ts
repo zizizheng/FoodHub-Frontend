@@ -36,7 +36,7 @@ export class UpdateDonationComponent extends UpdateTemplateComponent implements 
 
     sendClick(){
         let itemObject = this.item.getObject();
-        let url = this.serverService.getDonationUrl(this.item._id);
+        let url = this.serverService.getDonationUrl(this.item.dn_id);
         this.Update(url, itemObject).then(
             (data) => {
                 // edit and update, emit true

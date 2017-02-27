@@ -47,7 +47,7 @@ var SearchTemplateComponent = (function () {
         }, function () {
             _this.dealId();
             _this.putIntoChecklist(primaryKey);
-            // console.log(this.dataList);
+            // console.log(callback);
         });
     };
     SearchTemplateComponent.prototype.Search = function (url, urlParam) {
@@ -112,7 +112,7 @@ var SearchTemplateComponent = (function () {
                 url: this.parentUrl + item[this.primaryKey]
             });
         }
-        console.log(this.delArray);
+        // console.log(this.delArray);
     };
     SearchTemplateComponent.prototype.deleteObject = function (ob) {
         var _this = this;

@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var GiveDonationComponent = (function () {
-    function GiveDonationComponent() {
-        this.dnList = new Array();
+var DataListService = (function () {
+    function DataListService() {
+        this.dataList = [];
     }
-    GiveDonationComponent.prototype.ngOnInit = function () {
+    DataListService.prototype.Update = function (list) {
+        this.dataList = list;
+        console.log(this.dataList);
     };
-    GiveDonationComponent.prototype.GetList = function (listUrl, primaryKey) {
+    DataListService.prototype.Get = function () {
+        return this.dataList;
     };
-    return GiveDonationComponent;
+    return DataListService;
 }());
-GiveDonationComponent = __decorate([
-    core_1.Component({
-        selector: 'giveDonation',
-        templateUrl: "app/donation/giveDonation.component.html"
-    }),
+DataListService = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], GiveDonationComponent);
-exports.GiveDonationComponent = GiveDonationComponent;
-//# sourceMappingURL=giveDonation.component.js.map
+], DataListService);
+exports.DataListService = DataListService;
+//# sourceMappingURL=dataList.service.js.map

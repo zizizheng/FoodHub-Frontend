@@ -24,7 +24,7 @@
     <hr>
 
     <div class="row" style="margin: 10 10 10 10">
-      <table class="table table-bordered table-responsive">
+      <table #dnTable class="table table-bordered table-responsive">
         <thead>
           <tr>
             <th class="col-md-2">別類</th>
@@ -39,23 +39,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let dn of donations">
+          <tr *ngFor="let dn of donations; let i = index">
             <td>
-              <select class="form-control" name="category" [(ngModel)]="dn.category">
-                <option *ngFor="let item of category" [value]="item">{{item}}</option>
+              <select name="category{{i}}" class="form-control" [(ngModel)]="dn.category" [value]="dn.category">
+                <option *ngFor="let item of category">{{item}}</option>
               </select>
             </td>
-            <td><input name="item_name" class="form-control" [(ngModel)]="dn.item_name"></td>
-            <td><input name="expire_dt" class="form-control" [(ngModel)]="dn.expire_dt"></td>
-            <td><input name="weight" class="form-control" [(ngModel)]="dn.weight"></td>
-            <td><input name="item_unit" class="form-control" [(ngModel)]="dn.item_unit"></td>
-            <td><input name="item_qt" class="form-control" [(ngModel)]="dn.item_qt"></td>
-            <td><input name="item_unitprice" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
+            <td><input name="item_name{{i}}" class="form-control" [(ngModel)]="dn.item_name"></td>
+            <td><input name="expire_dt{{i}}" class="form-control" [(ngModel)]="dn.expire_dt"></td>
+            <td><input name="weight{{i}}" class="form-control" [(ngModel)]="dn.weight"></td>
+            <td><input name="item_unit{{i}}" class="form-control" [(ngModel)]="dn.item_unit"></td>
+            <td><input name="item_qt{{i}}" class="form-control" [(ngModel)]="dn.item_qt"></td>
+            <td><input name="item_unitprice{{i}}" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
             <td class="text-right">
               <label name="totalWeight" class="control-label">{{dn.item_qt * dn.weight}}</label>
             </td>
             <td class="text-right">
-              <label name="totalPrice"class="control-label">{{dn.item_qt * dn.item_unitprice}}</label>
+              <label name="totalPrice" class="control-label">{{dn.item_qt * dn.item_unitprice}}</label>
             </td>          
           </tr>
         </tbody>
@@ -64,13 +64,13 @@
       <i id="newRow" class="fa fa-4x fa-caret-down fa-fw text-info text-center animated bounceIn"
          (click)="newRow()"></i>
       <i *ngIf="donations.length > 1" class="fa fa-4x fa-caret-up fa-fw text-info text-center animated bounceIn"
-      (click)="delRow()"></i>
+         (click)="delRow()"></i>
 
       <hr>
 
       <div class="col-md-12">
         <label class="control-label">紀錄與描述</label>
-        <textarea rows="4" class="form-control" placeholder="描述物品" name="memo"></textarea>
+        <textarea rows="4" class="form-control" placeholder="描述物品" name="memo" [(ngModel)]="memo"></textarea>
       </div>
     </div>
 

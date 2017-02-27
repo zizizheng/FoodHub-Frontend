@@ -41,6 +41,7 @@ import { UpdateUserComponent } from './administrator/updateUser.component';
 import { LoginService } from './service/login.service';
 import { ServerService } from './service/server.service';
 import { PostSystemService } from './service/postSystem.service';
+
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -60,7 +61,7 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent
   ],
   providers: [ 
-    LoginService, ServerService, PostSystemService, 
+    LoginService, ServerService, PostSystemService,
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ], 
   bootstrap: [ AppComponent ]
