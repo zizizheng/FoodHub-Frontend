@@ -13,7 +13,6 @@ var core_1 = require("@angular/core");
 var SearchTemplateComponent = (function () {
     function SearchTemplateComponent(injector) {
         this.updateBut = false;
-        this.importBut = false;
         this.delCheck = false;
         this.selectedBut = false;
         this.selectCat = false;

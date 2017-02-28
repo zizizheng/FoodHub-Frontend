@@ -1,4 +1,58 @@
-<form #searchForm="ngForm">
+<hr class="specific">
+<div id="exportDn" class="container">
+  <h1 class="text-center">物資簽領單</h1>
+  <form action="">
+    <section class="row text-center">
+      <div class="col-md-3">
+        <label class="control-label" for="">全物字號</label>
+        <input class="form-control" type="text">
+      </div>
+      <div class="col-md-3">
+        <label class="control-label" for="">受贈者</label>
+        <input class="form-control" type="text">
+      </div>
+      <div class="col-md-offset-3 col-md-3">
+        <label class="control-label" for="">捐贈日期</label>
+        <input class="form-control" type="date">
+      </div>
+    </section>
+  </form>
+
+  <table class="table">
+    <caption class="text-center">項目</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>物資名稱</th>
+        <th>品質說明</th>
+        <th>單位</th>
+        <th>剩餘數量</th>
+        <th>捐贈數量</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dn of exList; let i = index">
+        <th class="fa fa-close text-danger clickable col-md-1" (click)="delEx(i)"></th>
+        <th class="col-md-2">{{dn.name}}</th>
+        <th class="col-md-3"><input class="form-control" type="text"></th>
+        <th class="text-right col-md-1">{{dn.item_unit}}</th>
+        <th class="text-right col-md-1">{{dn.qt}}</th>
+        <th class="col-md-1"><input type="number" class="text-right form-control"></th>
+        <th><input type="text" class="form-control col-md-4"></th>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="text-center">
+    <button class="btn btn-success">產生表單</button>
+  </div>
+</div>
+
+
+
+
+<!--<form #searchForm="ngForm">
   <div class="row" style="margin: 20 10 10 10">
     <div class="col-md-4 searchBar">
       <input *ngIf="!selectCat" class="form-control" name="donation-search" placeholder="你要找什麼呢？" [(ngModel)]="searchWord" required>
@@ -46,7 +100,6 @@
       <div class="col-md-2 text-left">
         <button class="btn btn-warning">預覽表單</button>
       </div>
-    </div>
-    <!-- show the form -->
+    </div>    
   </div>
-</div>
+</div>-->

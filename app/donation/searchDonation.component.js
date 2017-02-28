@@ -35,26 +35,29 @@ var SearchDonationComponent = (function (_super) {
         _this.primaryKey = 'dn_id';
         _this.parentUrl = _this.serverService.getDonationUrl('');
         _this.listUrl = _this.serverService.getDonationUrl('list');
+        _this.giveBut = false;
+        _this.exList = [];
         return _this;
     }
     SearchDonationComponent.prototype.ngOnInit = function () {
         this.GetList(this.listUrl, this.primaryKey);
     };
-    SearchDonationComponent.prototype.ngOnChanges = function (changes) {
-        console.log(changes);
+    SearchDonationComponent.prototype.giveClick = function (exDn) {
+        this.exList.push({
+            dn_id: exDn.dn_id,
+            name: exDn.item_name,
+            qt: exDn.item_qt,
+            item_unit: exDn.item_unit
+        });
+        // console.log(this.exList);
     };
     SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
         this.selectedItem = item;
         this.updateBut = true;
     };
-    SearchDonationComponent.prototype.importClick = function () {
-        this.cleanPage();
-        this.importBut = true;
-    };
     SearchDonationComponent.prototype.cleanPage = function () {
         this.updateBut = false;
-        this.importBut = false;
     };
     // TODO : check search key
     SearchDonationComponent.prototype.searchClick = function () {

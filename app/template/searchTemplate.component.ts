@@ -8,7 +8,6 @@ declare let swal:any;
 @Component({})
 export class SearchTemplateComponent {
     updateBut = false;
-    importBut = false;
     delCheck = false;
     selectedBut = false;
     selectCat = false;

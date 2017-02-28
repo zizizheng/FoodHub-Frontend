@@ -52,12 +52,13 @@
           <td>{{item.item_qt}}</td>
           <td>
             <button class="btn btn-success" (click)="updateClick(item)">更新</button>
+            <button class="btn btn-info" (click)="giveClick(item)">捐贈</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+    <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
   </div>
 </div>
 <updateDonation *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></updateDonation>
-<importDonation *ngIf="importBut"></importDonation>
+<giveDonation *ngIf="exList.length" [exList]="exList"></giveDonation>

@@ -11,14 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var GiveDonationComponent = (function () {
     function GiveDonationComponent() {
-        this.dnList = new Array();
     }
     GiveDonationComponent.prototype.ngOnInit = function () {
     };
-    GiveDonationComponent.prototype.GetList = function (listUrl, primaryKey) {
+    GiveDonationComponent.prototype.delEx = function (index) {
+        this.exList.splice(index, 1);
     };
     return GiveDonationComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], GiveDonationComponent.prototype, "exList", void 0);
 GiveDonationComponent = __decorate([
     core_1.Component({
         selector: 'giveDonation',

@@ -22,7 +22,7 @@
         <div class="btn-group pull-left">
           <a class="btn btn-default btn-md" (click)="butClick('search')" [class.active]="selectedBut === 'search'"> ## 搜尋 </a>
           <a class="btn btn-default btn-md" (click)="butClick('add')" [class.active]="selectedBut === 'add'"> ## 新增</a>
-          <a class="btn btn-default btn-md" (click)="butClick('give')" [class.active]="selectedBut === 'give'"> ## 贈與 </a>
+          <!--<a class="btn btn-default btn-md" (click)="butClick('give')" [class.active]="selectedBut === 'give'"> ## 贈與 </a>-->
         </div>
       </div>
       <searchDonation *ngIf="selectedBut === 'search'"></searchDonation>

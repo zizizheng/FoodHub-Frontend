@@ -1,4 +1,4 @@
-import { Component, enableProdMode, ModuleWithProviders, Injector, OnChanges, SimpleChanges  } from '@angular/core';
+import { Component, enableProdMode, ModuleWithProviders, Injector } from '@angular/core';
 import { ServerService } from './../service/server.service';
 import itemCat = require('./donation');
 import { SearchTemplateComponent } from '../template/searchTemplate.component';
@@ -12,7 +12,9 @@ declare let swal:any;
   templateUrl: `app/donation/searchDonation.component.html`,
   directives: [ UpdateDonationComponent ]
 })
-export class SearchDonationComponent extends SearchTemplateComponent implements OnChanges{
+export class SearchDonationComponent extends SearchTemplateComponent {
+
+    exList: Array<{}>;
 
     constructor(injector: Injector,
                 private serverService: ServerService){
@@ -24,15 +26,22 @@ export class SearchDonationComponent extends SearchTemplateComponent implements 
         this.primaryKey = 'dn_id';
         this.parentUrl = this.serverService.getDonationUrl('');
         this.listUrl = this.serverService.getDonationUrl('list');
-
+        this.giveBut = false;
+        this.exList = [];
     }
 
     ngOnInit(){
         this.GetList( this.listUrl, this.primaryKey ); 
     }
 
-    ngOnChanges(changes: SimpleChanges){
-        console.log(changes);
+    giveClick(exDn: Donation){
+        this.exList.push({
+            dn_id: exDn.dn_id,
+            name: exDn.item_name,
+            qt: exDn.item_qt,
+            item_unit: exDn.item_unit
+        });
+        // console.log(this.exList);
     }
 
     updateClick(item){
@@ -41,14 +50,8 @@ export class SearchDonationComponent extends SearchTemplateComponent implements 
         this.updateBut = true;
     }
 
-    importClick(){
-        this.cleanPage();
-        this.importBut = true;
-    }
-
     cleanPage(){
         this.updateBut = false;
-        this.importBut = false;
     }
 
     // TODO : check search key
