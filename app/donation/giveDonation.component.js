@@ -21,7 +21,7 @@ var GiveDonationComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
+    __metadata("design:type", Array)
 ], GiveDonationComponent.prototype, "exList", void 0);
 GiveDonationComponent = __decorate([
     core_1.Component({

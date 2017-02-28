@@ -35,21 +35,23 @@ var SearchDonationComponent = (function (_super) {
         _this.primaryKey = 'dn_id';
         _this.parentUrl = _this.serverService.getDonationUrl('');
         _this.listUrl = _this.serverService.getDonationUrl('list');
-        _this.giveBut = false;
         _this.exList = [];
+        _this.exTem = [];
         return _this;
     }
     SearchDonationComponent.prototype.ngOnInit = function () {
         this.GetList(this.listUrl, this.primaryKey);
     };
-    SearchDonationComponent.prototype.giveClick = function (exDn) {
-        this.exList.push({
-            dn_id: exDn.dn_id,
-            name: exDn.item_name,
-            qt: exDn.item_qt,
-            item_unit: exDn.item_unit
+    SearchDonationComponent.prototype.giveClick = function () {
+        var _this = this;
+        this.exTem.forEach(function (dn) {
+            _this.exList.push({
+                dn_id: dn.dn_id,
+                name: dn.item_name,
+                unit: dn.item_unit,
+                qt: dn.item_qt
+            });
         });
-        // console.log(this.exList);
     };
     SearchDonationComponent.prototype.updateClick = function (item) {
         this.cleanPage();
@@ -69,13 +71,17 @@ var SearchDonationComponent = (function (_super) {
         var urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     };
-    SearchDonationComponent.prototype.checkChange = function (item, checked) {
+    SearchDonationComponent.prototype.checkChange = function (item, checked, index) {
         var _this = this;
         console.log(item._id);
         // console.log(this.delArray.filter(object => object.id == item._id));
         this.delArray.filter(function (object) {
             return object.primaryKey == item[_this.primaryKey];
         })[0].checked = checked;
+        if (checked)
+            this.exTem.push(item);
+        else
+            this.exTem.splice(index, 1);
         console.log(this.delArray);
     };
     SearchDonationComponent.prototype.deleteClick = function () {

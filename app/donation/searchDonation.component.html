@@ -42,9 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of dataList">
+        <tr *ngFor="let item of dataList; let i = index">
           <td>
-            <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked)"> </td>
+            <input #itemCheck type="checkbox" (change)="checkChange(item, itemCheck.checked, i)"> </td>
           <td>{{item.dn_id}}</td>
           <td>{{item.item_name}}</td>
           <td>{{item.expire_dt | date : 'yyyy/MM/dd'}}</td>
@@ -52,12 +52,12 @@
           <td>{{item.item_qt}}</td>
           <td>
             <button class="btn btn-success" (click)="updateClick(item)">更新</button>
-            <button class="btn btn-info" (click)="giveClick(item)">捐贈</button>
           </td>
         </tr>
       </tbody>
     </table>
     <button *ngIf="!exList.length" class="btn btn-warning" [disabled]="delArray.length === 0" (click)="deleteClick()">刪除</button>
+    <button class="btn btn-info" (click)="giveClick()">捐贈</button>
   </div>
 </div>
 <updateDonation *ngIf="updateBut" [inputItem]="selectedItem" (updated)="notifyUpdate($event)"></updateDonation>

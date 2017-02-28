@@ -15,6 +15,7 @@ declare let swal:any;
 export class SearchDonationComponent extends SearchTemplateComponent {
 
     exList: Array<{}>;
+    exTem: Array<{}>;
 
     constructor(injector: Injector,
                 private serverService: ServerService){
@@ -26,22 +27,23 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.primaryKey = 'dn_id';
         this.parentUrl = this.serverService.getDonationUrl('');
         this.listUrl = this.serverService.getDonationUrl('list');
-        this.giveBut = false;
         this.exList = [];
+        this.exTem = [];
     }
 
     ngOnInit(){
         this.GetList( this.listUrl, this.primaryKey ); 
     }
 
-    giveClick(exDn: Donation){
-        this.exList.push({
-            dn_id: exDn.dn_id,
-            name: exDn.item_name,
-            qt: exDn.item_qt,
-            item_unit: exDn.item_unit
+    giveClick(){
+        this.exTem.forEach( (dn:Donation) => {
+            this.exList.push({
+                dn_id: dn.dn_id,
+                name: dn.item_name,
+                unit: dn.item_unit,
+                qt: dn.item_qt
+            });
         });
-        // console.log(this.exList);
     }
 
     updateClick(item){
@@ -65,11 +67,13 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         this.Search(url, urlParam);
     }
 
-    checkChange(item, checked){
+    checkChange(item, checked, index){
         console.log(item._id);
         // console.log(this.delArray.filter(object => object.id == item._id));
         this.delArray.filter(object => 
                     object.primaryKey == item[this.primaryKey])[0].checked = checked;
+        if (checked) this.exTem.push(item);
+        else this.exTem.splice(index, 1);
         console.log(this.delArray);
     }
 

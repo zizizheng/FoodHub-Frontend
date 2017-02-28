@@ -6,7 +6,7 @@ import { Component, OnInit, Injector, Input } from '@angular/core';
   templateUrl: `app/donation/giveDonation.component.html`
 })
 export class GiveDonationComponent implements OnInit {
-    @Input() exList: ;
+    @Input() exList: Array<Donation>;
 
     constructor(){
 
