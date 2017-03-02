@@ -4,9 +4,9 @@
   <div class="row" style="margin: 20 10 10 10">
     <div class="col-md-4 searchBar">  
       <input  *ngIf="!selectCat" class="form-control" name="donation-search"
-              placeholder="你要找什麼呢？" [(ngModel)]="searchWord" required>
+              placeholder="你要找什麼呢？" [(ngModel)]="searchContent" required>
 
-      <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchWord" name="donation-cat"
+      <select *ngIf="selectCat" class="form-control" [(ngModel)]="searchContent" name="donation-cat"
               required>
         <option *ngFor="let item of category" [value]="item">{{item}}</option>
       </select>

@@ -33,6 +33,7 @@ var AddDonationComponent = (function (_super) {
         _this.donations = [];
         _this.category = itemCat.Category;
         _this.area = itemCat.Warehouse;
+        _this.barcodeLength = 5;
         return _this;
     }
     AddDonationComponent.prototype.ngOnInit = function () {
@@ -55,28 +56,26 @@ var AddDonationComponent = (function (_super) {
             // console.log(dn.getObject());
         });
     };
-    AddDonationComponent.prototype.cleanClick = function () {
-        // this.item = new Donation();
+    AddDonationComponent.prototype.keyBarcode = function (e, barcode, item) {
+        if (e.keyCode !== 8)
+            if (barcode !== undefined && barcode.length > this.barcodeLength)
+                this.fillByBarcode(barcode, item);
     };
-    // enterBarcode(e){
-    //     $('#barcodeInput').removeClass('success fail');
-    //     console.log(e.key);
-    //     let comp = this;
-    //     if(e.key == 'Enter'){
-    //         let url = this.serverService.getBarcodeUrl(e.target.value);
-    //         this.GetSpecificObject(url).then((res: Donation) => {
-    //             this.item.item_name = res.item_name;
-    //             this.item.item_unit = res.item_unit;
-    //             this.item.item_unitprice = res.item_unitprice;
-    //             $('#barcodeInput').addClass('success');
-    //             setTimeout(function() {}, 2500);
-    //         }).catch(function(e){
-    //             // add warning to input
-    //             console.log('oh fuck i cant find anything');
-    //             $('#barcodeInput').addClass('fail');
-    //         });
-    //     }
-    // }
+    AddDonationComponent.prototype.fillByBarcode = function (barcode, item) {
+        // $('#barcodeInput').removeClass('success fail');
+        var comp = this;
+        var url = this.serverService.getBarcodeUrl(barcode);
+        this.GetSpecificData(url).then(function (res) {
+            item.item_name = res.item_name;
+            item.item_unit = res.item_unit;
+            item.item_unitprice = res.item_unitprice;
+            setTimeout(function () { }, 2500);
+        }).catch(function (e) {
+            // add warning to input
+            console.log('oh fuck i cant find anything');
+            // $('#barcodeInput').addClass('fail');
+        });
+    };
     AddDonationComponent.prototype.newRow = function () {
         this.donations[this.donations.length] = new donation_1.Donation();
         this.ref.detectChanges();

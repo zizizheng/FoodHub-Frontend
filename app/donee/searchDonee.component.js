@@ -42,7 +42,7 @@ var SearchDoneeComponent = (function (_super) {
     SearchDoneeComponent.prototype.searchClick = function () {
         this.dataList = [];
         var keyIndex = this.categorySearch.indexOf(this.searchKey);
-        var url = this.serverService.getDoneeUrl(this.searchWord);
+        var url = this.serverService.getDoneeUrl(this.searchContent);
         var urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     };
@@ -57,7 +57,7 @@ var SearchDoneeComponent = (function (_super) {
     };
     SearchDoneeComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '單位分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     };
     SearchDoneeComponent.prototype.updateClick = function (donee) {
         this.selectedItem = donee;

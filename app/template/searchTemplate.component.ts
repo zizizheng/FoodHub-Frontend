@@ -11,7 +11,7 @@ export class SearchTemplateComponent {
     delCheck = false;
     selectedBut = false;
     selectCat = false;
-    searchWord ='';
+    searchContent ='';
     searchKey = '';
     delArray = [];
     category = [];

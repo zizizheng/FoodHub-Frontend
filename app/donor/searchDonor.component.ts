@@ -33,7 +33,7 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
     searchClick(){
         this.dataList = [];
         let keyIndex = this.categorySearch.indexOf(this.searchKey); 
-        let url = this.serverService.getDonorUrl(this.searchWord);
+        let url = this.serverService.getDonorUrl(this.searchContent);
         let urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     }
@@ -51,7 +51,7 @@ export class SearchDonorComponent extends SearchTemplateComponent implements OnI
 
     searchChange(value){
         this.selectCat = (value === '分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     }
 
     updateClick(donor){

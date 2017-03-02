@@ -59,11 +59,15 @@ export class SearchDonationComponent extends SearchTemplateComponent {
     // TODO : check search key
     searchClick(){
         this.dataList = [];
-        let keyIndex = this.categorySearch.indexOf(this.searchKey); 
-        this.searchWord = this.categoryKey[keyIndex] == 'expire_dt' 
-                        ? Date.parse(this.searchWord).toString() : this.searchWord;
-        let url = this.serverService.getDonationUrl(this.searchWord);
-        let urlParam = this.categoryKey[keyIndex];
+        let keyInEng = this.categoryKey[this.categorySearch.indexOf(this.searchKey)]; 
+
+        this.searchContent = (keyInEng === 'expire_dt')
+                           ? Date.parse(this.searchContent).toString() : this.searchContent;
+        let url = (keyInEng === 'barcode') 
+                ? this.serverService.getBarcodeUrl(this.searchContent)
+                : this.serverService.getDonationUrl(this.searchContent);
+
+        let urlParam = keyInEng;
         this.Search(url, urlParam);
     }
 
@@ -85,7 +89,7 @@ export class SearchDonationComponent extends SearchTemplateComponent {
         if ( value === '品項類別' || value === '倉庫地區'){
             this.category = (value === '品項類別') ? itemCat.Category : itemCat.Warehouse;
             this.selectCat = true;
-            this.searchWord = '';
+            this.searchContent = '';
         }
         else this.selectCat = false;
     }

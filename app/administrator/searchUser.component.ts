@@ -28,7 +28,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
     searchClick(){
         this.dataList = [];
         let keyIndex = this.categorySearch.indexOf(this.searchKey); 
-        let url = this.serverService.getUserUrl(this.searchWord);
+        let url = this.serverService.getUserUrl(this.searchContent);
         let urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     }
@@ -44,7 +44,7 @@ export class SearchUserComponent extends SearchTemplateComponent implements OnIn
 
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     }
 
     editClick(user){

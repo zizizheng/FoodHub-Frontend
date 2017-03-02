@@ -20,7 +20,8 @@ var HeaderComponent = (function () {
         this.prePos = 0;
         this.Disappear = 200;
         loginService.nameChange$.subscribe(function (name) { return _this.userName = name; });
-        this.userName = '使用者';
+        this.userName = 'Test';
+        this.auth = 'admin';
     }
     HeaderComponent.prototype.ngOnInit = function () {
         var com = this;

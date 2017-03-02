@@ -22,10 +22,10 @@ var LoginService = (function () {
         this.loginName = name;
         this.checkLogin();
         this.emitChange();
-        console.log('Here is service, login name is : ' + this.loginName);
+        // console.log('Here is service, login name is : ' + this.loginName);
     };
     LoginService.prototype.checkLogin = function () {
-        console.log('Here is service, return name ' + this.loginName);
+        // console.log('Here is service, return name ' + this.loginName);
         return this.loginName;
     };
     LoginService.prototype.emitChange = function () {

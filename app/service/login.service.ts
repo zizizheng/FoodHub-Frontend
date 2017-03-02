@@ -7,6 +7,7 @@ export class LoginService{
     public nameChange$: EventEmitter<string>;
     serverUrl: string;
     loginName: string;
+    auth: string;
 
     constructor(private http: Http){
         this.nameChange$ = new EventEmitter<string>();
@@ -18,11 +19,11 @@ export class LoginService{
         this.loginName = name;
         this.checkLogin();
         this.emitChange();
-        console.log('Here is service, login name is : ' + this.loginName);
+        // console.log('Here is service, login name is : ' + this.loginName);
     }
 
     checkLogin(){
-        console.log('Here is service, return name ' + this.loginName);
+        // console.log('Here is service, return name ' + this.loginName);
         return this.loginName;
     }
 

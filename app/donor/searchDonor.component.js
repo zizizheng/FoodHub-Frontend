@@ -44,7 +44,7 @@ var SearchDonorComponent = (function (_super) {
     SearchDonorComponent.prototype.searchClick = function () {
         this.dataList = [];
         var keyIndex = this.categorySearch.indexOf(this.searchKey);
-        var url = this.serverService.getDonorUrl(this.searchWord);
+        var url = this.serverService.getDonorUrl(this.searchContent);
         var urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     };
@@ -59,7 +59,7 @@ var SearchDonorComponent = (function (_super) {
     };
     SearchDonorComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     };
     SearchDonorComponent.prototype.updateClick = function (donor) {
         this.selectedItem = donor;

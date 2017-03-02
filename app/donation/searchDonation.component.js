@@ -64,11 +64,13 @@ var SearchDonationComponent = (function (_super) {
     // TODO : check search key
     SearchDonationComponent.prototype.searchClick = function () {
         this.dataList = [];
-        var keyIndex = this.categorySearch.indexOf(this.searchKey);
-        this.searchWord = this.categoryKey[keyIndex] == 'expire_dt'
-            ? Date.parse(this.searchWord).toString() : this.searchWord;
-        var url = this.serverService.getDonationUrl(this.searchWord);
-        var urlParam = this.categoryKey[keyIndex];
+        var keyInEng = this.categoryKey[this.categorySearch.indexOf(this.searchKey)];
+        this.searchContent = (keyInEng === 'expire_dt')
+            ? Date.parse(this.searchContent).toString() : this.searchContent;
+        var url = (keyInEng === 'barcode')
+            ? this.serverService.getBarcodeUrl(this.searchContent)
+            : this.serverService.getDonationUrl(this.searchContent);
+        var urlParam = keyInEng;
         this.Search(url, urlParam);
     };
     SearchDonationComponent.prototype.checkChange = function (item, checked, index) {
@@ -91,7 +93,7 @@ var SearchDonationComponent = (function (_super) {
         if (value === '品項類別' || value === '倉庫地區') {
             this.category = (value === '品項類別') ? itemCat.Category : itemCat.Warehouse;
             this.selectCat = true;
-            this.searchWord = '';
+            this.searchContent = '';
         }
         else
             this.selectCat = false;

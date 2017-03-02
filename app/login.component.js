@@ -36,9 +36,10 @@ var LoginComponent = (function () {
                 var err = error.json();
                 swal('Error', err.error);
             }, function () {
-                _this.loginService.recordLogin(_this.account),
-                    swal('Login Successed', 'Welcome to FoodBank, ' + _this.account),
-                    _this.router.navigate(['expiryPage']);
+                console.log(_this.pack);
+                _this.loginService.recordLogin(_this.account);
+                swal('Login Successed', 'Welcome to FoodBank, ' + _this.account);
+                _this.router.navigate(['expiryPage']);
             });
         }
     };

@@ -5,30 +5,33 @@
    <!-- update information start -->
    <form #itemForm="ngForm">
     <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-4 form-group">
-        <label class="control-label">全贈字號</label>
-        <input class="form-control" [(ngModel)]="item._id" name="_id" > 
+      <div class="col-md-3 form-group">
+        <label class="control-label">全贈字號</label><br>
+        <label class="control-label" name="dn_id" >{{item.dn_id}}</label>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label class="control-label">品項名稱</label>
         <input class="form-control" [(ngModel)]="item.item_name" name="item_name" > </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label class="control-label">條碼</label>
         <input class="form-control" [(ngModel)]="item.barcode" name="barcode" > </div>
-    </div>
-    <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <label class="control-label">品項分類</label>
         <select name="item-category" class="form-control" [(ngModel)]="item.category" name="category" >
           <option *ngFor="let c of category" [value]="c">{{c}}</option>
         </select>
       </div>
-      <div class="col-md-2">
+    </div>
+    <div class="row" style="margin: 10 10 10 10">
+      <div class="col-md-4">
+        <label class="control-label">捐贈者</label>
+        <input class="form-control" [(ngModel)]="item.donor_name" name="donor_name" > </div>
+      <!--<div class="col-md-2">
         <label class="control-label">倉庫地區</label>
         <select name="warehouse-area" class="form-control" [(ngModel)]="item.area" name="area" >
           <option *ngFor="let a of area" [value]="a">{{a}}</option>
         </select>
-      </div>
+      </div>-->
       <div class="col-md-2">
         <label class="control-label">數量</label>
         <input class="form-control" [(ngModel)]="item.item_qt" name="item_qt" > </div>
@@ -43,15 +46,13 @@
         <input class="form-control" [(ngModel)]="item.item_unitprice" name="item_unitprice" > </div>
     </div>
     <div class="row" style="margin: 10 10 10 10">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <label class="control-label">捐贈日期</label>
-        <input class="form-control" [(ngModel)]="item.donate_dt" name="donate_dt"></div>
-      <div class="col-md-2">
+        <input class="form-control" [(ngModel)]="item.donate_dt" name="donate_dt" type="date"></div>
+      <div class="col-md-3">
         <label class="control-label">有效期限</label>
-        <input class="form-control" [(ngModel)]="item.expire_dt" name="expire_dt" > </div>
-      <div class="col-md-2">
-        <label class="control-label">捐贈者</label>
-        <input class="form-control" [(ngModel)]="item.donor_name" name="donor_name" > </div>
+        <input class="form-control" [(ngModel)]="item.expire_dt" name="expire_dt" type="date"> </div>
+      
       <div class="col-md-6">
         <label class="control-label">紀錄與描述</label>
         <input type="text" class="form-control" [(ngModel)]="item.memo" name="memo" > </div>

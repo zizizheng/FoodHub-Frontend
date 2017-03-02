@@ -41,7 +41,7 @@ export class Donation {
             barcode: this.barcode,
             area: this.area
         };
-
+        // console.log('Transform object = ' + object);
         return object;
     }
 
@@ -63,6 +63,6 @@ export class Donation {
 }
 
 export let Category = [ '','營養品','沖泡品','主食類','罐頭','生活用品','零食','調味品','飲料','生鮮食品','其他'];
-export let CategorySearch = [ '', '品項名稱', '過期日', '品項類別', '倉庫地區'];
-export let CategoryKey = [ '', 'item_name', 'expire_dt', 'category', 'area'];
+export let CategorySearch = [ '', '品項名稱', '過期日', '品項類別', '倉庫地區', '條碼'];
+export let CategoryKey = [ '', 'item_name', 'expire_dt', 'category', 'area', 'barcode'];
 export let Warehouse = ['', '台中', '高雄'];

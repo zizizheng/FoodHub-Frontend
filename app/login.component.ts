@@ -41,9 +41,10 @@ export class LoginComponent {
 						swal('Error', err.error);
 					},
 					() => {
-						this.loginService.recordLogin(this.account),
-						swal( 'Login Successed', 'Welcome to FoodBank, ' + this.account),
-						this.router.navigate(['expiryPage'])
+						console.log(this.pack);
+						this.loginService.recordLogin(this.account);
+						swal( 'Login Successed', 'Welcome to FoodBank, ' + this.account);
+						this.router.navigate(['expiryPage']);
 					}
 				);
 

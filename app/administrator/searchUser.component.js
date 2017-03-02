@@ -41,7 +41,7 @@ var SearchUserComponent = (function (_super) {
     SearchUserComponent.prototype.searchClick = function () {
         this.dataList = [];
         var keyIndex = this.categorySearch.indexOf(this.searchKey);
-        var url = this.serverService.getUserUrl(this.searchWord);
+        var url = this.serverService.getUserUrl(this.searchContent);
         var urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     };
@@ -55,7 +55,7 @@ var SearchUserComponent = (function (_super) {
     };
     SearchUserComponent.prototype.searchChange = function (value) {
         this.selectCat = (value === '單位分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     };
     SearchUserComponent.prototype.editClick = function (user) {
         this.selectedItem = user;

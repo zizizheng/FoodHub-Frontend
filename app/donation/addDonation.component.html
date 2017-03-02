@@ -34,8 +34,7 @@
             <th class="col-md-1">單位</th>
             <th class="col-md-1">數量</th>
             <th class="col-md-1">單價</th>
-            <th class="col-md-1">重量合計</th>
-            <th class="col-md-1">金額合計</th>
+            <th class="col-md-2">條碼</th>
           </tr>
         </thead>
         <tbody>
@@ -46,16 +45,13 @@
               </select>
             </td>
             <td><input name="item_name{{i}}" class="form-control" [(ngModel)]="dn.item_name"></td>
-            <td><input name="expire_dt{{i}}" class="form-control" [(ngModel)]="dn.expire_dt"></td>
+            <td><input name="expire_dt{{i}}" class="form-control" [(ngModel)]="dn.expire_dt" type="date"></td>
             <td><input name="weight{{i}}" class="form-control" [(ngModel)]="dn.weight"></td>
             <td><input name="item_unit{{i}}" class="form-control" [(ngModel)]="dn.item_unit"></td>
             <td><input name="item_qt{{i}}" class="form-control" [(ngModel)]="dn.item_qt"></td>
             <td><input name="item_unitprice{{i}}" class="form-control" [(ngModel)]="dn.item_unitprice"></td>
-            <td class="text-right">
-              <label name="totalWeight" class="control-label">{{dn.item_qt * dn.weight}}</label>
-            </td>
-            <td class="text-right">
-              <label name="totalPrice" class="control-label">{{dn.item_qt * dn.item_unitprice}}</label>
+            <td><input name="barcode{{i}}" type="text" class="form-control" [(ngModel)]="dn.barcode" 
+                      (keyup)="keyBarcode($event, dn.barcode, item)">
             </td>          
           </tr>
         </tbody>

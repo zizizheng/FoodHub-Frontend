@@ -31,7 +31,7 @@ export class SearchDoneeComponent extends SearchTemplateComponent implements OnI
     searchClick(){
         this.dataList = [];
         let keyIndex = this.categorySearch.indexOf(this.searchKey); 
-        let url = this.serverService.getDoneeUrl(this.searchWord);
+        let url = this.serverService.getDoneeUrl(this.searchContent);
         let urlParam = this.categoryKey[keyIndex];
         this.Search(url, urlParam);
     }
@@ -48,7 +48,7 @@ export class SearchDoneeComponent extends SearchTemplateComponent implements OnI
 
     searchChange(value){
         this.selectCat = (value === '單位分類') ? true : false;
-        this.searchWord = '';
+        this.searchContent = '';
     }
 
     updateClick(donee){

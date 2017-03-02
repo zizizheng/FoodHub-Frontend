@@ -19,15 +19,15 @@
                 <li>
                     <a routerLink="/contactPage" routerLinkActive="active">聯絡人</a>
                 </li>
-                <li *ngIf="userName == '使用者'" class="dropdown">
+                <li *ngIf="userName !== 'Guest'" class="dropdown">
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a routerLink="/donationPage" routerLinkActive="active">物資管理</a>
                         </li>
-                        <li>
+                        <li *ngIf="auth === 'admin'">
                             <a routerLink="/donorPage" routerLinkActive="active">捐贈者管理</a>
                         </li>
-                        <li>
+                        <li *ngIf="auth === 'admin'">
                             <a routerLink="/doneePage" routerLinkActive="active">受贈者管理</a>
                         </li>
                         <li class="divider"></li>
@@ -37,8 +37,8 @@
                         <li>
                             <a href="/">報表</a>
                         </li>
-                        <li class="divider"></li>
-                        <li>
+                        <li *ngIf="auth === 'admin'" class="divider"></li>
+                        <li *ngIf="auth === 'admin'">
                             <a routerLink="/administratorPage" routerLinkActive="active">系統管理員</a>
                         </li>
                     </ul>

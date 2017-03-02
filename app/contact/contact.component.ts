@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class ContactComponent {
     webDeveloper = [
         { 
-            name: 'Erica', title: 'Manager', fb:'', github:'', web:'', 
+            name: 'Erica', title: 'ProjectManager', fb:'', github:'', web:'', 
             photo:'http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png'
         },
         { 

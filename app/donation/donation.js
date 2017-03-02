@@ -26,6 +26,7 @@ var Donation = (function () {
             barcode: this.barcode,
             area: this.area
         };
+        // console.log('Transform object = ' + object);
         return object;
     };
     Donation.prototype.pushData = function (ob) {
@@ -47,7 +48,7 @@ var Donation = (function () {
 }());
 exports.Donation = Donation;
 exports.Category = ['', '營養品', '沖泡品', '主食類', '罐頭', '生活用品', '零食', '調味品', '飲料', '生鮮食品', '其他'];
-exports.CategorySearch = ['', '品項名稱', '過期日', '品項類別', '倉庫地區'];
-exports.CategoryKey = ['', 'item_name', 'expire_dt', 'category', 'area'];
+exports.CategorySearch = ['', '品項名稱', '過期日', '品項類別', '倉庫地區', '條碼'];
+exports.CategoryKey = ['', 'item_name', 'expire_dt', 'category', 'area', 'barcode'];
 exports.Warehouse = ['', '台中', '高雄'];
 //# sourceMappingURL=donation.js.map
