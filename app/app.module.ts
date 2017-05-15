@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import { HeaderComponent } from './header.component';
-import { MyFooterComponent } from './footer.component';
-import { LoginComponent } from './login.component';
+import { HeaderComponent } from './component/header.component';
+import { MyFooterComponent } from './component/footer.component';
+import { LoginComponent } from './component/login.component';
 import { ExpiryComponent } from './expiry/expiry.component';
 import { DonationComponent } from './donation/donation.component';
 import { DonorComponent } from './donor/donor.component';

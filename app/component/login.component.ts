@@ -1,12 +1,12 @@
 import { Component }  from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './service/login.service';
+import { LoginService } from '../service/login.service';
 //import { OnInit } from '@angular/core';
 declare let swal:any;
 
 @Component({
 	selector: 'loginPage',
-	templateUrl: 'app/login.component.html',
+	templateUrl: 'app/component/login.component.html',
 })
 export class LoginComponent {
 	curTime: Object;

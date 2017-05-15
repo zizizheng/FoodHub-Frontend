@@ -1,7 +1,7 @@
 "use strict";
 var contact_component_1 = require("./contact/contact.component");
 var router_1 = require("@angular/router");
-var login_component_1 = require("./login.component");
+var login_component_1 = require("./component/login.component");
 var expiry_component_1 = require("./expiry/expiry.component");
 var donation_component_1 = require("./donation/donation.component");
 var donor_component_1 = require("./donor/donor.component");

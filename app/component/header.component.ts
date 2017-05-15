@@ -1,11 +1,11 @@
 import { Headers } from '@angular/http';
-import { LoginService } from './service/login.service';
+import { LoginService } from '../service/login.service';
 import { Component, Input, HostListener, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'my-header',
-	templateUrl: 'app/header.component.html',
-	styleUrls: ['app/header.component.css']
+	templateUrl: 'app/component/header.component.html',
+	styleUrls: ['app/component/header.component.css']
 })
 export class HeaderComponent implements OnInit{
 	userName: string;

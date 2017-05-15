@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'my-footer',
-  templateUrl: `app/footer.component.html`
+  templateUrl: `app/component/footer.component.html`
 })
 export class MyFooterComponent {
 
